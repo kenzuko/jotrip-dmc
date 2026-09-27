@@ -5,6 +5,7 @@ const root=resolve(import.meta.dirname,'..'),src=join(root,'src'),dist=join(root
 await rm(dist,{recursive:true,force:true});await mkdir(join(dist,'assets'),{recursive:true});
 await copyFile(join(src,'index.html'),join(dist,'index.html'));
 await copyFile(join(src,'robots.txt'),join(dist,'robots.txt'));
+await copyFile(join(src,'visual-refinement.css'),join(dist,'visual-refinement.css'));
 const packs=await readdir(join(src,'assets-packs'));
 for(const name of packs.filter(x=>x.endsWith('.tar.gz'))){
  const raw=gunzipSync(await readFile(join(src,'assets-packs',name)));
