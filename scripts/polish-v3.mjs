@@ -14,8 +14,9 @@ const compressedV4=(await readFile(new URL('visual-v4.css.gz.b64',src),'utf8')).
 const v4=gunzipSync(Buffer.from(compressedV4,'base64'));
 if(createHash('sha256').update(v4).digest('hex')!=='f5ee1611c1a7e4dfa501fbe4eea0977756b1379e1742c89cf7c3419adf841b58')throw Error('V4 CSS checksum failed');
 await writeFile(new URL('visual-v4.css',dist),v4);
+await writeFile(new URL('visual-v5.css',dist),await readFile(new URL('visual-v5.css',src)));
 
-const stylesheet='<link rel="stylesheet" href="/visual-v3.css?v=3"><link rel="stylesheet" href="/visual-v4.css?v=4">';
+const stylesheet='<link rel="stylesheet" href="/visual-v3.css?v=3"><link rel="stylesheet" href="/visual-v4.css?v=4"><link rel="stylesheet" href="/visual-v5.css?v=5">';
 let count=0;
 async function walk(folder){
  for(const item of await readdir(folder,{withFileTypes:true})){
@@ -36,4 +37,4 @@ async function walk(folder){
 }
 await walk(dist);
 if(count<10)throw Error('Editorial routes missing, produced '+count);
-console.log('Living Book visual V3 installed on '+count+' routes; verified original photo and logo paths.');
+console.log('Living Book visual V3 + V4 + V5 installed on '+count+' routes; verified original photo and logo paths.');
