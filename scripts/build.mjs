@@ -24,3 +24,6 @@ console.log('DMC visual assets unpacked from original-photography WebP bundles')
 
 // Generate standalone editorial pages only after all verified image bundles pass.
 await import('./editorial-router.mjs');
+
+// Keep the approved original-photography book and multipage system; apply visual fidelity last.
+await import('./polish-v3.mjs');
