@@ -21,3 +21,6 @@ const missing=[];for(const key of required)for(const width of [360,800,1600]){tr
 try{await readFile(join(dist,'assets','jotrip-wordmark.png'))}catch{missing.push('jotrip-wordmark.png')}
 if(missing.length)throw Error('Missing '+missing.join(', '));
 console.log('DMC visual assets unpacked from original-photography WebP bundles');
+
+// Generate standalone editorial pages only after all verified image bundles pass.
+await import('./editorial-router.mjs');
