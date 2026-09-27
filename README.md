@@ -1,5 +1,9 @@
 # JoTrip DMC - Living Book preview
 
+## Living Book V4 - 27 September 2026
+The approved open-book experience now has an additive V4 visual-fidelity layer: a full-width book that is **not scaled to fit laptop viewport height**, a warm tabletop with soft leaf foreground, layered paper edges and center gutter, deeper book shadows, preserved six chapter cards and service icons, and an independent stacked mobile layout. The original official wordmark and real Phu Quoc photo bundles are unchanged. Build unpacks the checksum-verified `src/visual-v4.css.gz.b64` into `/visual-v4.css` and loads it after V3 on every editorial page. `npm run build && npm test` gates this asset. The preview remains **noindex**, with no production DNS changes. Live Cloudflare deployment and browser QA must be separately verified after the GitHub-connected build.
+
+
 This is the JoTrip DMC editorial website approved in visual direction on 27/09/2026, independently maintained from `jotrip-quote`, `jotrip-trip` and Open Phu Quoc. No existing production logic or domain is affected.
 
 ## What is implemented
