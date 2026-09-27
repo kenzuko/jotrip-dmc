@@ -15,7 +15,7 @@ const v4=gunzipSync(Buffer.from(compressedV4,'base64'));
 if(createHash('sha256').update(v4).digest('hex')!=='f5ee1611c1a7e4dfa501fbe4eea0977756b1379e1742c89cf7c3419adf841b58')throw Error('V4 CSS checksum failed');
 await writeFile(new URL('visual-v4.css',dist),v4);
 
-const stylesheet='<link rel="stylesheet" href="/visual-v3.css?v=3">\\n<link rel="stylesheet" href="/visual-v4.css?v=4">';
+const stylesheet='<link rel="stylesheet" href="/visual-v3.css?v=3"><link rel="stylesheet" href="/visual-v4.css?v=4">';
 let count=0;
 async function walk(folder){
  for(const item of await readdir(folder,{withFileTypes:true})){
