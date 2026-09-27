@@ -5,7 +5,7 @@ import {createHash} from 'node:crypto';
 const dist=new URL('../dist/',import.meta.url);
 test('Original-photography luxury book visual survives build on all standalone routes',async()=>{
  const css=await readFile(new URL('visual-v3.css',dist),'utf8');
- assert.equal(css.length,14721);
+ assert.equal(Buffer.byteLength(css,'utf8'),14721);
  assert.equal(createHash('sha256').update(css).digest('hex'),'ce93d8d11603094082a638ada792acfe18f44be758e30b796d91623386229da3');
  assert.match(css,/\.book:before/);
  assert.match(css,/\.page-right img/);
