@@ -21,7 +21,7 @@ const html=await read('index.html');
 assert.match(html,/id="mainBook"/);
 assert.equal((html.match(/data-chapter="\d"/g)||[]).length,6);
 assert.match(html,/ed-portals-grid/);
-assert.match(html,/service-ribbon|service-strip|ribbon/);
+assert.match(html,/class="benefits"/);
 assert.doesNotMatch(html,/<section class="long-story" id="story">/);
 assert.match(html,/href="\/cau-chuyen\/"/);
 assert.match(html,/href="\/con-nguoi\/"/);
@@ -35,7 +35,7 @@ const html=await read((path||'')+'index.html');
 for(const [,link] of html.matchAll(/href="(\/[^"#?]*\/)"/g)){
 if(link==='/')continue;
 const target=new URL(link.slice(1)+'index.html',root);
-assert.doesNotReject(async()=>stat(target),'Broken '+link+' in '+path);
+await assert.doesNotReject(async()=>stat(target),'Broken '+link+' in '+path);
 }
 }
 });
