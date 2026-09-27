@@ -8,7 +8,14 @@ if(payload.length!==6488)throw Error('Visual fidelity source incomplete');
 const css=gunzipSync(Buffer.from(payload,'base64'));
 if(css.length!==14721||createHash('sha256').update(css).digest('hex')!=='ce93d8d11603094082a638ada792acfe18f44be758e30b796d91623386229da3')throw Error('Visual CSS integrity failed');
 await writeFile(new URL('visual-v3.css',dist),css);
-const stylesheet='<link rel="stylesheet" href="/visual-v3.css?v=3">';
+// V4 corrects the approved book's actual layout width, tabletop depth and responsive paper shape.
+// Keep V3 immutable; V4 is an additive, checksum-verified overlay, so rollbacks remain safe.
+const compressedV4=(await readFile(new URL('visual-v4.css.gz.b64',src),'utf8')).trim();
+const v4=gunzipSync(Buffer.from(compressedV4,'base64'));
+if(createHash('sha256').update(v4).digest('hex')!=='f5ee1611c1a7e4dfa501fbe4eea0977756b1379e1742c89cf7c3419adf841b58')throw Error('V4 CSS checksum failed');
+await writeFile(new URL('visual-v4.css',dist),v4);
+
+const stylesheet='<link rel="stylesheet" href="/visual-v3.css?v=3">\\n<link rel="stylesheet" href="/visual-v4.css?v=4">';
 let count=0;
 async function walk(folder){
  for(const item of await readdir(folder,{withFileTypes:true})){
