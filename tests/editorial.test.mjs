@@ -50,3 +50,9 @@ assert.match(bespoke,/name="consent"/);
 assert.match(bespoke,/mailto:phuquoclux@gmail\.com/);
 assert.match(bespoke,/preventDefault/);
 });
+
+test('English link from an editorial subpage switches the book language',async()=>{
+ const html=await read('index.html');
+ assert.match(html,/new URLSearchParams\(location.search\)/);
+ assert.match(html,/lang"\)==="en"/);
+});
