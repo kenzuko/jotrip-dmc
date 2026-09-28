@@ -72,7 +72,7 @@ function act(a){
 function toggleWindow(){
   const room=$('#room'),opening=!room.classList.contains('window-open');
   room.classList.toggle('window-open',opening);$('#windowMoment').hidden=!opening;
-  sounds.play('wind',opening?.045:.025);
+  sounds.play('wind', opening ? .045 : .025);
 }
 function openSheet(markup,sound='paper',bind){
   lastFocus=document.activeElement;
