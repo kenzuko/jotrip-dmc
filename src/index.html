@@ -4,56 +4,125 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#efe5d3">
-<meta name="description" content="JoTrip DMC - một căn phòng đọc bên biển, những ký ức thật và một hành trình Phú Quốc được thiết kế theo cách riêng.">
-<title>JoTrip DMC · The Island Reading Room</title>
+<meta name="description" content="JoTrip DMC - The Living Island Book. Một căn phòng bên biển Phú Quốc, những ký ức thật và những hành trình được chăm chút theo cách riêng.">
+<meta name="robots" content="noindex,nofollow">
+<title>JoTrip DMC · The Living Island Book</title>
 <link rel="preload" as="image" href="/assets/room-atmosphere.webp">
 <link rel="stylesheet" href="/room.css">
 </head>
 <body>
 <a class="skip" href="#room">Bỏ qua phần mở đầu</a>
 <main id="app">
+
 <section class="room" id="room" aria-label="The Island Reading Room của JoTrip DMC">
-  <picture class="room-bg"><source media="(max-width:720px)" srcset="/assets/room-atmosphere.webp"><img src="/assets/room-atmosphere.webp" alt="Không gian minh họa một phòng đọc bên biển Phú Quốc, với cuốn sách, thư chào, ly nước và những tấm ảnh trên bàn." fetchpriority="high"></picture>
-  <div class="sea-breath" aria-hidden="true"></div>
+  <picture class="room-bg">
+    <img src="/assets/room-atmosphere.webp" alt="Không gian minh họa một phòng đọc bên biển Phú Quốc với cuốn sách, thư chào, ly nước và những tấm ảnh trên bàn." fetchpriority="high">
+  </picture>
+  <div class="room-tone" aria-hidden="true"></div>
+
   <header class="topbar">
     <a class="brand" href="#room" aria-label="JoTrip DMC"><img src="/assets/jotrip-wordmark.png" alt="JoTrip"><span>DMC</span></a>
-    <div class="top-actions"><a class="island-corner" id="islandLink" href="https://openphuquoc.com/" target="_blank" rel="noopener">Muốn tìm hiểu hòn đảo? Open Phu Quoc ↗</a><button class="sound-btn" id="soundToggle" type="button" aria-pressed="true" title="Bật/tắt âm thanh tương tác">♪</button><button class="menu-btn" id="menuToggle" type="button" aria-expanded="false" aria-controls="menu"><span>☰</span><b>Mục lục</b></button></div>
+    <div class="top-actions">
+      <a class="island-corner" id="islandLink" href="https://openphuquoc.com/" target="_blank" rel="noopener">Muốn tìm hiểu hòn đảo? Open Phu Quoc ↗</a>
+      <button class="sound-btn" id="soundToggle" type="button" aria-pressed="false" title="Bật âm thanh căn phòng"><span aria-hidden="true">♪</span><b>Âm thanh</b></button>
+      <button class="menu-btn" id="menuToggle" type="button" aria-expanded="false" aria-controls="menu"><span aria-hidden="true">☰</span><b>Mục lục</b></button>
+    </div>
   </header>
+
   <nav class="menu" id="menu" hidden>
-    <p class="kicker">JOTRIP DMC · PHÚ QUỐC</p><h2>Một căn phòng.<br>Một cuốn sách.<br><em>Nhiều câu chuyện.</em></h2>
+    <div class="menu-jo"><img src="/assets/jo-wave.webp" alt="" aria-hidden="true"><div><p class="kicker">JOTRIP DMC · PHÚ QUỐC</p><h2>Một căn phòng.<br>Một cuốn sách.<br><em>Nhiều câu chuyện.</em></h2></div></div>
     <button data-action="book">Mở cuốn sách <span>↗</span></button>
     <button data-action="memories">Những chuyện còn để trên bàn <span>↗</span></button>
+    <button data-action="jo">Vậy Jo là ai? <span>↗</span></button>
     <button data-action="planner">Kể về chuyến đi của bạn <span>↗</span></button>
-    <a href="https://openphuquoc.com/" target="_blank" rel="noopener">Khám phá Phú Quốc trên Open Phu Quoc <span>↗</span></a>
+    <a href="https://openphuquoc.com/" target="_blank" rel="noopener">Tìm hiểu Phú Quốc trên Open Phu Quoc <span>↗</span></a>
     <small>Travel, made personal.</small>
   </nav>
-  <div class="room-copy"><p class="kicker" id="roomEyebrow"></p><h1 id="roomEntry"></h1><p id="roomHint"></p></div>
-  <button class="hotspot hotspot-book" data-action="book" aria-label="Mở cuốn sách"><i></i><span>Mở sách</span></button>
-  <button class="hotspot hotspot-welcome" data-action="welcome" aria-label="Đọc lời chào"><i></i><span>Lời chào</span></button>
-  <button class="hotspot hotspot-drink" data-action="drink" aria-label="Khám phá ly nước"><i></i><span>Một chút trước khi bắt đầu</span></button>
-  <button class="hotspot hotspot-memories" data-action="memories" aria-label="Xem những tấm ảnh trên bàn"><i></i><span>Những chuyện còn để trên bàn</span></button>
-  <button class="hotspot hotspot-window" data-action="window" aria-label="Nhìn ra biển"><i></i><span>Ngoài cửa sổ</span></button>
-  <button class="paper-invite" data-action="planner" aria-label="Mở tờ travel brief"><span>YOUR PHU QUOC JOURNEY</span><b>Một tờ giấy còn trống</b><small>Kể chúng tôi nghe ↗</small></button>
-  <div class="mobile-dock" aria-label="Khám phá căn phòng"><button data-action="book">Sách</button><button data-action="memories">Ký ức</button><button data-action="planner">Chuyến đi</button><button data-action="welcome">Lời chào</button></div>
-  <footer class="room-footer" id="roomFooter"></footer>
+
+  <div class="room-copy">
+    <p class="kicker" id="roomEyebrow"></p>
+    <h1 id="roomEntry"></h1>
+    <p id="roomHint"></p>
+  </div>
+
+  <div class="first-hint" id="firstHint" hidden>Chạm vào một món đồ trên bàn.</div>
+
+  <button class="hotspot hotspot-book" data-action="book" aria-label="Mở cuốn sách"><span>Mở sách</span></button>
+  <button class="hotspot hotspot-welcome" data-action="welcome" aria-label="Đọc lời chào"><span>Lời chào</span></button>
+  <button class="hotspot hotspot-drink" data-action="drink" aria-label="Khám phá ly nước"><span>Một chút trước khi bắt đầu</span></button>
+  <button class="hotspot hotspot-memories" data-action="memories" aria-label="Xem những tấm ảnh trên bàn"><span>Những chuyện còn để trên bàn</span></button>
+  <button class="hotspot hotspot-window" data-action="window" aria-label="Nhìn ra biển"><span>Ngoài cửa sổ</span></button>
+
+  <button class="paper-invite" data-action="planner" aria-label="Mở tờ travel brief">
+    <span>YOUR PHU QUOC JOURNEY</span>
+    <b>Một tờ giấy còn trống</b>
+    <small>Kể chúng tôi nghe ↗</small>
+  </button>
+
+  <div class="window-moment" id="windowMoment" hidden>
+    <p id="windowQuote"></p>
+    <button type="button" data-action="window">Trở lại bàn</button>
+  </div>
 </section>
 
-<section class="sheet-root" id="sheetRoot" hidden aria-live="polite"><button class="shade" data-close aria-label="Đóng"></button><article class="story-sheet" id="storySheet" role="dialog" aria-modal="true"></article></section>
+<section class="sheet-root" id="sheetRoot" hidden aria-live="polite">
+  <button class="shade" data-close aria-label="Đóng"></button>
+  <article class="story-sheet" id="storySheet" role="dialog" aria-modal="true"></article>
+</section>
 
 <section class="reader" id="reader" hidden aria-label="Living Island Book">
   <div class="reader-room" aria-hidden="true"></div>
-  <header class="reader-head"><button id="readerClose" type="button">← <span>Trở về phòng đọc</span></button><span>JOTRIP DMC · LIVING ISLAND BOOK</span><button id="chapterMenuToggle" type="button">Mục lục</button></header>
+  <header class="reader-head">
+    <button id="readerClose" type="button">← <span>Trở về phòng đọc</span></button>
+    <span>JOTRIP DMC · LIVING ISLAND BOOK</span>
+    <button id="chapterMenuToggle" type="button">Mục lục</button>
+  </header>
   <nav class="chapter-menu" id="chapterMenu" hidden></nav>
-  <div class="book-stage">
+
+  <div class="book-stage desktop-book-stage">
     <div class="physical-book" id="physicalBook">
-      <div class="page-stack" aria-hidden="true"></div><div class="gutter" aria-hidden="true"></div>
-      <article class="book-page page-text"><div class="chapter-top"><span id="chapterNo"></span><i></i><span id="chapterOrigin"></span></div><h1 id="chapterTitle"></h1><h2 id="chapterSub"></h2><p id="chapterBody"></p><div class="page-foot"><button id="chapterNextStory" type="button">Đọc chương tiếp →</button><span id="chapterCount"></span></div></article>
-      <figure class="book-page page-image"><img id="chapterImage" src="/assets/airport-1600.webp" alt=""><figcaption id="chapterCaption"></figcaption></figure>
+      <div class="page-stack page-stack-left" aria-hidden="true"></div>
+      <div class="page-stack page-stack-right" aria-hidden="true"></div>
+      <div class="book-spine" aria-hidden="true"></div>
+
+      <article class="book-page page-text">
+        <div class="page-grain" aria-hidden="true"></div>
+        <div class="chapter-top"><span id="chapterNo"></span><i></i><span id="chapterOrigin"></span></div>
+        <h1 id="chapterTitle"></h1>
+        <h2 id="chapterSub"></h2>
+        <p id="chapterBody"></p>
+        <aside class="jo-note" id="joNote" hidden><span>JO'S NOTE</span><p></p></aside>
+        <div class="capability-strip" id="capabilityStrip" hidden></div>
+        <div class="page-foot"><button id="chapterNextStory" type="button">Đọc chương tiếp →</button><span id="chapterCount"></span></div>
+      </article>
+
+      <figure class="book-page page-image">
+        <img id="chapterImage" src="/assets/airport-1600.webp" alt="">
+        <figcaption id="chapterCaption"></figcaption>
+      </figure>
+
       <div class="turn-sheet" id="turnSheet" aria-hidden="true"></div>
     </div>
-    <div class="book-controls"><button id="prevChapter" type="button">← Trang trước</button><span>Vuốt hoặc dùng phím ← →</span><button id="nextChapter" type="button">Trang tiếp →</button></div>
+    <div class="book-controls">
+      <button id="prevChapter" type="button">← Trang trước</button>
+      <span>Vuốt hoặc dùng phím ← →</span>
+      <button id="nextChapter" type="button">Trang tiếp →</button>
+    </div>
+  </div>
+
+  <div class="mobile-book-stage" id="mobileBookStage" hidden>
+    <div class="mobile-book-shell">
+      <article class="mobile-page" id="mobilePage"></article>
+      <div class="mobile-page-edge" aria-hidden="true"></div>
+    </div>
+    <div class="mobile-book-controls">
+      <button id="mobilePrev" type="button" aria-label="Trang trước">←</button>
+      <span id="mobilePageCount"></span>
+      <button id="mobileNext" type="button" aria-label="Trang tiếp">→</button>
+    </div>
   </div>
 </section>
+
 </main>
 <script src="/app.js" type="module"></script>
 </body>
