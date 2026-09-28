@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {readFile,readdir} from 'node:fs/promises';
+const read=p=>readFile(new URL('../'+p,import.meta.url),'utf8');
+test('homepage is the island reading room',async()=>{const h=await read('dist/index.html');assert.match(h,/The Island Reading Room/);assert.match(h,/data-action="planner"/);assert.match(h,/openphuquoc\.com/);assert.doesNotMatch(h,/Sunset Town|Cầu Hôn|Kiss Bridge/)});
+test('mobile, book, memories, sound and editor exist',async()=>{const [css,js,admin]=await Promise.all([read('dist/room.css'),read('dist/app.js'),read('dist/admin/index.html')]);assert.match(css,/@media\(max-width:700px\)/);assert.match(js,/class RoomSound/);assert.match(js,/memoriesMarkup/);assert.match(js,/plannerMarkup/);assert.match(admin,/Đây không phải Open CMS/)});
+test('real-photo assets and room atmosphere are built',async()=>{const a=await readdir(new URL('../dist/assets/',import.meta.url));for(const f of ['room-atmosphere.webp','airport-1600.webp','boat-800.webp','family-800.webp'])assert.ok(a.includes(f),f)});
