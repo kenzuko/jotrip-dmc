@@ -1,7 +1,7 @@
-name: JoTrip DMC editorial QA
+name: JoTrip DMC Island Room QA
 on:
   push:
-    branches: [main, feat/editorial-multipage-v2]
+    branches: [main, feat/island-reading-room-v3]
   pull_request:
     branches: [main]
 jobs:
@@ -13,7 +13,25 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Build static editorial site
+      - name: Build site
         run: npm run build
-      - name: Test source and generated pages
+      - name: Test site
         run: npm test
+  deploy-preview:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: site
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm run build
+      - name: Deploy Cloudflare preview
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
