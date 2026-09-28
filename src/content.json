@@ -1,0 +1,53 @@
+{
+  "room": {
+    "eyebrow": "JOTRIP DMC · PHÚ QUỐC",
+    "entry": "Có một chỗ đã được chuẩn bị cho bạn.",
+    "hint": "Chạm vào những món đồ trên bàn để khám phá.",
+    "islandLink": "Muốn tìm hiểu hòn đảo? Open Phu Quoc ↗"
+  },
+  "welcome": {
+    "title": "Chào mừng bạn đến Phú Quốc.",
+    "body": "Đừng vội xem hết mọi thứ. Hòn đảo này đẹp nhất khi mình để lại một chút thời gian cho những điều không có trong lịch trình.",
+    "sign": "JoTrip DMC"
+  },
+  "drink": {
+    "title": "Một chút trước khi bắt đầu.",
+    "body": "Có những ngày ở đảo, thứ khách cần đầu tiên không phải một lịch trình - mà là ngồi xuống một chút."
+  },
+  "memories": {
+    "title": "Những chuyện còn để trên bàn",
+    "intro": "Không phải album thành tích. Chỉ là những khoảnh khắc thật chúng tôi đã đi qua cùng khách.",
+    "items": [
+      {"img":"airport-800.webp","caption":"Có những cuộc gặp bắt đầu ngay ngoài cửa sân bay."},
+      {"img":"boat-800.webp","caption":"Một ngày ngoài biển. Mỗi nhóm có một nhịp đi khác nhau."},
+      {"img":"resort-800.webp","caption":"Những đoàn đông cần nhiều việc phía sau hơn những gì xuất hiện trong ảnh."},
+      {"img":"lunch-800.webp","caption":"Nhiều ký ức của chuyến đi lại nằm quanh một bàn ăn."},
+      {"img":"evening-800.webp","caption":"Có những buổi chiều nên để chúng trôi thật chậm."},
+      {"img":"family-800.webp","caption":"Một chuyến đi nhiều thế hệ luôn có nhiều điều cần được để ý hơn."},
+      {"img":"driver-800.webp","caption":"Người khách gặp trên xe đôi khi là người hiểu hòn đảo rõ nhất trong ngày hôm đó."}
+    ],
+    "notes": [
+      "Có những cuộc gặp bắt đầu ở sân bay. Những ngày ở đảo sau đó mới là phần câu chuyện được viết tiếp.",
+      "Kế hoạch ở đảo đôi khi phải đổi. Điều đáng nhớ không phải lúc nào cũng là điều nằm sẵn trong lịch trình.",
+      "Làm nghề lâu rồi mới hiểu: chăm sóc tốt đôi khi là biết lúc nào nên thêm một việc, và lúc nào nên bớt đi một việc."
+    ]
+  },
+  "window": {
+    "title": "Ngoài cửa sổ",
+    "body": "Không cần một landmark để biết mình đang ở đảo. Chỉ cần ánh sáng, hơi biển và một khoảng thời gian chậm hơn bình thường."
+  },
+  "planner": {
+    "title": "Kể chúng tôi nghe về chuyến đi của bạn",
+    "intro": "Càng hiểu bạn, chúng tôi càng có thể chăm chút những điều đáng quan tâm - kể cả những điều chưa có trong lịch trình.",
+    "note": "Bạn không cần có sẵn một lịch trình. Hãy bắt đầu bằng người đi cùng, nhịp nghỉ bạn mong muốn và những điều JoTrip nên biết trước."
+  },
+  "footer": "Có một chỗ đã được chuẩn bị cho bạn. Phần còn lại, chúng ta cùng viết tiếp.",
+  "chapters": [
+    {"origin":"PHÚ QUỐC LUX → JOTRIP DMC","title":"Khởi đầu từ Phú Quốc Lux","sub":"Những người làm nghề tại hòn đảo này và những hành trình đáng nhớ","body":"Từ những chuyến đón đầu tiên, những đoàn khách thân thương và tình yêu dành cho Phú Quốc, chúng tôi từng bước tiếp nối kinh nghiệm làm nghề. Mỗi cuộc gặp gỡ đều cho chúng tôi thêm một lý do để chăm chút những hành trình sau.","img":"airport","caption":"ẢNH TƯ LIỆU JOTRIP · SÂN BAY PHÚ QUỐC"},
+    {"origin":"TỪ NHỮNG CHUYẾN ĐI","title":"Những hành trình đã qua","sub":"Mỗi nhóm khách có một nhịp đi và những điều muốn nhớ.","body":"Có những ngày dành cho biển, có những chuyến đi chỉ cần người thân bên cạnh. Làm nghề là học cách lắng nghe để nhận ra điều gì quan trọng đối với từng người, thay vì bắt tất cả đi theo một lịch trình giống nhau.","img":"boat","caption":"ẢNH TƯ LIỆU JOTRIP · CHUYẾN ĐI BIỂN"},
+    {"origin":"CON NGƯỜI VÀ KINH NGHIỆM","title":"JoTrip hôm nay","sub":"Một đội ngũ làm nghề tại nơi mình gọi là quê hương.","body":"Chúng tôi kết hợp hiểu biết bản địa và kinh nghiệm tổ chức hành trình để chăm sóc những kỳ nghỉ có nhu cầu khác nhau, từ việc đón khách cho đến điều phối từng trải nghiệm và chủ động ứng phó khi kế hoạch cần thay đổi.","img":"resort","caption":"ẢNH TƯ LIỆU JOTRIP · ĐOÀN KHÁCH"},
+    {"origin":"TRAVEL, MADE PERSONAL.","title":"Kỳ nghỉ theo cách riêng","sub":"Mỗi hành trình bắt đầu từ con người, không phải danh sách điểm đến.","body":"Một buổi chiều thật chậm, một bữa tối riêng tư hay kỳ nghỉ cho nhiều thế hệ. Chúng tôi bắt đầu bằng việc lắng nghe và cùng khách lựa chọn nhịp đi phù hợp với thời gian và sở thích của họ.","img":"evening","caption":"ẢNH TƯ LIỆU JOTRIP · MỘT BUỔI CHIỀU BÊN BIỂN"},
+    {"origin":"NHỮNG ĐIỀU PHÍA SAU","title":"Những người đồng hành","sub":"Những chi tiết không phải lúc nào cũng có trong bức ảnh.","body":"Đằng sau một trải nghiệm là những người chuẩn bị phương tiện, bữa ăn, thời gian và nhiều phương án dự phòng. Mỗi người đóng góp phần việc của mình để một chuyến đi diễn ra tự nhiên và nhẹ nhàng hơn.","img":"lunch","caption":"ẢNH TƯ LIỆU JOTRIP · MỘT BỮA ĂN CỦA ĐOÀN"},
+    {"origin":"YOUR NEXT CHAPTER","title":"Câu chuyện tiếp theo là của bạn","sub":"Bắt đầu bằng một cuộc trò chuyện, trước khi có một lịch trình.","body":"Bạn kể càng nhiều về người đi cùng, thời gian, sở thích và những điều quan trọng, chúng tôi càng hiểu bạn hơn và có thể chăm sóc chuyến đi chu đáo hơn. Không cần tự lên lịch trình trước - hãy bắt đầu bằng nhu cầu thật của mình.","img":"family","caption":"ẢNH TƯ LIỆU JOTRIP · KHOẢNH KHẮC ĐOÀN KHÁCH"}
+  ]
+}
