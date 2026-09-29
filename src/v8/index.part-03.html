@@ -1,0 +1,102 @@
+@media(max-width:700px){body{background:#7d593f}.room{height:100svh;min-height:700px;overflow:hidden}.scene-frame{left:0;top:0;width:100%;height:100%;aspect-ratio:auto;transform:none;background:linear-gradient(#d8c0a0 0 27%,#a7754f 27% 100%)}.room-plate{inset:0;overflow:hidden}.room-plate img{position:absolute;left:50%;top:0;width:auto;height:100%;min-width:100%;transform:translateX(-50%);object-fit:cover;filter:blur(11px) saturate(.85);opacity:.62}.sea-bloom{left:0;right:0;top:0;height:31%;filter:blur(9px);opacity:.8}.scene-frame:after{background:linear-gradient(180deg,rgba(54,33,17,.08),rgba(46,26,12,.19))}.topbar{padding:calc(env(safe-area-inset-top) + 9px) 10px 0}.brand{color:#fff;text-shadow:0 2px 9px rgba(38,19,6,.4)}.brand small{display:none}.icon-control,.menu-control{background:rgba(255,248,232,.9)}.menu-control{width:42px;padding:0;justify-content:center}.menu-control b{display:none}.toc-paper{top:calc(env(safe-area-inset-top) + 59px);right:9px;width:calc(100vw - 18px);padding:25px 23px}.toc-paper h2{font-size:30px}.book-hit{left:5%;top:29%;width:90%;height:34%;z-index:30}.page-live-left,.page-live-right{top:auto}.page-live-left{left:7.5%;top:34%;width:42.5%;height:23%;padding:4.4% 4.2%;clip-path:polygon(3% 4%,93% 0,100% 11%,100% 91%,89% 100%,0 94%,0 14%)}.page-live-right{left:50%;top:34%;width:42.5%;height:23%;clip-path:polygon(0 5%,80% 0,98% 12%,100% 92%,96% 100%,0 96%)}.page-live-left h1{font-size:clamp(19px,6.2vw,31px);margin:9% 0 4%;line-height:.95}.page-live-left h2{font-size:clamp(8px,2.2vw,11px);line-height:1.15}.page-live-left p{display:none}.chapter-meta{gap:1.1vw;font-size:1.35vw}.chapter-meta i{width:6vw}.open-book-mark{left:11%;bottom:10%;font-size:1.7vw}.open-book-mark b{width:4vw;height:4vw;font-size:1.7vw}.page-live-left>small{display:none}.page-live-right figcaption{font-size:1.25vw;padding:3px 5px}.scene-frame:before{content:"";position:absolute;z-index:20;left:3%;top:30.7%;width:94%;height:30%;background:url('./assets/room-plate-v8.webp') 50% 59%/117% auto no-repeat;filter:drop-shadow(0 18px 20px rgba(38,21,8,.38));pointer-events:none}.drink-hotspot{left:3%;top:14%;width:28%;height:16%}.welcome-hotspot{right:4%;top:17%;width:24%;height:18%}.memory-object{left:6%;right:auto;bottom:12%;width:48%;height:17%}.print{padding:1.3vw}.memory-object b{font-size:2.5vw;left:3%;bottom:-4%}.journey-object{left:auto;right:5%;bottom:9%;width:39%;min-height:14%;padding:3.6%;transform:rotate(2deg)}.journey-object small{font-size:1.55vw}.journey-object strong{font-size:3.8vw;margin:10% 0}.journey-object span{font-size:2.1vw}.room-whisper{left:16px;bottom:2.2%;width:80%}.room-whisper small{font-size:1.5vw}.room-whisper p{font-size:4.2vw;margin-top:4px}.paper-root{padding:8px}.paper-sheet{width:calc(100vw - 16px);max-height:94svh;padding:38px 21px 29px;transform:none}.paper-sheet h2{font-size:39px}.note-letter{padding:31px 23px}.note-letter h3{font-size:32px}.note-letter p{font-size:17px}.drink-story{grid-template-columns:1fr}.drink-illustration{width:130px;height:155px;margin:auto}.drink-story p{font-size:19px}.memory-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.memory-card{flex:0 0 78vw;scroll-snap-align:center}.loose-notes{grid-template-columns:1fr}.field-grid{grid-template-columns:1fr}.checks{grid-template-columns:1fr 1fr}.planner-actions{align-items:stretch;flex-direction:column}.reader-head>span{display:none}.reader-desk{padding:8px 0 30px}.reader-book{width:100%;aspect-ratio:auto;min-height:calc(100svh - 125px);filter:none}.reader-book-object{display:none}.reader-page;position:relative;left:auto;top:auto;width:100%;height:auto;clip-path:none}.reader-photo{height:38svh;min-height:250px}.reader-copy{min-height:52svh;padding:28px 23px 80px}.reader-copy h1{font-size:clamp(44px,12vw,60px);margin:28px 0 15px}.reader-copy h2{font-size:21px}.reader-copy>p{font-size:16px}.reader-copy>small{left:23px;bottom:29px}.page-turn{display:none}.reader-controls{width:100%;padding:0 10px}.reader-controls span{display:none}}
+@media(max-width:370px){.checks{grid-template-columns:1fr}.page-live-left h1{font-size:20px}.journey-object strong{font-size:14px}.room-whisper p{font-size:16px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#room">Bỏ qua phần mở đầu</a>
+<main id="app">
+<section class="room" id="room" aria-label="JoTrip DMC - The Island Reading Room">
+  <div class="scene-frame" id="sceneFrame">
+    <picture class="room-plate"><img src="./assets/room-plate-v8.webp" alt="" aria-hidden="true"></picture>
+    <div class="sea-bloom" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#room" aria-label="JoTrip DMC"><img src="./assets/jotrip-wordmark.png" alt="JoTrip"><span class="brand-dmc">DMC</span><small>Travel, made personal.</small></a>
+      <div class="top-actions">
+        <button id="soundToggle" class="icon-control" type="button" aria-pressed="false" aria-label="Bật âm thanh tương tác">♪</button>
+        <button id="menuToggle" class="menu-control" type="button" aria-expanded="false" aria-controls="toc"><span>☰</span><b>Mục lục</b></button>
+      </div>
+    </header>
+
+    <nav id="toc" class="toc-paper" hidden aria-label="Mục lục">
+      <p class="kicker">THE ISLAND READING ROOM</p>
+      <h2>Một căn phòng đã được chuẩn bị.</h2>
+      <button data-action="book">Mở cuốn sách <span>01</span></button>
+      <button data-action="memories">Những chuyện còn để trên bàn <span>02</span></button>
+      <button data-action="welcome">Đọc lời chào <span>03</span></button>
+      <button data-action="planner">Kể về chuyến đi của bạn <span>04</span></button>
+      <a href="https://openphuquoc.com/" target="_blank" rel="noopener">Open Phu Quoc ↗</a>
+    </nav>
+
+    <button class="book-hit" data-action="book" type="button" aria-label="Mở Living Island Book"></button>
+    <div class="page-live page-live-left" aria-hidden="true">
+      <div class="chapter-meta"><span>CHƯƠNG 01</span><i></i><span>PHÚ QUỐC LUX → JOTRIP DMC</span></div>
+      <h1>Khởi đầu<br>từ <em>Phú Quốc Lux</em></h1>
+      <h2>Những người làm nghề tại hòn đảo này và những hành trình đáng nhớ</h2>
+      <p>Từ những chuyến đón đầu tiên, những đoàn khách thân thương và tình yêu dành cho Phú Quốc, chúng tôi từng bước tiếp nối kinh nghiệm làm nghề.</p>
+      <span class="open-book-mark">Mở cuốn sách <b>↗</b></span>
+      <small>01 / 06</small>
+    </div>
+    <figure class="page-live page-live-right" aria-hidden="true">
+      <img src="./assets/airport-1600.webp" alt="">
+      <figcaption>ẢNH TƯ LIỆU JOTRIP · PHÚ QUỐC</figcaption>
+    </figure>
+
+    <button class="drink-hotspot" data-action="drink" type="button" aria-label="Một chút trước khi bắt đầu"><span>Một chút trước khi bắt đầu</span></button>
+    <button class="welcome-hotspot" data-action="welcome" type="button" aria-label="Đọc lời chào"><span>Đọc lời chào</span></button>
+
+    <button class="memory-object" data-action="memories" type="button" aria-label="Những chuyện còn để trên bàn">
+      <span class="print p1"><img src="./assets/boat-800.webp" alt=""></span>
+      <span class="print p2"><img src="./assets/lunch-800.webp" alt=""></span>
+      <span class="print p3"><img src="./assets/evening-800.webp" alt=""></span>
+      <b>Những chuyện còn để trên bàn</b>
+    </button>
+
+    <button class="journey-object" data-action="planner" type="button" aria-label="Kể JoTrip nghe về chuyến đi của bạn">
+      <small>YOUR PHU QUOC JOURNEY</small>
+      <strong>Phần còn lại,<br>chúng ta cùng viết tiếp.</strong>
+      <span>Kể chúng tôi nghe ↗</span>
+    </button>
+
+    <div class="room-whisper" aria-hidden="true">
+      <small>JOTRIP DMC · PHÚ QUỐC</small>
+      <p>Có một chỗ đã được chuẩn bị cho bạn.</p>
+    </div>
+  </div>
+</section>
+
+<section id="paperRoot" class="paper-root" hidden>
+  <button class="paper-shade" data-close type="button" aria-label="Đóng"></button>
+  <article id="paperSheet" class="paper-sheet" role="dialog" aria-modal="true"></article>
+</section>
+
+<section id="reader" class="reader" hidden aria-label="Living Island Book">
+  <header class="reader-head">
+    <button id="readerClose" type="button">← Trở về phòng</button>
+    <span>JOTRIP DMC · LIVING ISLAND BOOK</span>
+    <button id="readerToc" type="button">Mục lục</button>
+  </header>
+  <nav id="readerMenu" class="reader-menu" hidden></nav>
+  <div class="reader-desk">
+    <div class="reader-book" id="readerBook">
+      <div class="reader-book-object" aria-hidden="true"></div>
+      <article class="reader-page reader-copy">
+        <div class="chapter-meta"><span id="chapterNo"></span><i></i><span id="chapterOrigin"></span></div>
+        <h1 id="chapterTitle"></h1>
+        <h2 id="chapterSub"></h2>
+        <p id="chapterBody"></p>
+        <small id="chapterCount"></small>
+      </article>
+      <figure class="reader-page reader-photo"><img id="chapterImage" alt=""><figcaption id="chapterCaption"></figcaption></figure>
+      <div class="page-turn" id="pageTurn" aria-hidden="true"></div>
+    </div>
+    <div class="reader-controls"><button id="prevChapter">← Trang trước</button><span>Vuốt hoặc dùng phím ← →</span><button id="nextChapter">Trang tiếp →</button></div>
+  </div>
+</section>
+</main>
+<script type="module">
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const fallbackChapters=[
+{origin:'PHÚ QUỐC LUX → JOTRIP DMC',title:'Khởi đầu từ Phú Quốc Lux',sub:'Những người làm nghề tại hòn đảo này và những hành trình đáng nhớ',body:'Từ những chuyến đón đầu tiên, những đoàn khách thân thương và tình yêu dành cho Phú Quốc, chúng tôi từng bước tiếp nối kinh nghiệm làm nghề. Mỗi cuộc gặp gỡ đều cho chúng tôi thêm một lý do để chăm chút những hành trình sau.',img:'airport-1600.webp',caption:'ẢNH TƯ LIỆU JOTRIP · PHÚ QUỐC'},

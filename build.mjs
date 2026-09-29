@@ -7,7 +7,16 @@ await rm(dist,{recursive:true,force:true});
 await mkdir(join(dist,'assets'),{recursive:true});
 await mkdir(join(dist,'admin'),{recursive:true});
 
-for(const file of ['index.html','content.json','robots.txt']) await copyFile(join(src,file),join(dist,file));
+const v8Dir=join(src,'v8');
+const htmlParts=[
+  'index.part-01.html','index.part-02.html','index.part-03.html',
+  'index.part-04-a.html','index.part-04-b.html',
+  'index.part-05-a.html','index.part-05-b.html'
+];
+const html=(await Promise.all(htmlParts.map(name=>readFile(join(v8Dir,name),'utf8')))).join('');
+await writeFile(join(dist,'index.html'),html);
+
+for(const file of ['content.json','robots.txt']) await copyFile(join(src,file),join(dist,file));
 for(const file of ['index.html','admin.js']) await copyFile(join(src,'admin',file),join(dist,'admin',file));
 await copyFile(join(src,'room-art-v8','room-plate-v8.webp'),join(dist,'assets','room-plate-v8.webp'));
 
@@ -28,9 +37,6 @@ for(const pack of (await readdir(join(src,'assets-packs'))).filter(name=>name.en
     pos+=Math.ceil(size/512)*512;
   }
 }
-
-for(const asset of ['room-plate-v8.webp','jotrip-wordmark.png','airport-1600.webp','boat-800.webp','resort-800.webp','family-800.webp','lunch-800.webp','evening-800.webp','driver-800.webp']){
-  await readFile(join(dist,'assets',asset));
-}
+for(const asset of ['room-plate-v8.webp','jotrip-wordmark.png','airport-1600.webp','boat-800.webp','resort-800.webp','family-800.webp','lunch-800.webp','evening-800.webp','driver-800.webp']) await readFile(join(dist,'assets',asset));
 await writeFile(join(dist,'.nojekyll'),'');
-console.log('Built JoTrip DMC V8 GitHub Pages preview with '+(await readdir(join(dist,'assets'))).length+' assets');
+console.log('Built JoTrip DMC V8 from '+htmlParts.length+' source chunks with '+(await readdir(join(dist,'assets'))).length+' assets');
