@@ -7,21 +7,10 @@ await rm(dist,{recursive:true,force:true});
 await mkdir(join(dist,'assets'),{recursive:true});
 await mkdir(join(dist,'admin'),{recursive:true});
 
-for(const file of ['index.html','app.js','content.json','robots.txt']){
-  await copyFile(join(src,file),join(dist,file));
-}
-for(const file of ['index.html','admin.js']){
-  await copyFile(join(src,'admin',file),join(dist,'admin',file));
-}
+for(const file of ['index.html','content.json','robots.txt']) await copyFile(join(src,file),join(dist,file));
+for(const file of ['index.html','admin.js']) await copyFile(join(src,'admin',file),join(dist,'admin',file));
+await copyFile(join(src,'room-art-v8','room-plate-v8.webp'),join(dist,'assets','room-plate-v8.webp'));
 
-// Build one CSS payload from maintainable visual modules.
-const styleDir=join(src,'styles');
-const styleFiles=(await readdir(styleDir)).filter(name=>name.endsWith('.css')).sort();
-const appCss=(await Promise.all(styleFiles.map(name=>readFile(join(styleDir,name),'utf8')))).join('\n\n');
-await writeFile(join(dist,'app.css'),appCss);
-
-// Verified JoTrip real-photo archive.
-// Documentary people and memories come only from these repository assets.
 for(const pack of (await readdir(join(src,'assets-packs'))).filter(name=>name.endsWith('.tar.gz'))){
   const raw=gunzipSync(await readFile(join(src,'assets-packs',pack)));
   let pos=0;
@@ -40,16 +29,8 @@ for(const pack of (await readdir(join(src,'assets-packs'))).filter(name=>name.en
   }
 }
 
-const required=[
-  'jotrip-wordmark.png',
-  'airport-1600.webp',
-  'boat-800.webp',
-  'resort-800.webp',
-  'family-800.webp',
-  'lunch-800.webp',
-  'evening-800.webp',
-  'driver-800.webp'
-];
-for(const asset of required) await readFile(join(dist,'assets',asset));
-
-console.log('Built JoTrip DMC Island Reading Room clean rebuild with '+styleFiles.length+' style modules and '+(await readdir(join(dist,'assets'))).length+' verified assets');
+for(const asset of ['room-plate-v8.webp','jotrip-wordmark.png','airport-1600.webp','boat-800.webp','resort-800.webp','family-800.webp','lunch-800.webp','evening-800.webp','driver-800.webp']){
+  await readFile(join(dist,'assets',asset));
+}
+await writeFile(join(dist,'.nojekyll'),'');
+console.log('Built JoTrip DMC V8 GitHub Pages preview with '+(await readdir(join(dist,'assets'))).length+' assets');
