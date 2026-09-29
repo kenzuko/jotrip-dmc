@@ -13,15 +13,15 @@ test('homepage is the approved Island Reading Room rebuild',async()=>{
   assert.match(h,/class="memory-stack"/);
   assert.match(h,/class="journey-paper"/);
   assert.match(h,/data-action="planner"/);
-  assert.match(h,/room-window-approved\.webp/);
+  assert.match(h,/boat-800\.webp/);
   assert.match(h,/openphuquoc\.com/);
-  assert.doesNotMatch(h,/room-atmosphere\.webp/);
+  assert.doesNotMatch(h,/room-atmosphere\.webp|room-window-approved\.webp/);
   assert.doesNotMatch(h,/mobile-book-preview/);
   assert.doesNotMatch(h,/Sunset Town|Cầu Hôn|Kiss Bridge/);
 });
 
-test('visual system is one clean rebuild, not the legacy patch stack',async()=>{
-  const css=await read('dist/room.css');
+test('visual system is a clean modular rebuild, not the legacy patch stack',async()=>{
+  const css=await read('dist/app.css');
   assert.match(css,/Clean rebuild from the approved 28\/09\/2026 direction/);
   assert.match(css,/\.hero-book/);
   assert.match(css,/\.book-paper-stack/);
@@ -39,10 +39,11 @@ test('story, memories, travel brief, sound and owner editor remain functional',a
   assert.match(admin,/Đây không phải Open CMS/);
 });
 
-test('approved atmosphere and verified JoTrip photo assets are built',async()=>{
+test('verified JoTrip photo assets are built and legacy room art is absent',async()=>{
   const assets=await readdir(new URL('../dist/assets/',import.meta.url));
-  for(const name of ['room-window-approved.webp','airport-1600.webp','boat-800.webp','family-800.webp','jotrip-wordmark.png']){
+  for(const name of ['airport-1600.webp','boat-800.webp','family-800.webp','jotrip-wordmark.png']){
     assert.ok(assets.includes(name),name);
   }
   assert.ok(!assets.includes('room-atmosphere.webp'),'legacy room atmosphere must not ship');
+  assert.ok(!assets.includes('room-window-approved.webp'),'temporary room composite must not ship');
 });
