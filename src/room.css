@@ -101,3 +101,20 @@
 @media(prefers-reduced-motion:reduce){
   .room-welcome-note,.room-memory-stack img,.mobile-book-preview{transition:none!important}
 }
+
+
+/* V4.1 - hide landmark baked into the illustration by making the real book the foreground. */
+.room:before{content:"";position:absolute;z-index:-1;left:31%;right:13%;top:6.5%;height:21%;background:linear-gradient(180deg,rgba(183,216,219,.28),rgba(94,155,163,.22));backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);pointer-events:none}
+.mobile-book-preview{display:grid;position:absolute;z-index:18;left:50%;top:55%;width:min(69vw,1120px);height:clamp(390px,42vw,650px);grid-template-columns:1fr 1.05fr;transform:translate(-50%,-50%) rotate(-.25deg);border:0;background:transparent;padding:0;filter:drop-shadow(0 28px 34px rgba(31,20,9,.43));perspective:1400px}
+.mobile-book-preview:after{content:"";position:absolute;z-index:-3;left:-7px;right:-9px;top:10px;bottom:-15px;border-radius:29px 29px 17px 21px;background:repeating-linear-gradient(0deg,#f3e6cc 0 2px,#c9b89a 2px 3px,#f9eedb 3px 5px);box-shadow:0 8px 0 #75593b,0 18px 20px rgba(43,27,11,.38)}
+.mobile-book-edge{position:absolute;z-index:5;left:50%;top:1.5%;bottom:1%;width:40px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(51,39,26,.43) 0%,rgba(102,84,61,.16) 35%,transparent 70%);pointer-events:none}
+.mobile-page{position:relative;overflow:hidden;border:1px solid #eadcc3;background:linear-gradient(96deg,#fffaf0,#f6ecd9)}
+.mobile-page-left{border-radius:29px 9px 9px 21px;padding:clamp(42px,4vw,68px) clamp(34px,4vw,62px);text-align:left;box-shadow:inset -22px 0 30px rgba(91,70,48,.12),inset 9px 0 18px rgba(255,255,255,.9)}
+.mobile-page-left:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 4px,rgba(113,88,55,.052) 5px);pointer-events:none}
+.mobile-page-left small{display:block;font-size:clamp(8px,.62vw,11px);line-height:1.4;letter-spacing:.11em;font-weight:800;color:#675b49}
+.mobile-page-left strong{display:block;margin-top:clamp(36px,4vw,62px);font:normal clamp(38px,4.5vw,72px)/.96 var(--serif);letter-spacing:-.048em;color:#28261f;max-width:9.2ch}
+.mobile-page-left strong em{font-style:italic;color:#a9852e}
+.mobile-page-left i{position:absolute;left:clamp(34px,4vw,62px);bottom:clamp(35px,4vw,58px);font:italic clamp(11px,.9vw,15px) var(--serif);color:#67583f}
+.mobile-page-right{border-radius:9px 29px 21px 9px;box-shadow:inset 22px 0 26px rgba(62,43,24,.17)}
+.mobile-page-right img{width:100%;height:100%;object-fit:cover;object-position:center 68%}
+.mobile-book-preview:hover,.mobile-book-preview:focus-visible{transform:translate(-50%,-50%) rotate(-.25deg) translateY(-3px)}
