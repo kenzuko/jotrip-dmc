@@ -7,14 +7,21 @@ await rm(dist,{recursive:true,force:true});
 await mkdir(join(dist,'assets'),{recursive:true});
 await mkdir(join(dist,'admin'),{recursive:true});
 
-for(const file of ['index.html','room.css','app.js','content.json','robots.txt']){
+for(const file of ['index.html','app.js','content.json','robots.txt']){
   await copyFile(join(src,file),join(dist,file));
 }
 for(const file of ['index.html','admin.js']){
   await copyFile(join(src,'admin',file),join(dist,'admin',file));
 }
 
-// Verified JoTrip real-photo archive. People and journey memories always come from these sources.
+// Build one CSS payload from maintainable visual modules.
+const styleDir=join(src,'styles');
+const styleFiles=(await readdir(styleDir)).filter(name=>name.endsWith('.css')).sort();
+const appCss=(await Promise.all(styleFiles.map(name=>readFile(join(styleDir,name),'utf8')))).join('\n\n');
+await writeFile(join(dist,'app.css'),appCss);
+
+// Verified JoTrip real-photo archive.
+// Documentary people and memories come only from these repository assets.
 for(const pack of (await readdir(join(src,'assets-packs'))).filter(name=>name.endsWith('.tar.gz'))){
   const raw=gunzipSync(await readFile(join(src,'assets-packs',pack)));
   let pos=0;
@@ -33,20 +40,8 @@ for(const pack of (await readdir(join(src,'assets-packs'))).filter(name=>name.en
   }
 }
 
-// Approved 28/09 room atmosphere only. This asset deliberately contains no documentary people.
-// It replaces the retired V3 room artwork instead of layering new CSS over the old image.
-const approvedParts=(await readdir(join(src,'approved-room-parts')))
-  .filter(name=>name.endsWith('.txt'))
-  .sort();
-if(approvedParts.length!==4) throw Error('Approved room atmosphere requires exactly 4 source parts');
-const approvedB64=(await Promise.all(
-  approvedParts.map(name=>readFile(join(src,'approved-room-parts',name),'utf8'))
-)).join('').trim();
-await writeFile(join(dist,'assets','room-window-approved.webp'),Buffer.from(approvedB64,'base64'));
-
 const required=[
   'jotrip-wordmark.png',
-  'room-window-approved.webp',
   'airport-1600.webp',
   'boat-800.webp',
   'resort-800.webp',
@@ -57,4 +52,4 @@ const required=[
 ];
 for(const asset of required) await readFile(join(dist,'assets',asset));
 
-console.log('Built JoTrip DMC Island Reading Room - approved 28/09 clean rebuild with '+(await readdir(join(dist,'assets'))).length+' assets');
+console.log('Built JoTrip DMC Island Reading Room clean rebuild with '+styleFiles.length+' style modules and '+(await readdir(join(dist,'assets'))).length+' verified assets');
