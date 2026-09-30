@@ -1,5 +1,5 @@
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-let content,current=Number(localStorage.getItem('jotrip.chapter')||0),soundOn=localStorage.getItem('jotrip.sound')!=='off',lastFocus=null;
+let content,current=Number(localStorage.getItem('jotrip.chapter')||0),soundOn=localStorage.getItem('jotrip.sound')==='on',lastFocus=null;
 const root=$('#sheetRoot'), sheet=$('#storySheet'), reader=$('#reader');
 async function loadContent(){const base=await fetch('/content.json',{cache:'no-store'}).then(r=>r.json());try{const local=JSON.parse(localStorage.getItem('jotrip.content.override')||'null');content=local?deepMerge(base,local):base}catch{content=base}applyCopy();renderChapter(current);buildChapterMenu()}
 function deepMerge(a,b){if(Array.isArray(a)||Array.isArray(b))return b??a;if(a&&typeof a==='object'&&b&&typeof b==='object'){const o={...a};for(const k of Object.keys(b))o[k]=k in a?deepMerge(a[k],b[k]):b[k];return o}return b??a}
