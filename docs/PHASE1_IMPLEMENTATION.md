@@ -1,0 +1,15 @@
+# JoTrip DMC V2 - Phase 1 + 2 implementation notes
+
+Baseline: exact approved 1536x864 artwork (SHA-256 b6988a6d4283b1aa9607d0583ab1f9eae57184a8217fe49b5e5ebf90190b4d82), never overwritten, available at `src/visual/approved-scene.jpg`.
+
+The original art contains baked-in text. `src/visual/scene-clean-v2.png` is an **experimental localized photographic working plate**, surgically prepared only for text-editable zones. The matte generation code and its exact region mask are in `qa/make_plate.py` and `src/visual/scene-clean-mask.png`. User must visually approve a screenshot before this clean plate replaces existing Pages visual. Subject to correction if any retouch patch or ghost is apparent. Everything else outside the targeted zones remains the approved source. It is NOT AI redrawing of the room.
+
+Visible desktop copy is HTML in `src/index.html` with localized keys; no hidden-only duplicate desktop hero. `src/i18n/vi.json` is the source of truth for approved Vietnamese copy; `en.json` has separately edited English text, not placeholder machine translation. Locales cover first stage, modal copy, the entire six-chapter book, captions, progressive inquiry labels and privacy/sending notices. Mobile has a separately authored composition and interactive tap targets. The original room photograph and verified real JoTrip photo assets remain separate layers. All assets use relative paths under GitHub Pages subpath `/jotrip-dmc/`.
+
+Interaction cues include original-book page tip, note hover/focus micro-hints, photo hotspot micro-hint, discreet contents hint, a single 2-second delayed intro hint once per session, mobile persistent book and note marks, reduced-motion respect, keyboard focus. No infinite bounce or dramatic room transform.
+
+The expanded Journey Paper has essential first fields and `<details>` advanced questions, with child ages only if children selected. No invented receipt: Draft 01 lives on device, only voluntary mailto transfers to user's email client. Do not collect payment, identity documents or send draft fields to analytics. An authenticated inbox/backend requires a subsequent product/security phase.
+
+Deliberately deferred: publication to current GitHub Pages, merging `main`, Cloudflare, true licensed sound assets, end-to-end email transport backend, visual QA approval of photo-page geometry and any naturalness defects in clean plate. This phase is design/functional candidate only and CI uploads real Chrome desktop/mobile review screenshots without Pages deployment.
+
+Legacy /admin from the prior branch is intentionally NOT copied by the V2 build. It reads a now-incompatible content schema and its local-only editor must not be confused with an authenticated CMS. A properly authenticated, locale-aware editing workflow must be implemented and security-reviewed before publication.

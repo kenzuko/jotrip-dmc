@@ -1,0 +1,203 @@
+{
+  "brand": "JoTrip DMC",
+  "nav": {
+    "stories": "Stories",
+    "journeys": "Journeys",
+    "about": "About",
+    "contact": "Contact",
+    "menu": "Mục lục",
+    "open_book": "Mở cuốn sách",
+    "mobile_stories": "Câu chuyện của chúng tôi",
+    "mobile_journeys": "Những hành trình"
+  },
+  "hero": {
+    "eyebrow": "PHÚ QUỐC, VIỆT NAM",
+    "first": "Đi cùng người bản địa.",
+    "second": "Hiểu hòn đảo.",
+    "gold": "Rồi yêu cả hành trình.",
+    "lead": "Một chuyến đi riêng không bắt đầu bằng danh sách điểm đến.<br>Nó bắt đầu từ điều bạn muốn cảm nhận khi ở đây.",
+    "cta": "Bắt đầu từ điều bạn muốn"
+  },
+  "book": {
+    "eyebrow": "JOTRIP DMC / NƠI CHÚNG TÔI BẮT ĐẦU",
+    "first": "Hòn đảo",
+    "gold": "trong chúng tôi.",
+    "excerpt": "Qua từng vị khách, từng hành trình và những cuộc gặp gỡ trên chính hòn đảo này, chúng tôi dần hiểu rằng Phú Quốc không chỉ là một điểm đến, mà còn là nơi lưu lại những cảm xúc rất thật. Hòn đảo này cũng dạy chúng tôi giá trị của sự chân thành, của những kết nối giữa con người với con người, và của những hành trình có thể ở lại rất lâu trong ký ức.",
+    "read": "Đọc câu chuyện",
+    "view_video": "Đọc câu chuyện"
+  },
+  "note": {
+    "front": "Phần còn lại,<br>chúng ta cùng<br>viết tiếp.",
+    "eyebrow": "MỘT LỜI NHẮN TỪ PHÚ QUỐC",
+    "title": "Có một chỗ đã được chuẩn bị cho bạn.",
+    "body": "Đừng vội xem hết mọi thứ. Hòn đảo này đẹp nhất khi mình để lại một chút thời gian cho những điều không có trong lịch trình.",
+    "action": "Đọc lời nhắn"
+  },
+  "hints": {
+    "intro": "Có vài câu chuyện đang chờ bạn khám phá.",
+    "book": "Mở cuốn sách",
+    "note": "Đọc lời nhắn",
+    "photos": "Xem kỷ niệm",
+    "journey": "Kể chúng tôi nghe",
+    "toc": "Mở mục lục"
+  },
+  "reader": {
+    "home": "← Trở về phòng",
+    "name": "JOTRIP DMC · CUỐN SÁCH",
+    "toc": "Mục lục",
+    "prev": "← Trang trước",
+    "next": "Trang tiếp →",
+    "swipe": "Vuốt hoặc dùng phím ← →",
+    "photo": "Ảnh tư liệu thật của JoTrip",
+    "load": "Nội dung đang được tải",
+    "failed": "Chưa tải được cuốn sách"
+  },
+  "memories": {
+    "eyebrow": "NHỮNG CHUYỆN CÒN ĐỂ TRÊN BÀN",
+    "title": "Những khoảnh khắc đã đi qua cùng nhau.",
+    "body": "Những bức ảnh thật trong kho tư liệu JoTrip. Không có lời chứng thực hay câu chuyện được tự ý gán cho người trong ảnh.",
+    "photos": [
+      "Những cuộc gặp ở sân bay",
+      "Những ngày ngoài biển",
+      "Một chiều thật chậm",
+      "Những câu chuyện quanh bàn ăn"
+    ]
+  },
+  "brief": {
+    "eyebrow": "YOUR PHU QUOC JOURNEY",
+    "title": "Kể chúng tôi nghe về chuyến đi của bạn.",
+    "intro": "Bạn không cần có sẵn một lịch trình. Chỉ cần chia sẻ điều bạn mong chờ và những gì JoTrip nên biết trước.",
+    "basic": "Bắt đầu từ điều bạn muốn",
+    "more": "Thêm vài chi tiết để chúng tôi chuẩn bị chu đáo hơn (không bắt buộc)",
+    "name": "Tên bạn",
+    "companions": "Người đi cùng",
+    "companionsPH": "Hai người, gia đình, nhóm bạn...",
+    "when": "Dự kiến khi nào đến Phú Quốc?",
+    "whenPH": "Ngày đi và số đêm, nếu đã biết",
+    "pace": "Nhịp nghỉ bạn mong muốn",
+    "pacePH": "Chậm rãi, riêng tư, khám phá, nhiều thời gian bên biển...",
+    "adults": "Số người lớn",
+    "children": "Số trẻ em",
+    "childrenPH": "Không có hoặc chưa rõ",
+    "ages": "Độ tuổi trẻ em (nếu có)",
+    "agesPH": "Ví dụ: 3 và 8 tuổi",
+    "stay": "Chỗ ở hiện tại",
+    "stayPH": "Chưa đặt / Đã đặt / Muốn JoTrip gợi ý",
+    "accommodation": "Tên khách sạn hoặc khu vực (nếu đã biết)",
+    "accommodationPH": "Khách sạn hoặc khu vực dự kiến",
+    "interests": "Điều bạn muốn trải nghiệm",
+    "interestsPH": "Biển, văn hoá bản địa, gia đình, ẩm thực, nghỉ dưỡng...",
+    "transport": "Di chuyển trong kỳ nghỉ",
+    "transportPH": "Đưa đón, xe riêng, cano riêng hoặc chưa quyết định",
+    "dining": "Ẩm thực và những sở thích nên lưu ý",
+    "diningPH": "Bữa tối đặc biệt, món yêu thích hoặc điều muốn tránh...",
+    "budget": "Khoảng ngân sách dự kiến (tuỳ chọn)",
+    "budgetPH": "Chỉ khi bạn muốn chia sẻ",
+    "priority": "Điều quan trọng nhất với chuyến đi này",
+    "priorityPH": "Nếu chỉ được nhớ một điều về kỳ nghỉ, bạn mong điều đó là gì?",
+    "care": "Có điều gì chúng tôi nên biết để chăm bạn tốt hơn?",
+    "carePH": "Chỉ chia sẻ những thông tin bạn thấy cần thiết.",
+    "contact": "Email hoặc số điện thoại liên hệ",
+    "contactPH": "Email, WhatsApp, điện thoại hoặc Zalo",
+    "channel": "Kênh liên hệ mong muốn",
+    "draft": "Lưu bản nháp 01",
+    "draft_title": "YOUR PHU QUOC JOURNEY - DRAFT 01",
+    "draft_info": "Bản nháp chỉ được lưu trên thiết bị này. JoTrip chưa nhận được thông tin cho đến khi bạn chủ động gửi.",
+    "send": "Mở email để gửi cho JoTrip ↗",
+    "privacy": "Thông tin chỉ được dùng để trao đổi về chuyến đi. Đừng gửi giấy tờ tuỳ thân hoặc thông tin thanh toán qua biểu mẫu này.",
+    "options": {
+      "any": "Tuỳ bạn",
+      "email": "Email",
+      "whatsapp": "WhatsApp",
+      "phone": "Điện thoại",
+      "zalo": "Zalo"
+    }
+  },
+  "footer": {
+    "opq": "Khám phá Phú Quốc trên Open Phu Quoc ↗",
+    "sound_off": "Âm thanh: Tắt",
+    "sound_on": "Âm thanh: Bật",
+    "sound_soon": "Âm thanh đang chuẩn bị"
+  },
+  "misc": {
+    "close": "Đóng",
+    "skip": "Bỏ qua phần mở đầu",
+    "mobile_hint": "Chạm vào cuốn sách hoặc lời nhắn để khám phá",
+    "cover_cue": "Mở sách và khám phá",
+    "request_sent": "Chưa gửi cho JoTrip"
+  },
+  "chapters": [
+    {
+      "eyebrow": "JOTRIP DMC / NƠI CHÚNG TÔI BẮT ĐẦU",
+      "title": "Hòn đảo trong chúng tôi.",
+      "subtitle": "",
+      "paragraphs": [
+        "Có những điều ở quê nhà, khi còn nhỏ, người ta thấy thật bình thường. Một buổi sáng ở biển, những chiếc ghe trở về, mùi nước mắm trong nhà thùng hay những con đường quen thuộc dẫn về phía những xóm làng.",
+        "Rồi lớn lên, có cơ hội học hành, tiếp xúc với những điều mới mẻ và bước vào nghề du lịch, chúng tôi dần nhìn quê hương bằng một góc nhìn khác. Những điều từng rất đỗi quen thuộc hóa ra lại là những giá trị mà không phải nơi nào cũng có.",
+        "Qua từng vị khách, từng hành trình và những cuộc gặp gỡ trên chính hòn đảo này, chúng tôi dần hiểu rằng Phú Quốc không chỉ là một điểm đến, mà còn là nơi lưu lại những cảm xúc rất thật. Hòn đảo này cũng dạy chúng tôi giá trị của sự chân thành, của những kết nối giữa con người với con người, và của những hành trình có thể ở lại rất lâu trong ký ức.",
+        "Chúng tôi vui khi Phú Quốc ngày càng được nhiều người biết đến. Du lịch mang theo những cơ hội mới, những công việc mới và cả những kỳ vọng lớn hơn. Nhưng càng gắn bó với nghề, chúng tôi càng có nhiều câu hỏi về tương lai của hòn đảo.",
+        "Làm sao để du khách không chỉ đến rồi đi? Làm sao để những người dân địa phương cũng có cơ hội từ sự phát triển ấy? Và làm sao để mai này, khi nhắc đến Phú Quốc, chúng ta vẫn còn những câu chuyện riêng của mình để kể?",
+        "JoTrip được xây dựng từ những kinh nghiệm làm nghề, những điều đã học và cả những câu hỏi chưa có lời giải trọn vẹn ấy.",
+        "Chúng tôi muốn làm du lịch tốt hơn. Và mong quê hương cũng tốt đẹp hơn từ những điều mình làm."
+      ],
+      "image": "airport-editorial.webp",
+      "alt": "Ảnh tư liệu thật từ một đoàn khách JoTrip tại sân bay Phú Quốc",
+      "caption": "ẢNH TƯ LIỆU JOTRIP · PHÚ QUỐC"
+    },
+    {
+      "eyebrow": "TỪ NHỮNG CHUYẾN ĐI",
+      "title": "Những hành trình đã qua",
+      "subtitle": "Mỗi người đến đảo với một mong muốn khác nhau.",
+      "paragraphs": [
+        "Có những ngày dành cho biển, có những chuyến đi chỉ cần người thân bên cạnh. Làm nghề là học cách lắng nghe để nhận ra điều gì quan trọng đối với từng người, thay vì bắt tất cả đi theo một lịch trình giống nhau."
+      ],
+      "image": "boat-800.webp",
+      "alt": "Ảnh tư liệu hành trình biển thật của JoTrip",
+      "caption": "ẢNH TƯ LIỆU JOTRIP · NGOÀI BIỂN"
+    },
+    {
+      "eyebrow": "NHỮNG NGƯỜI LÀM NGHỀ TRÊN ĐẢO",
+      "title": "JoTrip hôm nay",
+      "subtitle": "Chúng tôi ở đây, ngay trên hòn đảo này.",
+      "paragraphs": [
+        "Chúng tôi kết hợp sự am hiểu bản địa và kinh nghiệm tổ chức để chăm sóc những kỳ nghỉ theo nhu cầu riêng, từ việc đón khách cho đến điều phối từng trải nghiệm và chủ động thích ứng khi kế hoạch thay đổi."
+      ],
+      "image": "resort-800.webp",
+      "alt": "Ảnh tư liệu khách JoTrip",
+      "caption": "ẢNH TƯ LIỆU JOTRIP"
+    },
+    {
+      "eyebrow": "TRAVEL, MADE PERSONAL.",
+      "title": "Kỳ nghỉ theo cách riêng",
+      "subtitle": "Mỗi hành trình bắt đầu từ con người.",
+      "paragraphs": [
+        "Một buổi chiều thật chậm, một bữa tối riêng tư hay kỳ nghỉ cho nhiều thế hệ. Chúng tôi bắt đầu bằng việc lắng nghe và cùng khách lựa chọn nhịp đi phù hợp với thời gian, sở thích và những điều quan trọng đối với họ."
+      ],
+      "image": "evening-800.webp",
+      "alt": "Ảnh tư liệu một buổi chiều trong hành trình JoTrip",
+      "caption": "ẢNH TƯ LIỆU JOTRIP · BUỔI CHIỀU BÊN BIỂN"
+    },
+    {
+      "eyebrow": "NHỮNG ĐIỀU PHÍA SAU",
+      "title": "Những người đồng hành",
+      "subtitle": "Sự chăm chút đôi khi nằm ở điều khách không cần nhìn thấy.",
+      "paragraphs": [
+        "Đằng sau một trải nghiệm là những người chuẩn bị phương tiện, bữa ăn, thời gian và phương án dự phòng. Mỗi người góp một phần việc để chuyến đi diễn ra tự nhiên và nhẹ nhàng hơn."
+      ],
+      "image": "lunch-800.webp",
+      "alt": "Ảnh tư liệu bữa ăn thật của JoTrip",
+      "caption": "ẢNH TƯ LIỆU JOTRIP · NHỮNG NGƯỜI ĐỒNG HÀNH"
+    },
+    {
+      "eyebrow": "YOUR NEXT CHAPTER",
+      "title": "Câu chuyện tiếp theo là của bạn",
+      "subtitle": "Bắt đầu từ một cuộc trò chuyện.",
+      "paragraphs": [
+        "Bạn không cần tự lên lịch trình trước. Chỉ cần kể chúng tôi nghe người đi cùng, thời gian, sở thích và những điều đáng quan tâm, rồi chúng ta cùng tìm một nhịp nghỉ phù hợp."
+      ],
+      "image": "family-800.webp",
+      "alt": "Ảnh tư liệu đoàn khách JoTrip",
+      "caption": "ẢNH TƯ LIỆU JOTRIP"
+    }
+  ]
+}

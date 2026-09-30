@@ -1,0 +1,203 @@
+{
+  "brand": "JoTrip DMC",
+  "nav": {
+    "stories": "Stories",
+    "journeys": "Journeys",
+    "about": "About",
+    "contact": "Contact",
+    "menu": "Contents",
+    "open_book": "Open the book",
+    "mobile_stories": "Our story",
+    "mobile_journeys": "Journeys"
+  },
+  "hero": {
+    "eyebrow": "PHU QUOC, VIETNAM",
+    "first": "Travel with local insight.",
+    "second": "Discover the island.",
+    "gold": "Fall for the journey.",
+    "lead": "A private journey doesn't begin with a checklist of places.<br>It begins with how you want to feel while you are here.",
+    "cta": "Begin with what matters to you"
+  },
+  "book": {
+    "eyebrow": "JOTRIP DMC / WHERE WE BEGAN",
+    "first": "The island",
+    "gold": "within us.",
+    "excerpt": "Through every guest we have met, every journey and every encounter on this island, we have come to understand that Phu Quoc is more than a destination. It is a place where genuine feelings stay with us. The island has taught us the value of sincerity, of human connection and of journeys that remain in our memories long after they end.",
+    "read": "Read our story",
+    "view_video": "Read our story"
+  },
+  "note": {
+    "front": "The rest,<br>we write<br>together.",
+    "eyebrow": "A NOTE FROM PHU QUOC",
+    "title": "A place has been prepared for you.",
+    "body": "There is no need to see everything at once. Sometimes the best moments on the island are the ones for which we leave a little space in the itinerary.",
+    "action": "Read the note"
+  },
+  "hints": {
+    "intro": "A few stories are waiting for you to explore.",
+    "book": "Open the book",
+    "note": "Read the note",
+    "photos": "Explore memories",
+    "journey": "Tell us your plans",
+    "toc": "Open contents"
+  },
+  "reader": {
+    "home": "← Back to the room",
+    "name": "JOTRIP DMC · THE BOOK",
+    "toc": "Contents",
+    "prev": "← Previous page",
+    "next": "Next page →",
+    "swipe": "Swipe or use ← →",
+    "photo": "Authentic JoTrip photography",
+    "load": "Loading the book",
+    "failed": "The book is unavailable for now"
+  },
+  "memories": {
+    "eyebrow": "STORIES LEFT ON THE TABLE",
+    "title": "Moments we have shared along the way.",
+    "body": "Authentic photographs from JoTrip's collection. We do not invent testimonials, dates or personal stories about the people pictured.",
+    "photos": [
+      "Meeting at the airport",
+      "Days out at sea",
+      "An unhurried evening",
+      "Stories shared over a meal"
+    ]
+  },
+  "brief": {
+    "eyebrow": "YOUR PHU QUOC JOURNEY",
+    "title": "Tell us about the trip you have in mind.",
+    "intro": "You do not need an itinerary yet. Share what you hope to experience and the details that could help us look after your journey.",
+    "basic": "Start with what matters to you",
+    "more": "Add a few details to help us prepare (optional)",
+    "name": "Your name",
+    "companions": "Who is travelling with you?",
+    "companionsPH": "A couple, family, friends...",
+    "when": "When might you visit Phu Quoc?",
+    "whenPH": "Dates and number of nights, if known",
+    "pace": "What pace would you enjoy?",
+    "pacePH": "Unhurried, private, adventurous, time by the sea...",
+    "adults": "Number of adults",
+    "children": "Number of children",
+    "childrenPH": "None or not sure yet",
+    "ages": "Children's ages (if applicable)",
+    "agesPH": "For example: 3 and 8",
+    "stay": "Accommodation plans",
+    "stayPH": "Not booked / Already booked / Looking for advice",
+    "accommodation": "Hotel or preferred area (if known)",
+    "accommodationPH": "Name of your hotel or preferred area",
+    "interests": "What would you enjoy doing?",
+    "interestsPH": "Sea, island culture, family time, food, relaxation...",
+    "transport": "Transport during your stay",
+    "transportPH": "Airport pickup, private car, private boat or undecided",
+    "dining": "Dining preferences",
+    "diningPH": "A special dinner, favourite dishes or anything to avoid...",
+    "budget": "Indicative budget (optional)",
+    "budgetPH": "Only if you would like to share",
+    "priority": "What matters most on this journey?",
+    "priorityPH": "If you could remember just one thing about this trip, what would it be?",
+    "care": "Is there anything we should know to look after you better?",
+    "carePH": "Share only what you feel is relevant.",
+    "contact": "Email or contact number",
+    "contactPH": "Email, WhatsApp, phone or Zalo",
+    "channel": "Preferred way to reach you",
+    "draft": "Save Draft 01",
+    "draft_title": "YOUR PHU QUOC JOURNEY - DRAFT 01",
+    "draft_info": "This draft is saved only on your device. JoTrip has not received it. You must choose to send it yourself.",
+    "send": "Open your email to send this to JoTrip ↗",
+    "privacy": "We use this information only to discuss your trip. Please do not submit identity documents or payment information in this form.",
+    "options": {
+      "any": "Your choice",
+      "email": "Email",
+      "whatsapp": "WhatsApp",
+      "phone": "Phone",
+      "zalo": "Zalo"
+    }
+  },
+  "footer": {
+    "opq": "Explore Phu Quoc on Open Phu Quoc ↗",
+    "sound_off": "Sound: Off",
+    "sound_on": "Sound: On",
+    "sound_soon": "Sound coming soon"
+  },
+  "misc": {
+    "close": "Close",
+    "skip": "Skip to the experience",
+    "mobile_hint": "Tap the book or note to explore",
+    "cover_cue": "Open the book",
+    "request_sent": "Not yet sent to JoTrip"
+  },
+  "chapters": [
+    {
+      "eyebrow": "JOTRIP DMC / WHERE WE BEGAN",
+      "title": "The island within us.",
+      "subtitle": "",
+      "paragraphs": [
+        "Some things feel perfectly ordinary when you grow up at home: mornings by the sea, fishing boats coming back, the scent of fish sauce in a traditional barrel house or familiar roads leading into the villages.",
+        "As we grew older, studied, discovered new perspectives and entered the world of travel, we began to see our home differently. The things we had taken for granted turned out to hold something special.",
+        "Through every guest we have met, every journey and every encounter on this island, we have come to understand that Phu Quoc is more than a destination. It is a place where genuine feelings stay with us. The island has taught us the value of sincerity, of human connection and of journeys that remain in our memories long after they end.",
+        "We are glad to see more people discovering Phu Quoc. Tourism brings opportunities, jobs and greater hopes for the future. The longer we work in travel, though, the more questions we ask about the island we call home.",
+        "How can visitors leave with more than a checklist of places? How can local people share in the opportunities tourism creates? And how do we make sure that years from now Phu Quoc still has stories of its own to tell?",
+        "JoTrip grew from our experience in travel, what we have learned and the questions we are still trying to answer.",
+        "We want to make travel better. And we hope that what we do will help make our home a better place too."
+      ],
+      "image": "airport-editorial.webp",
+      "alt": "Authentic JoTrip group photograph at Phu Quoc Airport",
+      "caption": "JOTRIP ARCHIVE · PHU QUOC"
+    },
+    {
+      "eyebrow": "THE JOURNEYS WE HAVE SHARED",
+      "title": "Journeys along the way",
+      "subtitle": "Every visitor arrives with something different in mind.",
+      "paragraphs": [
+        "Some days are meant for the sea. On other trips, simply being together is what matters. The longer we work in travel, the more we learn to listen: the best itinerary is never the same for everyone."
+      ],
+      "image": "boat-800.webp",
+      "alt": "Authentic JoTrip documentary photo on a boat trip",
+      "caption": "JOTRIP ARCHIVE · OUT AT SEA"
+    },
+    {
+      "eyebrow": "PEOPLE WHO KNOW THE ISLAND",
+      "title": "JoTrip today",
+      "subtitle": "We are here, on the island we call home.",
+      "paragraphs": [
+        "We combine local knowledge with practical experience to organise journeys around the people taking them, from airport arrivals to days out, private transport and adjusting plans when conditions change."
+      ],
+      "image": "resort-800.webp",
+      "alt": "Authentic photograph of JoTrip guests",
+      "caption": "JOTRIP ARCHIVE"
+    },
+    {
+      "eyebrow": "TRAVEL, MADE PERSONAL.",
+      "title": "Your own pace",
+      "subtitle": "Every journey begins with the people taking it.",
+      "paragraphs": [
+        "A slow afternoon, a quiet dinner or a holiday that brings several generations together. We start by listening, then shape the rhythm of the trip around your time, interests and priorities."
+      ],
+      "image": "evening-800.webp",
+      "alt": "Authentic JoTrip afternoon travel photograph",
+      "caption": "JOTRIP ARCHIVE · AN EVENING BY THE SEA"
+    },
+    {
+      "eyebrow": "BEHIND EACH EXPERIENCE",
+      "title": "The people behind the journey",
+      "subtitle": "The details that rarely make it into a photograph.",
+      "paragraphs": [
+        "Behind a memorable day are people preparing the transport, the meal, the timing and a plan B. Each person plays a part in helping your time here unfold more naturally."
+      ],
+      "image": "lunch-800.webp",
+      "alt": "Authentic photograph of a JoTrip shared meal",
+      "caption": "JOTRIP ARCHIVE · AROUND THE TABLE"
+    },
+    {
+      "eyebrow": "YOUR NEXT CHAPTER",
+      "title": "The next story is yours",
+      "subtitle": "Begin with a conversation.",
+      "paragraphs": [
+        "You do not need to prepare an itinerary before talking with us. Tell us who you are travelling with, when you might come, what you enjoy and what matters most. We will start from there."
+      ],
+      "image": "family-800.webp",
+      "alt": "Authentic photograph of guests travelling with JoTrip",
+      "caption": "JOTRIP ARCHIVE"
+    }
+  ]
+}

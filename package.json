@@ -1,1 +1,1 @@
-{"name":"jotrip-approved-composition","private":true,"type":"module","scripts":{"build":"node build.mjs","test":"node --test tests/approved.test.mjs"}}
+{"name":"jotrip-dmc-approved-experience-v2","private":true,"type":"module","scripts":{"build":"node build.mjs","test":"node --test tests/experience.test.mjs"}}
