@@ -1,0 +1,67 @@
+name: JoTrip DMC Recovery Preview
+
+on:
+  push:
+    branches:
+      - feat/dmc-recover-living-book-v5
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: jotrip-dmc-recovery-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+      - name: Build original Living Book V5
+        run: npm run build
+      - name: Test original site
+        run: npm test
+      - name: Adapt absolute production paths for project Pages preview only
+        shell: bash
+        run: |
+          node --input-type=module <<'NODE'
+          import {readFile,writeFile,readdir,stat} from 'node:fs/promises';
+          import {join} from 'node:path';
+          async function walk(dir){
+            for(const name of await readdir(dir)){
+              const file=join(dir,name), s=await stat(file);
+              if(s.isDirectory()){await walk(file);continue}
+              if(!/\.(html|css|js)$/.test(name))continue;
+              let t=await readFile(file,'utf8');
+              if(name.endsWith('.html') && !t.includes('<base href="/jotrip-dmc/">')){
+                t=t.replace('<head>','<head>\n<base href="/jotrip-dmc/">');
+              }
+              t=t.replace(/(["'(=])\/(?!\/)/g,'$1');
+              await writeFile(file,t);
+            }
+          }
+          await walk('dist');
+          await writeFile('dist/.nojekyll','');
+          NODE
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy recovered Living Book
+        id: deployment
+        uses: actions/deploy-pages@v4
