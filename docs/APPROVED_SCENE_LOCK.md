@@ -31,3 +31,7 @@ GitHub Pages: use only path-relative asset URLs; test under `/jotrip-dmc/`.
 Visual QA artifacts are captured at 1536x864 desktop and 390x844 mobile by
 GitHub Actions. Test green by itself does not constitute artistic approval.
 Main is left unchanged until explicitly approved.
+
+The page edge is not invented: `approved-book-edge.png` preserves original
+book paper pixels through a transparent foreground mask over the real cropped
+airport photo, preventing any original synthetic airport people from showing.
