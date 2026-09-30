@@ -9,8 +9,8 @@ test('exact approved photographic composition is preserved byte-for-byte',async(
 });
 test('live airport photo is a separate unmodified JoTrip asset, not generated into scene',async()=>{
  const h=(await r('dist/index.html')).toString();const css=(await r('dist/site.css')).toString();
- assert.match(h,/class="airport-embed"/);assert.match(h,/src="\.\/assets\/airport-1600\.webp"/);
- assert.match(css,/\.airport-embed img\{/);await stat(new URL('../dist/assets/airport-1600.webp',import.meta.url));
+ assert.match(h,/class="airport-embed"/);assert.match(h,/src="\.\/assets\/airport-editorial\.webp"/);
+ assert.match(css,/\.airport-embed img\{/);await stat(new URL('../dist/assets/airport-editorial.webp',import.meta.url));await stat(new URL('../dist/assets/airport-1600.webp',import.meta.url));
 });
 test('approved text and full chapter origin are present',async()=>{
  const h=(await r('dist/index.html')).toString();const c=JSON.parse(await r('dist/content.json'));

@@ -7,7 +7,7 @@ await mkdir(join(dist,'assets'),{recursive:true});
 await mkdir(join(dist,'admin'),{recursive:true});
 for(const f of ['index.html','site.css','site.js','content.json','robots.txt'])await copyFile(join(src,f),join(dist,f));
 for(const f of ['index.html','admin.js'])await copyFile(join(src,'admin',f),join(dist,'admin',f));
-for(const f of ['approved-scene.jpg','approved-mobile-sea.jpg','approved-mobile-book.jpg']){
+for(const f of ['approved-scene.jpg','approved-mobile-sea.jpg','approved-mobile-book.jpg','airport-editorial.webp']){
   await copyFile(join(src,'visual',f),join(dist,'assets',f));
 }
 for(const pack of (await readdir(join(src,'assets-packs'))).filter(n=>n.endsWith('.tar.gz'))){
@@ -26,6 +26,6 @@ for(const pack of (await readdir(join(src,'assets-packs'))).filter(n=>n.endsWith
     pos+=Math.ceil(size/512)*512;
   }
 }
-for(const f of ['approved-scene.jpg','approved-mobile-sea.jpg','approved-mobile-book.jpg','airport-1600.webp','airport-800.webp','boat-800.webp','resort-800.webp','family-800.webp','lunch-800.webp','evening-800.webp','jotrip-wordmark.png'])await readFile(join(dist,'assets',f));
+for(const f of ['approved-scene.jpg','approved-mobile-sea.jpg','approved-mobile-book.jpg','airport-editorial.webp','airport-1600.webp','airport-800.webp','boat-800.webp','resort-800.webp','family-800.webp','lunch-800.webp','evening-800.webp','jotrip-wordmark.png'])await readFile(join(dist,'assets',f));
 await writeFile(join(dist,'.nojekyll'),'');
 console.log('JoTrip approved backdrop and verified documentary photos packaged: '+(await readdir(join(dist,'assets'))).length+' assets');
