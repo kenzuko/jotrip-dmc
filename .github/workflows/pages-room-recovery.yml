@@ -40,10 +40,7 @@ jobs:
               if(s.isDirectory()){await walk(file);continue}
               if(!/\.(html|css|js)$/.test(name))continue;
               let t=await readFile(file,'utf8');
-              if(name.endsWith('.html') && !t.includes('<base href="/jotrip-dmc/">')){
-                t=t.replace('<head>','<head>\n<base href="/jotrip-dmc/">');
-              }
-              t=t.replace(/(["'(=])\/(?!\/)/g,'$1');
+              t=t.replace(/(["'(=])\/(?!\/)/g,'$1/jotrip-dmc/');
               await writeFile(file,t);
             }
           }
