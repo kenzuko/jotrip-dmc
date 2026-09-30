@@ -1,141 +1,150 @@
 <!doctype html>
 <html lang="vi">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#efe3cf">
-<meta name="description" content="JoTrip DMC - The Island Reading Room. Một căn phòng bên biển Phú Quốc, một cuốn sách sống và những ký ức thật.">
-<title>JoTrip DMC · The Island Reading Room</title>
-<link rel="preload" as="image" href="/assets/boat-800.webp">
-<link rel="preload" as="image" href="/assets/airport-1600.webp">
-<link rel="stylesheet" href="/app.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#644529">
+  <title>JoTrip DMC | Phú Quốc, Việt Nam</title>
+  <meta name="description" content="JoTrip DMC. Đi cùng người bản địa, hiểu hòn đảo, rồi yêu cả hành trình. Kỳ nghỉ Phú Quốc được chăm chút theo cách riêng của bạn.">
+  <link rel="preload" as="image" href="./assets/approved-scene.jpg">
+  <link rel="preload" as="image" href="./assets/airport-1600.webp">
+  <link rel="stylesheet" href="./site.css">
+  <script type="module" src="./site.js"></script>
 </head>
 <body>
-<a class="skip" href="#room">Bỏ qua phần mở đầu</a>
-<main id="app">
-<section class="room" id="room" aria-label="The Island Reading Room của JoTrip DMC">
-  <div class="window-scene" aria-hidden="true">
-    <img src="/assets/boat-800.webp" alt="">
-    <span class="window-glass"></span>
-  </div>
-  <div class="table-surface" aria-hidden="true"></div>
+  <a class="skip" href="#experience">Bỏ qua phần mở đầu</a>
+  <main id="experience">
+    <!-- The exact approved composition is a photographic visual asset, NOT reconstructed shapes.
+         The transparent DOM hotspots below provide real keyboard/pointer interaction and the
+         photo-page overlay uses the unmodified, verified JoTrip airport file. -->
+    <section class="desktop-stage" aria-labelledby="desktop-heading">
+      <div class="scene" id="scene">
+        <img class="scene-master" src="./assets/approved-scene.jpg"
+             alt="" fetchpriority="high" decoding="async" width="1536" height="864">
+        <figure class="airport-embed">
+          <img src="./assets/airport-1600.webp" alt="Ảnh thật của đoàn khách JoTrip tại sân bay Phú Quốc" decoding="async">
+        </figure>
+        <h1 class="visually-hidden" id="desktop-heading">Đi cùng người bản địa. Hiểu hòn đảo. Rồi yêu cả hành trình.</h1>
+        <p class="visually-hidden">Một chuyến đi riêng không bắt đầu bằng danh sách điểm đến. Nó bắt đầu từ điều bạn muốn cảm nhận khi ở đây.</p>
+        <p class="visually-hidden">Hòn đảo trong chúng tôi. Qua từng vị khách, từng hành trình và những cuộc gặp gỡ trên chính hòn đảo này, chúng tôi dần hiểu rằng Phú Quốc không chỉ là một điểm đến, mà còn là nơi lưu lại những cảm xúc rất thật. Hòn đảo này cũng dạy chúng tôi giá trị của sự chân thành, của những kết nối giữa con người với con người, và của những hành trình có thể ở lại rất lâu trong ký ức.</p>
+        <a class="hotspot hs-logo" href="#experience" aria-label="JoTrip DMC - về đầu trang"></a>
+        <button class="hotspot hs-stories" type="button" data-open="reader" aria-label="Stories - mở cuốn sách"></button>
+        <button class="hotspot hs-journeys" type="button" data-open="memories" aria-label="Journeys - xem ảnh và những hành trình"></button>
+        <button class="hotspot hs-about" type="button" data-open="reader" aria-label="About - câu chuyện JoTrip"></button>
+        <button class="hotspot hs-contact" type="button" data-open="brief" aria-label="Contact - kể chúng tôi nghe chuyến đi"></button>
+        <button class="hotspot hs-cta-top" type="button" data-open="brief" aria-label="Bắt đầu từ điều bạn muốn"></button>
+        <button class="hotspot hs-cta-hero" type="button" data-open="brief" aria-label="Bắt đầu từ điều bạn muốn"></button>
+        <button class="hotspot hs-open-book" type="button" data-open="reader" aria-label="Mở cuốn sách JoTrip DMC"></button>
+        <button class="hotspot hs-story" type="button" data-open="reader" aria-label="Xem câu chuyện bằng chữ và ảnh thật của JoTrip"></button>
+        <button class="hotspot hs-note" type="button" data-open="note" aria-label="Đọc tấm thiệp trên bàn"></button>
+        <button class="hotspot hs-memories" type="button" data-open="memories" aria-label="Xem bộ ảnh thật từ những hành trình JoTrip"></button>
+        <button class="hotspot hs-search" type="button" data-open="toc" aria-label="Tìm chương trong cuốn sách"></button>
+      </div>
+      <div class="desktop-help">Chạm vào cuốn sách hoặc những món đồ trên bàn để khám phá</div>
+    </section>
 
-  <header class="topbar">
-    <a class="brand" href="#room" aria-label="JoTrip DMC">
-      <img src="/assets/jotrip-wordmark.png" alt="JoTrip">
-      <span>DMC</span>
-    </a>
-    <div class="top-actions">
-      <a class="island-corner" id="islandLink" href="https://openphuquoc.com/" target="_blank" rel="noopener">Open Phu Quoc ↗</a>
-      <button class="sound-btn" id="soundToggle" type="button" aria-pressed="true" title="Bật/tắt âm thanh tương tác">♪</button>
-      <button class="menu-btn" id="menuToggle" type="button" aria-expanded="false" aria-controls="menu"><span>☰</span><b>Mục lục</b></button>
-    </div>
-  </header>
+    <section class="mobile-stage" aria-label="JoTrip DMC Phú Quốc">
+      <div class="mobile-scenery">
+        <header class="mobile-topbar">
+          <div class="mobile-brand"><img src="./assets/jotrip-wordmark.png" alt="JoTrip"><span>DMC</span></div>
+          <button class="mobile-menu-button" type="button" id="menuButton" aria-controls="mobileNav" aria-expanded="false">Mục lục ☰</button>
+        </header>
+        <nav id="mobileNav" class="mobile-nav" hidden aria-label="Điều hướng">
+          <button type="button" data-open="reader">Câu chuyện của chúng tôi</button>
+          <button type="button" data-open="memories">Những hành trình</button>
+          <button type="button" data-open="brief">Liên hệ</button>
+          <a href="https://openphuquoc.com/" target="_blank" rel="noopener noreferrer">Khám phá Phú Quốc ↗</a>
+        </nav>
+        <div class="mobile-hero-copy">
+          <small>PHÚ QUỐC, VIỆT NAM</small>
+          <h1>Đi cùng người bản địa.<br>Hiểu hòn đảo.<br><em>Rồi yêu cả hành trình.</em></h1>
+          <p>Một chuyến đi riêng không bắt đầu bằng danh sách điểm đến. Nó bắt đầu từ điều bạn muốn cảm nhận khi ở đây.</p>
+          <div class="mobile-actions"><button class="gold-button" type="button" data-open="brief">Bắt đầu từ điều bạn muốn ↗</button></div>
+        </div>
+      </div>
+      <div class="mobile-book-art" aria-hidden="true">
+        <img src="./assets/approved-mobile-book.jpg" alt="" loading="lazy" width="1164" height="412">
+        <div class="mobile-book-photo"><img src="./assets/airport-1600.webp" alt="" loading="lazy"></div>
+      </div>
+      <div class="mobile-story-excerpt">
+        <small>JOTRIP DMC / NƠI CHÚNG TÔI BẮT ĐẦU</small>
+        <h2>Hòn đảo <em>trong chúng tôi.</em></h2>
+        <p>Qua từng vị khách, từng hành trình và những cuộc gặp gỡ trên chính hòn đảo này, chúng tôi dần hiểu rằng Phú Quốc không chỉ là một điểm đến, mà còn là nơi lưu lại những cảm xúc rất thật.</p>
+        <button type="button" data-open="reader">Mở cuốn sách <span aria-hidden="true">→</span></button>
+        <button type="button" class="paper-note" data-open="note">Phần còn lại, chúng ta cùng viết tiếp. <span>JoTrip DMC</span></button>
+      </div>
+    </section>
 
-  <nav class="menu" id="menu" hidden>
-    <p class="kicker">THE ISLAND READING ROOM</p>
-    <h2>Một căn phòng.<br>Một cuốn sách.<br><em>Nhiều câu chuyện.</em></h2>
-    <button data-action="book">Mở cuốn sách <span>↗</span></button>
-    <button data-action="memories">Những chuyện còn để trên bàn <span>↗</span></button>
-    <button data-action="drink">Một chút trước khi bắt đầu <span>↗</span></button>
-    <button data-action="welcome">Lời chào từ Phú Quốc <span>↗</span></button>
-    <button data-action="planner">Kể về chuyến đi của bạn <span>↗</span></button>
-    <a href="https://openphuquoc.com/" target="_blank" rel="noopener">Tìm hiểu hòn đảo trên Open Phu Quoc <span>↗</span></a>
-    <small>Travel, made personal.</small>
-  </nav>
+    <footer class="site-footer">
+      <span>JoTrip DMC · Travel, made personal.</span>
+      <a href="https://openphuquoc.com/" target="_blank" rel="noopener noreferrer">Khám phá Phú Quốc trên Open Phu Quoc ↗</a>
+      <button type="button" id="soundToggle" aria-pressed="false">Âm thanh: Tắt</button>
+    </footer>
+  </main>
 
-  <button class="hero-book" data-action="book" type="button" aria-label="Mở Living Island Book">
-    <span class="book-cover" aria-hidden="true"></span>
-    <span class="book-paper-stack" aria-hidden="true"></span>
-    <span class="hero-page hero-page-left">
-      <span class="chapter-line"><small>CHƯƠNG 01</small><i></i><small id="heroChapterOrigin">PHÚ QUỐC LUX → JOTRIP DMC</small></span>
-      <strong id="heroChapterTitle">Khởi đầu từ <em>Phú Quốc Lux</em></strong>
-      <span class="hero-sub" id="heroChapterSub">Những người làm nghề tại hòn đảo này và những hành trình đáng nhớ</span>
-      <span class="hero-body" id="heroChapterBody">Từ những chuyến đón đầu tiên, những đoàn khách thân thương và tình yêu dành cho Phú Quốc, chúng tôi từng bước tiếp nối kinh nghiệm làm nghề.</span>
-      <span class="hero-open"><i>▶</i> Mở cuốn sách</span>
-      <span class="hero-page-no">01 / 06</span>
-    </span>
-    <span class="hero-gutter" aria-hidden="true"></span>
-    <span class="hero-page hero-page-right">
-      <img src="/assets/airport-1600.webp" alt="Ảnh tư liệu JoTrip tại sân bay Phú Quốc">
-      <small>ẢNH TƯ LIỆU JOTRIP · SÂN BAY PHÚ QUỐC</small>
-    </span>
-  </button>
+  <dialog id="noteDialog" class="paper-dialog">
+    <button type="button" class="close" data-close aria-label="Đóng lời nhắn">×</button>
+    <small>A NOTE FROM PHÚ QUỐC</small>
+    <h2>Có một chỗ đã được chuẩn bị cho bạn.</h2>
+    <p>Đừng vội xem hết mọi thứ. Hòn đảo này đẹp nhất khi mình để lại một chút thời gian cho những điều không có trong lịch trình.</p>
+    <em>JoTrip DMC</em>
+  </dialog>
 
-  <button class="welcome-note" data-action="welcome" type="button" aria-label="Đọc lời chào">
-    <span>Welcome to<br><b>Phú Quốc.</b></span>
-    <small>Đừng vội xem hết mọi thứ.</small>
-  </button>
-
-  <button class="drink-hotspot" data-action="drink" type="button" aria-label="Một chút trước khi bắt đầu">
-    <span>Một chút trước khi bắt đầu</span>
-  </button>
-
-  <button class="window-hotspot" data-action="window" type="button" aria-label="Nhìn ra ngoài cửa sổ">
-    <span>Ngoài cửa sổ</span>
-  </button>
-
-  <button class="memory-stack" data-action="memories" type="button" aria-label="Mở những chuyện còn để trên bàn">
-    <img src="/assets/boat-360.webp" alt="" aria-hidden="true">
-    <img src="/assets/lunch-360.webp" alt="" aria-hidden="true">
-    <img src="/assets/evening-360.webp" alt="" aria-hidden="true">
-    <img src="/assets/family-360.webp" alt="" aria-hidden="true">
-    <span>Những chuyện còn để trên bàn</span>
-  </button>
-
-  <button class="journey-paper" data-action="planner" type="button" aria-label="Mở tờ travel brief">
-    <span>YOUR PHU QUOC JOURNEY</span>
-    <b>Một tờ giấy còn trống</b>
-    <small>Kể chúng tôi nghe ↗</small>
-  </button>
-
-  <div class="room-whisper">
-    <p class="kicker" id="roomEyebrow">JOTRIP DMC · PHÚ QUỐC</p>
-    <p id="roomEntry">Có một chỗ đã được chuẩn bị cho bạn.</p>
-    <small id="roomHint">Phần còn lại, chúng ta cùng viết tiếp.</small>
-  </div>
-
-  <footer class="room-footer" id="roomFooter">Có một chỗ đã được chuẩn bị cho bạn. Phần còn lại, chúng ta cùng viết tiếp.</footer>
-</section>
-
-<section class="sheet-root" id="sheetRoot" hidden aria-live="polite">
-  <button class="shade" data-close aria-label="Đóng"></button>
-  <article class="story-sheet" id="storySheet" role="dialog" aria-modal="true"></article>
-</section>
-
-<section class="reader" id="reader" hidden aria-label="Living Island Book">
-  <div class="reader-room" aria-hidden="true"></div>
-  <header class="reader-head">
-    <button id="readerClose" type="button">← <span>Trở về phòng đọc</span></button>
-    <span>JOTRIP DMC · LIVING ISLAND BOOK</span>
-    <button id="chapterMenuToggle" type="button">Mục lục</button>
-  </header>
-  <nav class="chapter-menu" id="chapterMenu" hidden></nav>
-  <div class="book-stage">
-    <div class="physical-book" id="physicalBook">
-      <div class="page-stack" aria-hidden="true"></div>
-      <div class="gutter" aria-hidden="true"></div>
-      <article class="book-page page-text">
-        <div class="chapter-top"><span id="chapterNo"></span><i></i><span id="chapterOrigin"></span></div>
-        <h1 id="chapterTitle"></h1>
-        <h2 id="chapterSub"></h2>
-        <p id="chapterBody"></p>
-        <div class="page-foot"><button id="chapterNextStory" type="button">Đọc chương tiếp →</button><span id="chapterCount"></span></div>
+  <dialog id="readerDialog" class="reader-dialog">
+    <header class="reader-top">
+      <button type="button" data-close>← Trở về phòng</button>
+      <span>JOTRIP DMC · LIVING BOOK</span>
+      <button type="button" id="tocToggle" aria-controls="toc" aria-expanded="false">Mục lục ☰</button>
+    </header>
+    <nav class="toc" id="toc" hidden aria-label="Chương sách"></nav>
+    <div class="reader-spread">
+      <article class="reader-paper">
+        <p id="chapterEyebrow" class="chapter-eyebrow"></p>
+        <h2 id="chapterTitle"></h2>
+        <h3 id="chapterSubtitle"></h3>
+        <div id="chapterBody" class="chapter-body"></div>
+        <span id="chapterNumber"></span>
       </article>
-      <figure class="book-page page-image">
-        <img id="chapterImage" src="/assets/airport-1600.webp" alt="">
+      <figure class="reader-image">
+        <img id="chapterPhoto" alt="" src="./assets/airport-1600.webp">
         <figcaption id="chapterCaption"></figcaption>
       </figure>
-      <div class="turn-sheet" id="turnSheet" aria-hidden="true"></div>
     </div>
-    <div class="book-controls">
-      <button id="prevChapter" type="button">← Trang trước</button>
+    <div class="reader-controls">
+      <button type="button" id="chapterPrev">← Trang trước</button>
       <span>Vuốt hoặc dùng phím ← →</span>
-      <button id="nextChapter" type="button">Trang tiếp →</button>
+      <button type="button" id="chapterNext">Trang tiếp →</button>
     </div>
-  </div>
-</section>
-</main>
-<script src="/app.js" type="module"></script>
+  </dialog>
+
+  <dialog id="memoriesDialog" class="memories-dialog">
+    <button type="button" class="close" data-close aria-label="Đóng bộ ảnh">×</button>
+    <small>NHỮNG CHUYỆN CÒN ĐỂ TRÊN BÀN</small>
+    <h2>Những khoảnh khắc đã đi qua cùng nhau.</h2>
+    <p>Những bức ảnh thật trong kho tư liệu JoTrip. Không có lời chứng thực hay câu chuyện được tự ý gán cho người trong ảnh.</p>
+    <div class="memories-grid">
+      <figure><img src="./assets/airport-800.webp" alt="Ảnh tư liệu JoTrip - sân bay Phú Quốc" loading="lazy"><figcaption>Những cuộc gặp ở sân bay</figcaption></figure>
+      <figure><img src="./assets/boat-800.webp" alt="Ảnh tư liệu JoTrip - hành trình biển" loading="lazy"><figcaption>Những ngày ngoài biển</figcaption></figure>
+      <figure><img src="./assets/evening-800.webp" alt="Ảnh tư liệu JoTrip - buổi chiều" loading="lazy"><figcaption>Một chiều thật chậm</figcaption></figure>
+      <figure><img src="./assets/lunch-800.webp" alt="Ảnh tư liệu JoTrip - bữa ăn" loading="lazy"><figcaption>Những câu chuyện quanh bàn ăn</figcaption></figure>
+    </div>
+  </dialog>
+
+  <dialog id="briefDialog" class="brief-dialog">
+    <button type="button" class="close" data-close aria-label="Đóng biểu mẫu">×</button>
+    <small>YOUR PHU QUOC JOURNEY</small>
+    <h2>Kể chúng tôi nghe về chuyến đi của bạn.</h2>
+    <p>Bạn không cần có sẵn một lịch trình. Hãy bắt đầu bằng người đi cùng, nhịp nghỉ bạn mong muốn và những điều JoTrip nên biết trước.</p>
+    <form id="briefForm">
+      <label>Tên bạn<input name="name" autocomplete="name"></label>
+      <label>Người đi cùng<input name="companions" placeholder="Hai người, gia đình, nhóm bạn..."></label>
+      <label>Dự kiến khi nào đến Phú Quốc?<input name="when" placeholder="Ngày đi và số đêm, nếu đã biết"></label>
+      <label>Nhịp nghỉ bạn mong muốn<textarea name="pace" placeholder="Chậm rãi, riêng tư, khám phá, nhiều thời gian bên biển..."></textarea></label>
+      <label>Có điều gì chúng tôi nên biết để chăm bạn tốt hơn?<textarea name="care"></textarea></label>
+      <label>Thông tin liên hệ<input name="contact" autocomplete="email" placeholder="Email hoặc số WhatsApp / Zalo"></label>
+      <button type="submit" class="gold-button">Tạo Draft 01</button>
+    </form>
+    <div id="briefResult" class="brief-result" hidden></div>
+  </dialog>
 </body>
 </html>
