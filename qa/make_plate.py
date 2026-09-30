@@ -86,5 +86,24 @@ hero[31:57,341:662]=.72
 hero=gaussian_filter(hero,sigma=8)[:,:,None]
 soft=cv2.GaussianBlur(output,(0,0),sigmaX=7)
 output=(output.astype(np.float32)*(1-hero)+soft.astype(np.float32)*hero).astype(np.uint8)
+# The right-hand note is the approved *real image* of the paper. Remove only
+# its handwritten ink, then render translated writing via live HTML.
+# Sample untouched note paper surrounding the ink and reconstruct gentle shading.
+patches_note=[(1410,395,1518,412),(1401,565,1500,575),
+ (1390,431,1400,545),(1511,425,1525,540)]
+nx=[];ny=[];nv=[]
+for x0,y0,x1,y1 in patches_note:
+ for y in range(y0,y1,2):
+  for x in range(x0,x1,2):
+   if mask[y,x] or not (80<gray[y,x]<235):continue
+   nx.append((x-1456)/85);ny.append((y-487)/115);nv.append(src[y,x].astype(float))
+if len(nx)>80:
+ na=feats(np.array(nx),np.array(ny));nv=np.array(nv)
+ nc=np.linalg.solve(na.T@na+np.eye(na.shape[1])*.6,na.T@nv)
+ nf=(feats((XX.ravel()-1456)/85,(YY.ravel()-487)/115)@nc).reshape(H,W,3).astype(np.float32)
+ region2=np.zeros((H,W),np.float32)
+ region2[420:570,1388:1527]=1
+ region2=gaussian_filter(region2,sigma=5)[:,:,None]
+ output=(output.astype(np.float32)*(1-region2)+nf*region2).astype(np.uint8)
 cv2.imwrite(str(p/'scene-clean-v2.png'),output,[cv2.IMWRITE_PNG_COMPRESSION,7])
 print('fit samples',len(xs))
