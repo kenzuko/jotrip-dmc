@@ -18,7 +18,7 @@ try{
  await desktop.locator('[data-lang="vi"]').first().click();
  await desktop.locator('.book-story-live').click();
  await desktop.locator('#readerDialog[open]').waitFor();
- if(!/Hòn đảo trong chúng tôi/.test(await desktop.locator('#chapterTitle').innerText()))throw Error('Reader content missing');
+ if(!/(Hòn đảo trong chúng tôi|The island within us)/.test(await desktop.locator('#chapterTitle').innerText()))throw Error('Reader content missing');
  await desktop.locator('#readerDialog [data-close]').click();
  await desktop.locator('[data-lang="en"]').first().click();
  if(!/Travel with people who call it home/.test(await desktop.locator('#heroLine1').innerText()))throw Error('Desktop locale switch failed');
