@@ -25,6 +25,35 @@
           <img src="./assets/airport-editorial.webp" alt="Ảnh thật của đoàn khách JoTrip tại sân bay Phú Quốc" decoding="async">
         </figure>
         <img class="approved-book-edge" src="./assets/approved-book-edge.png" alt="" aria-hidden="true" width="104" height="384">
+
+        <div class="locale-switch" role="group" aria-label="Language">
+          <button type="button" data-lang="vi" aria-pressed="true">VI</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+
+        <section class="hero-live" aria-label="JoTrip DMC introduction">
+          <small id="heroEyebrow">PHÚ QUỐC, VIỆT NAM</small>
+          <h1 aria-hidden="true">
+            <span id="heroLine1">Đi cùng người bản địa.</span><br>
+            <span id="heroLine2">Hiểu hòn đảo.</span> <em id="heroLine3">Rồi yêu cả hành trình.</em>
+          </h1>
+          <p id="heroLead">Một chuyến đi riêng không bắt đầu bằng danh sách điểm đến.<br>Nó bắt đầu từ điều bạn muốn cảm nhận khi ở đây.</p>
+          <div class="hero-live-actions">
+            <button class="hero-live-primary" type="button" data-open="brief" id="heroPrimary">Bắt đầu từ điều bạn muốn</button>
+            <button class="hero-live-link" type="button" data-open="reader" id="heroBook">Mở cuốn sách <span aria-hidden="true">→</span></button>
+          </div>
+        </section>
+
+        <article class="book-copy-live" aria-label="Opening page">
+          <small id="bookEyebrow">JOTRIP DMC / NƠI CHÚNG TÔI BẮT ĐẦU</small>
+          <h2><span id="bookTitle1">Hòn đảo</span><br><em id="bookTitle2">trong chúng tôi.</em></h2>
+          <p id="bookExcerpt">Qua từng vị khách, từng hành trình và những cuộc gặp gỡ trên chính hòn đảo này, chúng tôi dần hiểu rằng Phú Quốc không chỉ là một điểm đến, mà còn là nơi lưu lại những cảm xúc rất thật. Hòn đảo này cũng dạy chúng tôi giá trị của sự chân thành, của những kết nối giữa con người với con người, và của những hành trình có thể ở lại rất lâu trong ký ức.</p>
+          <button type="button" class="book-story-live" data-open="reader" id="bookStory">Đọc câu chuyện <span aria-hidden="true">→</span></button>
+          <span class="book-page-live">01 / 06</span>
+        </article>
+
+        <div class="discover-hint" id="discoverHint" role="status" aria-live="polite"></div>
+
         <h1 class="visually-hidden" id="desktop-heading">Đi cùng người bản địa. Hiểu hòn đảo. Rồi yêu cả hành trình.</h1>
         <p class="visually-hidden">Một chuyến đi riêng không bắt đầu bằng danh sách điểm đến. Nó bắt đầu từ điều bạn muốn cảm nhận khi ở đây.</p>
         <p class="visually-hidden">Hòn đảo trong chúng tôi. Qua từng vị khách, từng hành trình và những cuộc gặp gỡ trên chính hòn đảo này, chúng tôi dần hiểu rằng Phú Quốc không chỉ là một điểm đến, mà còn là nơi lưu lại những cảm xúc rất thật. Hòn đảo này cũng dạy chúng tôi giá trị của sự chân thành, của những kết nối giữa con người với con người, và của những hành trình có thể ở lại rất lâu trong ký ức.</p>
@@ -34,11 +63,11 @@
         <button class="hotspot hs-about" type="button" data-open="reader" aria-label="About - câu chuyện JoTrip"></button>
         <button class="hotspot hs-contact" type="button" data-open="brief" aria-label="Contact - kể chúng tôi nghe chuyến đi"></button>
         <button class="hotspot hs-cta-top" type="button" data-open="brief" aria-label="Bắt đầu từ điều bạn muốn"></button>
-        <button class="hotspot hs-cta-hero" type="button" data-open="brief" aria-label="Bắt đầu từ điều bạn muốn"></button>
-        <button class="hotspot hs-open-book" type="button" data-open="reader" aria-label="Mở cuốn sách JoTrip DMC"></button>
+        <button class="hotspot hs-cta-hero" type="button" data-open="brief" data-hint-key="tellUs" aria-label="Bắt đầu từ điều bạn muốn"></button>
+        <button class="hotspot hs-open-book" type="button" data-open="reader" data-hint-key="openBook" aria-label="Mở cuốn sách JoTrip DMC"></button>
         <button class="hotspot hs-story" type="button" data-open="reader" aria-label="Xem câu chuyện bằng chữ và ảnh thật của JoTrip"></button>
-        <button class="hotspot hs-note" type="button" data-open="note" aria-label="Đọc tấm thiệp trên bàn"></button>
-        <button class="hotspot hs-memories" type="button" data-open="memories" aria-label="Xem bộ ảnh thật từ những hành trình JoTrip"></button>
+        <button class="hotspot hs-note" type="button" data-open="note" data-hint-key="readNote" aria-label="Đọc tấm thiệp trên bàn"></button>
+        <button class="hotspot hs-memories" type="button" data-open="memories" data-hint-key="viewMemories" aria-label="Xem bộ ảnh thật từ những hành trình JoTrip"></button>
         <button class="hotspot hs-search" type="button" data-open="toc" aria-label="Tìm chương trong cuốn sách"></button>
       </div>
       <div class="desktop-help">Chạm vào cuốn sách hoặc những món đồ trên bàn để khám phá</div>
@@ -48,7 +77,13 @@
       <div class="mobile-scenery">
         <header class="mobile-topbar">
           <div class="mobile-brand"><img src="./assets/jotrip-wordmark.png" alt="JoTrip"><span>DMC</span></div>
-          <button class="mobile-menu-button" type="button" id="menuButton" aria-controls="mobileNav" aria-expanded="false">Mục lục ☰</button>
+          <div class="mobile-top-actions">
+            <div class="mobile-locale" role="group" aria-label="Language">
+              <button type="button" data-lang="vi" aria-pressed="true">VI</button>
+              <button type="button" data-lang="en" aria-pressed="false">EN</button>
+            </div>
+            <button class="mobile-menu-button" type="button" id="menuButton" aria-controls="mobileNav" aria-expanded="false">Mục lục ☰</button>
+          </div>
         </header>
         <nav id="mobileNav" class="mobile-nav" hidden aria-label="Điều hướng">
           <button type="button" data-open="reader">Câu chuyện của chúng tôi</button>
@@ -57,22 +92,23 @@
           <a href="https://openphuquoc.com/" target="_blank" rel="noopener noreferrer">Khám phá Phú Quốc ↗</a>
         </nav>
         <div class="mobile-hero-copy">
-          <small>PHÚ QUỐC, VIỆT NAM</small>
-          <h1>Đi cùng người bản địa.<br>Hiểu hòn đảo.<br><em>Rồi yêu cả hành trình.</em></h1>
-          <p>Một chuyến đi riêng không bắt đầu bằng danh sách điểm đến. Nó bắt đầu từ điều bạn muốn cảm nhận khi ở đây.</p>
-          <div class="mobile-actions"><button class="gold-button" type="button" data-open="brief">Bắt đầu từ điều bạn muốn ↗</button></div>
+          <small id="mobileHeroEyebrow">PHÚ QUỐC, VIỆT NAM</small>
+          <h1><span id="mobileHero1">Đi cùng người bản địa.</span><br><span id="mobileHero2">Hiểu hòn đảo.</span><br><em id="mobileHero3">Rồi yêu cả hành trình.</em></h1>
+          <p id="mobileHeroLead">Một chuyến đi riêng không bắt đầu bằng danh sách điểm đến. Nó bắt đầu từ điều bạn muốn cảm nhận khi ở đây.</p>
+          <div class="mobile-actions"><button class="gold-button" type="button" data-open="brief" id="mobileHeroPrimary">Bắt đầu từ điều bạn muốn ↗</button></div>
         </div>
       </div>
-      <div class="mobile-book-art" aria-hidden="true">
+      <button class="mobile-book-art mobile-book-button" type="button" data-open="reader" aria-label="Mở cuốn sách JoTrip DMC">
         <img src="./assets/approved-mobile-book.jpg" alt="" loading="lazy" width="1164" height="412">
         <div class="mobile-book-photo"><img src="./assets/airport-editorial.webp" alt="" loading="lazy"></div>
-      </div>
+        <span class="mobile-object-cue" id="mobileBookCue">Chạm để mở sách</span>
+      </button>
       <div class="mobile-story-excerpt">
-        <small>JOTRIP DMC / NƠI CHÚNG TÔI BẮT ĐẦU</small>
-        <h2>Hòn đảo <em>trong chúng tôi.</em></h2>
-        <p>Qua từng vị khách, từng hành trình và những cuộc gặp gỡ trên chính hòn đảo này, chúng tôi dần hiểu rằng Phú Quốc không chỉ là một điểm đến, mà còn là nơi lưu lại những cảm xúc rất thật.</p>
-        <button type="button" data-open="reader">Mở cuốn sách <span aria-hidden="true">→</span></button>
-        <button type="button" class="paper-note" data-open="note">Phần còn lại, chúng ta cùng viết tiếp. <span>JoTrip DMC</span></button>
+        <small id="mobileBookEyebrow">JOTRIP DMC / NƠI CHÚNG TÔI BẮT ĐẦU</small>
+        <h2><span id="mobileBookTitle1">Hòn đảo</span> <em id="mobileBookTitle2">trong chúng tôi.</em></h2>
+        <p id="mobileBookExcerpt">Qua từng vị khách, từng hành trình và những cuộc gặp gỡ trên chính hòn đảo này, chúng tôi dần hiểu rằng Phú Quốc không chỉ là một điểm đến, mà còn là nơi lưu lại những cảm xúc rất thật.</p>
+        <button type="button" data-open="reader" id="mobileOpenBook">Mở cuốn sách <span aria-hidden="true">→</span></button>
+        <button type="button" class="paper-note" data-open="note"><span id="mobileNoteText">Phần còn lại, chúng ta cùng viết tiếp.</span> <span>JoTrip DMC</span></button>
       </div>
     </section>
 
