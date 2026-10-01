@@ -1,78 +1,31 @@
-# JoTrip DMC - The Island Reading Room
+# JoTrip DMC - CLEAN REBUILD
 
-Clean production rebuild from the owner-approved **28/09/2026** creative direction.
+Reset date: 2026-10-01
 
-This is deliberately not another visual patch on top of the previous V3/V4 room. The homepage, physical book, responsive composition and room atmosphere now form one maintainable system.
+This branch is intentionally a clean slate.
 
-## Creative north star
+## Hard rule
 
-> Có một chỗ đã được chuẩn bị cho bạn.  
-> Phần còn lại, chúng ta cùng viết tiếp.
+Do **not** recover, copy, import, port, or reuse any previous JoTrip DMC page implementation from Git history.
 
-The homepage is a quiet Phu Quoc reading room prepared for a guest. It is not an OTA, a conventional luxury landing page, a game or a resort brochure.
+The former room/scene implementation, V3/V4/V5 visual layers, approved-scene composites, mobile crops, Phase 1 overlays, legacy CSS/JS/HTML, old QA, and old visual-lock documents were deliberately removed from the working tree because the site is being rebuilt from scratch.
 
-Core physical objects:
-- the Living Island Book - the main narrative object
-- a small welcome note
-- a welcome drink interaction
-- **Những chuyện còn để trên bàn** - real JoTrip documentary memories
-- a paper travel brief
-- a calm sea/window atmosphere
-- small sound and table-of-contents controls
+## Preserved material
 
-## Visual architecture
+Only source material that is not the old page implementation remains:
 
-`src/room.css` is now the single visual source of truth.
+- `data/content/content.json` - editorial/content source
+- `data/source-assets/webp-a.tar.gz`
+- `data/source-assets/webp-b.tar.gz`
+- `data/source-assets/webp-c.tar.gz`
+- `data/source-assets/airport-editorial.webp`
 
-The retired V3 `src/room-image-parts/` artwork is intentionally removed. Do not restore it and do not layer V4.x override blocks back into the stylesheet.
+These are inputs for a new implementation, not permission to reconstruct the old page.
 
-The approved room atmosphere is stored in `src/approved-room-parts/` and built as:
+## Rebuild rule
 
-`/assets/room-window-approved.webp`
+Start with a new information architecture, new markup, new styles, new responsive composition, and new QA.
 
-It is atmosphere only. Documentary people and journey memories continue to use the verified real JoTrip photo archive from `src/assets-packs/`.
+Do not use historical commits as implementation references.
 
-Desktop and mobile are separate compositions:
-- Desktop centers a thick physical open book inside the room.
-- Mobile is not a crop of desktop and does not squeeze a two-page book into a phone-sized frame.
-
-## Product locks
-
-- No Sunset Town, Kiss Bridge / Cầu Hôn or landmark-specific hero view.
-- JoTrip master wordmark remains unchanged.
-- Brand colors: yellow `#FCBC12`, green `#77944C`.
-- Slogan: **Travel, made personal.**
-- Quiet luxury comes from attention, materials, restraint and human care - not generic VIP/premium imagery.
-- Homepage stays restrained. Do not add feature sections simply because there is empty space.
-- Open Phu Quoc remains the destination reference through a small outbound link.
-- Bespoke remains a paper-style travel brief. It is not represented as a confirmed booking or server-side CRM submission.
-- `/admin/` is JoTrip DMC's lightweight text editor and is separate from Open CMS.
-- Preview remains `noindex`; production DNS is unchanged.
-
-## Content sources
-
-Verified JoTrip photography is used for:
-- airport
-- boat
-- resort
-- family
-- lunch
-- evening
-- driver
-
-Do not fabricate guest quotes, dates, roles, awards, statistics or detailed memory stories without verified context.
-
-## Build and QA
-
-```bash
-npm run build
-npm test
-```
-
-The tests explicitly reject the retired room artwork and legacy mobile-book/CSS override architecture.
-
-## Cloudflare preview
-
-Worker: `jotrip-dmc-preview`.
-
-A green push to `main` triggers the Cloudflare preview deployment through GitHub Actions when the configured repository secrets are available. Preview deployment and production DNS are separate states.
+Public/main is not changed by this reset.
