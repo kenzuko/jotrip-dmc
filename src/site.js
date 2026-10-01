@@ -79,6 +79,7 @@ function applyLocale(next,{persist=true}={}){
   setText('#mobileHeroEyebrow',t.hero.eyebrow);setText('#mobileHero1',t.hero.line1);setText('#mobileHero2',t.hero.line2);setText('#mobileHero3',t.hero.line3);
   setText('#mobileHeroLead',t.hero.lead);setText('#mobileHeroPrimary',t.hero.primary+' ↗');
   setText('#mobileBookEyebrow',t.book.eyebrow);setText('#mobileBookTitle1',t.book.title1);setText('#mobileBookTitle2',t.book.title2);
+  setText('#mobileStripEyebrow',t.book.eyebrow);setText('#mobileStripTitle1',t.book.title1);setText('#mobileStripTitle2',t.book.title2);
   setText('#mobileBookExcerpt',t.book.excerpt);setHtml('#mobileOpenBook',t.hero.book+' <span aria-hidden="true">→</span>');
   setText('#mobileNoteText',t.mobile.note);setText('#mobileBookCue',t.hints.mobileBook);
 

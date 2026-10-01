@@ -10,6 +10,7 @@ try{
  desktop.on('response',r=>{if(r.status()>=400)errors.push('desktop HTTP '+r.status()+' '+r.url())});
  await desktop.goto(BASE,{waitUntil:'networkidle',timeout:30000});
  await desktop.locator('.scene-master').waitFor({state:'visible'});
+ await desktop.locator('.locale-switch [data-lang="vi"]').click();
  const sceneOk=await desktop.locator('.scene-master').evaluate(e=>e.complete&&e.naturalWidth===1536);
  const photoOk=await desktop.locator('.airport-embed img').evaluate(e=>e.complete&&e.naturalWidth>0);
  const stylesOk=await desktop.locator('.scene').evaluate(e=>getComputedStyle(e).position==='absolute');
@@ -33,6 +34,7 @@ try{
  mobile.on('pageerror',e=>errors.push('mobile '+e.message));
  mobile.on('response',r=>{if(r.status()>=400)errors.push('mobile HTTP '+r.status()+' '+r.url())});
  await mobile.goto(BASE,{waitUntil:'networkidle',timeout:30000});
+ await mobile.locator('.mobile-locale [data-lang="vi"]').click();
  const mobileVisible=await mobile.locator('.mobile-stage').isVisible();
  const desktopHidden=await mobile.locator('.desktop-stage').isHidden();
  if(!mobileVisible||!desktopHidden)throw Error('Mobile breakpoint/camera failed');
