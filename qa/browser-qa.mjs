@@ -15,6 +15,7 @@ try{
  const stylesOk=await desktop.locator('.scene').evaluate(e=>getComputedStyle(e).position==='absolute');
  if(!sceneOk||!photoOk||!stylesOk)throw Error('Desktop failed asset/render validation '+JSON.stringify({sceneOk,photoOk,stylesOk}));
  await desktop.screenshot({path:'qa-artifacts/approved-desktop.png'});
+ await desktop.locator('[data-lang="vi"]').first().click();
  await desktop.locator('.book-story-live').click();
  await desktop.locator('#readerDialog[open]').waitFor();
  if(!/Hòn đảo trong chúng tôi/.test(await desktop.locator('#chapterTitle').innerText()))throw Error('Reader content missing');
