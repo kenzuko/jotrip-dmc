@@ -72,6 +72,7 @@ function applyLocale(next,{persist=true}={}){
   setText('#heroLine1',t.hero.line1);setText('#heroLine2',t.hero.line2);setText('#heroLine3',t.hero.line3);
   const desktopLead=q('#heroLead');if(desktopLead)desktopLead.textContent=t.hero.lead;
   setText('#heroPrimary',t.hero.primary);setHtml('#heroBook',t.hero.book+' <span aria-hidden="true">→</span>');
+  setText('#topBrief',t.hero.primary);setText('#desktopNoteText',t.mobile.note);
 
   setText('#bookEyebrow',t.book.eyebrow);setText('#bookTitle1',t.book.title1);setText('#bookTitle2',t.book.title2);
   setText('#bookExcerpt',t.book.excerpt);setHtml('#bookStory',t.book.story+' <span aria-hidden="true">→</span>');
