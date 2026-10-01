@@ -39,5 +39,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: jotrip-v2-phase1-qa
-          path: qa-artifacts/*.png
+          path: |
+            qa-artifacts/*.png
+            dist/assets/legacy-room-atmosphere.webp
           retention-days: 7
