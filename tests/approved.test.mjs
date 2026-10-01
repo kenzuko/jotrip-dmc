@@ -34,10 +34,10 @@ test('audio is opt-in and mobile has its own scene crops',async()=>{
 
 test('phase1 visible copy is live and localized in both VI and EN',async()=>{
  const h=(await r('dist/index.html')).toString();const c=JSON.parse(await r('dist/content.json'));const js=(await r('dist/site.js')).toString();
- assert.match(h,/class="hero-live"/);assert.match(h,/class="book-copy-live"/);assert.match(h,/data-lang="vi"/);assert.match(h,/data-lang="en"/);
+ assert.match(h,/class="hero-live"/);assert.match(h,/class="book-copy-live"/);assert.match(h,/id="topBrief"/);assert.match(h,/id="desktopNoteText"/);assert.match(h,/data-lang="vi"/);assert.match(h,/data-lang="en"/);
  assert.ok(c.locales?.vi?.hero?.line1);assert.ok(c.locales?.en?.hero?.line1);
  assert.equal(c.locales.vi.chapters.length,6);assert.equal(c.locales.en.chapters.length,6);
- assert.match(js,/applyLocale/);assert.match(js,/data-hint-key/);
+ assert.match(js,/applyLocale/);assert.match(js,/setText\('#topBrief'/);assert.match(js,/setText\('#desktopNoteText'/);assert.match(js,/data-hint-key/);
 });
 test('phase1 interaction discovery is subtle and reduced-motion aware',async()=>{
  const h=(await r('dist/index.html')).toString();const css=(await r('dist/site.css')).toString();const js=(await r('dist/site.js')).toString();
