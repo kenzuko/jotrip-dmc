@@ -1,0 +1,43 @@
+name: JoTrip DMC Experience V2 Phase 1 QA
+
+on:
+  push:
+    branches:
+      - feat/dmc-experience-v2-phase1
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: jotrip-dmc-v2-phase1-qa
+  cancel-in-progress: true
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build
+        run: npm run build
+      - name: Tests
+        run: npm test
+      - name: Browser QA
+        shell: bash
+        run: |
+          npm install --no-save --ignore-scripts playwright-core@1.58.2
+          mkdir -p preview-root/jotrip-dmc
+          cp -R dist/. preview-root/jotrip-dmc/
+          python3 -m http.server 8877 --directory preview-root >/tmp/jotrip-phase1-server.log 2>&1 &
+          sleep 2
+          CHROME=$(command -v google-chrome || command -v chromium || command -v chromium-browser) node qa/browser-qa.mjs
+      - name: Upload visual QA
+        uses: actions/upload-artifact@v4
+        with:
+          name: jotrip-v2-phase1-qa
+          path: qa-artifacts/*.png
+          retention-days: 7
