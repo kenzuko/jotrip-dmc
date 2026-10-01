@@ -15,9 +15,17 @@ try{
  const stylesOk=await desktop.locator('.scene').evaluate(e=>getComputedStyle(e).position==='absolute');
  if(!sceneOk||!photoOk||!stylesOk)throw Error('Desktop failed asset/render validation '+JSON.stringify({sceneOk,photoOk,stylesOk}));
  await desktop.screenshot({path:'qa-artifacts/approved-desktop.png'});
- await desktop.locator('.hs-open-book').click({force:true});
+ await desktop.locator('.book-story-live').click();
  await desktop.locator('#readerDialog[open]').waitFor();
  if(!/Hòn đảo trong chúng tôi/.test(await desktop.locator('#chapterTitle').innerText()))throw Error('Reader content missing');
+ await desktop.locator('#readerDialog [data-close]').click();
+ await desktop.locator('[data-lang="en"]').first().click();
+ if(!/Travel with people who call it home/.test(await desktop.locator('#heroLine1').innerText()))throw Error('Desktop locale switch failed');
+ if(!/The island/.test(await desktop.locator('#bookTitle1').innerText()))throw Error('Book locale switch failed');
+ await desktop.screenshot({path:'qa-artifacts/phase1-desktop-en.png'});
+ await desktop.locator('[data-lang="vi"]').first().click();
+ await desktop.locator('.book-story-live').click();
+ await desktop.locator('#readerDialog[open]').waitFor();
  await desktop.screenshot({path:'qa-artifacts/approved-reader.png'});
  await desktop.locator('#readerDialog [data-close]').click();
  const mobile=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true});
@@ -28,11 +36,16 @@ try{
  const desktopHidden=await mobile.locator('.desktop-stage').isHidden();
  if(!mobileVisible||!desktopHidden)throw Error('Mobile breakpoint/camera failed');
  await mobile.screenshot({path:'qa-artifacts/approved-mobile.png',fullPage:true});
+ await mobile.locator('[data-lang="en"]').first().click();
+ if(!/Travel with people who call it home/.test(await mobile.locator('#mobileHero1').innerText()))throw Error('Mobile locale switch failed');
+ if(!/Tap to open the book/.test(await mobile.locator('#mobileBookCue').innerText()))throw Error('Mobile click cue missing');
+ await mobile.screenshot({path:'qa-artifacts/phase1-mobile-en.png',fullPage:true});
+ await mobile.locator('[data-lang="vi"]').first().click();
  await mobile.locator('.mobile-actions button').click();
  await mobile.locator('#briefDialog[open]').waitFor();
  await mobile.locator('[name="name"]').fill('Demo QA');
  await mobile.locator('#briefForm button[type="submit"]').click();
  if(!/chưa nhận được/.test(await mobile.locator('#briefResult').innerText()))throw Error('Draft disclaimer missing');
  if(errors.length)throw Error('Browser network/runtime errors: '+errors.join('; '));
- console.log('PASS desktop exact 1536x864 image, real airport, CSS, reader, 390 mobile, local draft, zero missing resources');
+ console.log('PASS Phase1: immutable scene asset, live VI/EN hero+book, cues, reader, 390 mobile, local draft, zero missing resources');
 }finally{await browser.close()}
