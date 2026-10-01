@@ -21,7 +21,9 @@
       "eyebrow": "TỪ NHỮNG CHUYẾN ĐI",
       "title": "Những hành trình đã qua",
       "subtitle": "Mỗi người đến đảo với một mong muốn khác nhau.",
-      "paragraphs": ["Có những ngày dành cho biển, có những chuyến đi chỉ cần người thân bên cạnh. Làm nghề là học cách lắng nghe để nhận ra điều gì quan trọng đối với từng người, thay vì bắt tất cả đi theo một lịch trình giống nhau."],
+      "paragraphs": [
+        "Có những ngày dành cho biển, có những chuyến đi chỉ cần người thân bên cạnh. Làm nghề là học cách lắng nghe để nhận ra điều gì quan trọng đối với từng người, thay vì bắt tất cả đi theo một lịch trình giống nhau."
+      ],
       "image": "boat-800.webp",
       "alt": "Ảnh tư liệu hành trình biển thật của JoTrip",
       "caption": "ẢNH TƯ LIỆU JOTRIP · NGOÀI BIỂN"
@@ -30,7 +32,9 @@
       "eyebrow": "NHỮNG NGƯỜI LÀM NGHỀ TRÊN ĐẢO",
       "title": "JoTrip hôm nay",
       "subtitle": "Chúng tôi ở đây, ngay trên hòn đảo này.",
-      "paragraphs": ["Chúng tôi kết hợp sự am hiểu bản địa và kinh nghiệm tổ chức để chăm sóc những kỳ nghỉ theo nhu cầu riêng, từ việc đón khách cho đến điều phối từng trải nghiệm và chủ động thích ứng khi kế hoạch thay đổi."],
+      "paragraphs": [
+        "Chúng tôi kết hợp sự am hiểu bản địa và kinh nghiệm tổ chức để chăm sóc những kỳ nghỉ theo nhu cầu riêng, từ việc đón khách cho đến điều phối từng trải nghiệm và chủ động thích ứng khi kế hoạch thay đổi."
+      ],
       "image": "resort-800.webp",
       "alt": "Ảnh tư liệu khách JoTrip",
       "caption": "ẢNH TƯ LIỆU JOTRIP"
@@ -39,7 +43,9 @@
       "eyebrow": "TRAVEL, MADE PERSONAL.",
       "title": "Kỳ nghỉ theo cách riêng",
       "subtitle": "Mỗi hành trình bắt đầu từ con người.",
-      "paragraphs": ["Một buổi chiều thật chậm, một bữa tối riêng tư hay kỳ nghỉ cho nhiều thế hệ. Chúng tôi bắt đầu bằng việc lắng nghe và cùng khách lựa chọn nhịp đi phù hợp với thời gian, sở thích và những điều quan trọng đối với họ."],
+      "paragraphs": [
+        "Một buổi chiều thật chậm, một bữa tối riêng tư hay kỳ nghỉ cho nhiều thế hệ. Chúng tôi bắt đầu bằng việc lắng nghe và cùng khách lựa chọn nhịp đi phù hợp với thời gian, sở thích và những điều quan trọng đối với họ."
+      ],
       "image": "evening-800.webp",
       "alt": "Ảnh tư liệu một buổi chiều trong hành trình JoTrip",
       "caption": "ẢNH TƯ LIỆU JOTRIP · BUỔI CHIỀU BÊN BIỂN"
@@ -48,7 +54,9 @@
       "eyebrow": "NHỮNG ĐIỀU PHÍA SAU",
       "title": "Những người đồng hành",
       "subtitle": "Sự chăm chút đôi khi nằm ở điều khách không cần nhìn thấy.",
-      "paragraphs": ["Đằng sau một trải nghiệm là những người chuẩn bị phương tiện, bữa ăn, thời gian và phương án dự phòng. Mỗi người góp một phần việc để chuyến đi diễn ra tự nhiên và nhẹ nhàng hơn."],
+      "paragraphs": [
+        "Đằng sau một trải nghiệm là những người chuẩn bị phương tiện, bữa ăn, thời gian và phương án dự phòng. Mỗi người góp một phần việc để chuyến đi diễn ra tự nhiên và nhẹ nhàng hơn."
+      ],
       "image": "lunch-800.webp",
       "alt": "Ảnh tư liệu bữa ăn thật của JoTrip",
       "caption": "ẢNH TƯ LIỆU JOTRIP · NHỮNG NGƯỜI ĐỒNG HÀNH"
@@ -57,10 +65,228 @@
       "eyebrow": "YOUR NEXT CHAPTER",
       "title": "Câu chuyện tiếp theo là của bạn",
       "subtitle": "Bắt đầu từ một cuộc trò chuyện.",
-      "paragraphs": ["Bạn không cần tự lên lịch trình trước. Chỉ cần kể chúng tôi nghe người đi cùng, thời gian, sở thích và những điều đáng quan tâm, rồi chúng ta cùng tìm một nhịp nghỉ phù hợp."],
+      "paragraphs": [
+        "Bạn không cần tự lên lịch trình trước. Chỉ cần kể chúng tôi nghe người đi cùng, thời gian, sở thích và những điều đáng quan tâm, rồi chúng ta cùng tìm một nhịp nghỉ phù hợp."
+      ],
       "image": "family-800.webp",
       "alt": "Ảnh tư liệu đoàn khách JoTrip",
       "caption": "ẢNH TƯ LIỆU JOTRIP"
     }
-  ]
+  ],
+  "locales": {
+    "vi": {
+      "meta": {
+        "title": "JoTrip DMC | Phú Quốc, Việt Nam",
+        "description": "JoTrip DMC. Đi cùng người bản địa, hiểu hòn đảo, rồi yêu cả hành trình. Kỳ nghỉ Phú Quốc được chăm chút theo cách riêng của bạn."
+      },
+      "hero": {
+        "eyebrow": "PHÚ QUỐC, VIỆT NAM",
+        "line1": "Đi cùng người bản địa.",
+        "line2": "Hiểu hòn đảo.",
+        "line3": "Rồi yêu cả hành trình.",
+        "lead": "Một chuyến đi riêng không bắt đầu bằng danh sách điểm đến. Nó bắt đầu từ điều bạn muốn cảm nhận khi ở đây.",
+        "primary": "Bắt đầu từ điều bạn muốn",
+        "book": "Mở cuốn sách"
+      },
+      "book": {
+        "eyebrow": "JOTRIP DMC / NƠI CHÚNG TÔI BẮT ĐẦU",
+        "title1": "Hòn đảo",
+        "title2": "trong chúng tôi.",
+        "excerpt": "Qua từng vị khách, từng hành trình và những cuộc gặp gỡ trên chính hòn đảo này, chúng tôi dần hiểu rằng Phú Quốc không chỉ là một điểm đến, mà còn là nơi lưu lại những cảm xúc rất thật. Hòn đảo này cũng dạy chúng tôi giá trị của sự chân thành, của những kết nối giữa con người với con người, và của những hành trình có thể ở lại rất lâu trong ký ức.",
+        "story": "Đọc câu chuyện"
+      },
+      "hints": {
+        "discover": "Có vài câu chuyện đang chờ bạn khám phá.",
+        "openBook": "Mở sách",
+        "readNote": "Đọc lời nhắn",
+        "viewMemories": "Xem những chuyện còn để trên bàn",
+        "tellUs": "Kể chúng tôi nghe",
+        "mobileBook": "Chạm để mở sách"
+      },
+      "mobile": {
+        "note": "Phần còn lại, chúng ta cùng viết tiếp."
+      },
+      "chapters": [
+        {
+          "eyebrow": "JOTRIP DMC / NƠI CHÚNG TÔI BẮT ĐẦU",
+          "title": "Hòn đảo trong chúng tôi.",
+          "subtitle": "",
+          "paragraphs": [
+            "Có những điều ở quê nhà, khi còn nhỏ, người ta thấy thật bình thường. Một buổi sáng ở biển, những chiếc ghe trở về, mùi nước mắm trong nhà thùng hay những con đường quen thuộc dẫn về phía những xóm làng.",
+            "Rồi lớn lên, có cơ hội học hành, tiếp xúc với những điều mới mẻ và bước vào nghề du lịch, chúng tôi dần nhìn quê hương bằng một góc nhìn khác. Những điều từng rất đỗi quen thuộc hóa ra lại là những giá trị mà không phải nơi nào cũng có.",
+            "Qua từng vị khách, từng hành trình và những cuộc gặp gỡ trên chính hòn đảo này, chúng tôi dần hiểu rằng Phú Quốc không chỉ là một điểm đến, mà còn là nơi lưu lại những cảm xúc rất thật. Hòn đảo này cũng dạy chúng tôi giá trị của sự chân thành, của những kết nối giữa con người với con người, và của những hành trình có thể ở lại rất lâu trong ký ức.",
+            "Chúng tôi vui khi Phú Quốc ngày càng được nhiều người biết đến. Du lịch mang theo những cơ hội mới, những công việc mới và cả những kỳ vọng lớn hơn. Nhưng càng gắn bó với nghề, chúng tôi càng có nhiều câu hỏi về tương lai của hòn đảo.",
+            "Làm sao để du khách không chỉ đến rồi đi? Làm sao để những người dân địa phương cũng có cơ hội từ sự phát triển ấy? Và làm sao để mai này, khi nhắc đến Phú Quốc, chúng ta vẫn còn những câu chuyện riêng của mình để kể?",
+            "JoTrip được xây dựng từ những kinh nghiệm làm nghề, những điều đã học và cả những câu hỏi chưa có lời giải trọn vẹn ấy.",
+            "Chúng tôi muốn làm du lịch tốt hơn. Và mong quê hương cũng tốt đẹp hơn từ những điều mình làm."
+          ],
+          "image": "airport-editorial.webp",
+          "alt": "Ảnh tư liệu thật từ một đoàn khách JoTrip tại sân bay Phú Quốc",
+          "caption": "ẢNH TƯ LIỆU JOTRIP · PHÚ QUỐC"
+        },
+        {
+          "eyebrow": "TỪ NHỮNG CHUYẾN ĐI",
+          "title": "Những hành trình đã qua",
+          "subtitle": "Mỗi người đến đảo với một mong muốn khác nhau.",
+          "paragraphs": [
+            "Có những ngày dành cho biển, có những chuyến đi chỉ cần người thân bên cạnh. Làm nghề là học cách lắng nghe để nhận ra điều gì quan trọng đối với từng người, thay vì bắt tất cả đi theo một lịch trình giống nhau."
+          ],
+          "image": "boat-800.webp",
+          "alt": "Ảnh tư liệu hành trình biển thật của JoTrip",
+          "caption": "ẢNH TƯ LIỆU JOTRIP · NGOÀI BIỂN"
+        },
+        {
+          "eyebrow": "NHỮNG NGƯỜI LÀM NGHỀ TRÊN ĐẢO",
+          "title": "JoTrip hôm nay",
+          "subtitle": "Chúng tôi ở đây, ngay trên hòn đảo này.",
+          "paragraphs": [
+            "Chúng tôi kết hợp sự am hiểu bản địa và kinh nghiệm tổ chức để chăm sóc những kỳ nghỉ theo nhu cầu riêng, từ việc đón khách cho đến điều phối từng trải nghiệm và chủ động thích ứng khi kế hoạch thay đổi."
+          ],
+          "image": "resort-800.webp",
+          "alt": "Ảnh tư liệu khách JoTrip",
+          "caption": "ẢNH TƯ LIỆU JOTRIP"
+        },
+        {
+          "eyebrow": "TRAVEL, MADE PERSONAL.",
+          "title": "Kỳ nghỉ theo cách riêng",
+          "subtitle": "Mỗi hành trình bắt đầu từ con người.",
+          "paragraphs": [
+            "Một buổi chiều thật chậm, một bữa tối riêng tư hay kỳ nghỉ cho nhiều thế hệ. Chúng tôi bắt đầu bằng việc lắng nghe và cùng khách lựa chọn nhịp đi phù hợp với thời gian, sở thích và những điều quan trọng đối với họ."
+          ],
+          "image": "evening-800.webp",
+          "alt": "Ảnh tư liệu một buổi chiều trong hành trình JoTrip",
+          "caption": "ẢNH TƯ LIỆU JOTRIP · BUỔI CHIỀU BÊN BIỂN"
+        },
+        {
+          "eyebrow": "NHỮNG ĐIỀU PHÍA SAU",
+          "title": "Những người đồng hành",
+          "subtitle": "Sự chăm chút đôi khi nằm ở điều khách không cần nhìn thấy.",
+          "paragraphs": [
+            "Đằng sau một trải nghiệm là những người chuẩn bị phương tiện, bữa ăn, thời gian và phương án dự phòng. Mỗi người góp một phần việc để chuyến đi diễn ra tự nhiên và nhẹ nhàng hơn."
+          ],
+          "image": "lunch-800.webp",
+          "alt": "Ảnh tư liệu bữa ăn thật của JoTrip",
+          "caption": "ẢNH TƯ LIỆU JOTRIP · NHỮNG NGƯỜI ĐỒNG HÀNH"
+        },
+        {
+          "eyebrow": "YOUR NEXT CHAPTER",
+          "title": "Câu chuyện tiếp theo là của bạn",
+          "subtitle": "Bắt đầu từ một cuộc trò chuyện.",
+          "paragraphs": [
+            "Bạn không cần tự lên lịch trình trước. Chỉ cần kể chúng tôi nghe người đi cùng, thời gian, sở thích và những điều đáng quan tâm, rồi chúng ta cùng tìm một nhịp nghỉ phù hợp."
+          ],
+          "image": "family-800.webp",
+          "alt": "Ảnh tư liệu đoàn khách JoTrip",
+          "caption": "ẢNH TƯ LIỆU JOTRIP"
+        }
+      ]
+    },
+    "en": {
+      "meta": {
+        "title": "JoTrip DMC | Phu Quoc, Vietnam",
+        "description": "JoTrip DMC. Travel with locals, understand the island, then fall in love with the journey. Personal journeys in Phu Quoc."
+      },
+      "hero": {
+        "eyebrow": "PHU QUOC, VIETNAM",
+        "line1": "Travel with people who call it home.",
+        "line2": "Understand the island.",
+        "line3": "Then love the journey.",
+        "lead": "A personal journey does not begin with a checklist of places. It begins with how you want to feel while you are here.",
+        "primary": "Start with what matters to you",
+        "book": "Open the book"
+      },
+      "book": {
+        "eyebrow": "JOTRIP DMC / WHERE WE BEGIN",
+        "title1": "The island",
+        "title2": "within us.",
+        "excerpt": "Through every guest, every journey and every encounter on this island, we came to understand that Phu Quoc is more than a destination. It is also a place where very real emotions remain. The island has taught us the value of sincerity, human connection and journeys that stay in memory long after they end.",
+        "story": "Read the story"
+      },
+      "hints": {
+        "discover": "A few stories are waiting to be discovered.",
+        "openBook": "Open the book",
+        "readNote": "Read the note",
+        "viewMemories": "Pick up a memory",
+        "tellUs": "Tell us about your trip",
+        "mobileBook": "Tap to open the book"
+      },
+      "mobile": {
+        "note": "The rest, we write together."
+      },
+      "chapters": [
+        {
+          "eyebrow": "JOTRIP DMC / WHERE WE BEGIN",
+          "title": "The island within us.",
+          "subtitle": "",
+          "paragraphs": [
+            "There are things in your hometown that feel completely ordinary when you are young. A morning by the sea, boats returning home, the scent of fish sauce in a traditional barrel house, or familiar roads leading back to small neighbourhoods.",
+            "As we grew older, had the chance to study, encounter new ideas and work in tourism, we slowly began to see our home differently. Things that once felt ordinary turned out to be values not every place has.",
+            "Through every guest, every journey and every encounter on this island, we came to understand that Phu Quoc is more than a destination. It is also a place where very real emotions remain. The island has taught us the value of sincerity, of human connection, and of journeys that can stay in memory for a very long time.",
+            "We are glad that more people are discovering Phu Quoc. Tourism brings new opportunities, new jobs and greater expectations. But the longer we work here, the more questions we have about the island's future.",
+            "How can visitors experience more than simply arriving and leaving? How can local people share in the opportunities that development brings? And years from now, when we speak of Phu Quoc, how can we make sure there are still stories that belong to this island?",
+            "JoTrip was built from years of practical experience, what we have learned, and those questions that still do not have perfect answers.",
+            "We want to do tourism better, and hope our home becomes better through the work we do."
+          ],
+          "image": "airport-editorial.webp",
+          "alt": "A real JoTrip group photograph at Phu Quoc airport",
+          "caption": "JOTRIP ARCHIVE · PHU QUOC"
+        },
+        {
+          "eyebrow": "FROM THE JOURNEYS",
+          "title": "Journeys we have shared",
+          "subtitle": "Everyone arrives on the island wanting something a little different.",
+          "paragraphs": [
+            "Some days are made for the sea; some trips are simply about having time with the people you love. Working in travel means learning to listen closely enough to understand what matters to each guest rather than asking everyone to follow the same itinerary."
+          ],
+          "image": "boat-800.webp",
+          "alt": "A real JoTrip sea journey photograph",
+          "caption": "JOTRIP ARCHIVE · AT SEA"
+        },
+        {
+          "eyebrow": "PEOPLE WHO WORK ON THE ISLAND",
+          "title": "JoTrip today",
+          "subtitle": "We are here, on the island itself.",
+          "paragraphs": [
+            "We combine local knowledge with hands-on travel experience to look after stays built around individual needs, from arrival arrangements to coordinating each experience and adapting when plans need to change."
+          ],
+          "image": "resort-800.webp",
+          "alt": "A real JoTrip guest photograph",
+          "caption": "JOTRIP ARCHIVE"
+        },
+        {
+          "eyebrow": "TRAVEL, MADE PERSONAL.",
+          "title": "A holiday in your own rhythm",
+          "subtitle": "Every journey begins with the people taking it.",
+          "paragraphs": [
+            "A slow afternoon, a private dinner, or a holiday shared by several generations. We begin by listening, then shape a pace that fits your time, interests and the things that matter most to you."
+          ],
+          "image": "evening-800.webp",
+          "alt": "A real JoTrip evening photograph",
+          "caption": "JOTRIP ARCHIVE · AN EVENING BY THE SEA"
+        },
+        {
+          "eyebrow": "WHAT HAPPENS BEHIND THE SCENES",
+          "title": "The people alongside you",
+          "subtitle": "Care often lives in the details guests never need to see.",
+          "paragraphs": [
+            "Behind an experience are people preparing transport, meals, timing and backup plans. Each person contributes a small part so the journey can feel natural and easy."
+          ],
+          "image": "lunch-800.webp",
+          "alt": "A real JoTrip meal photograph",
+          "caption": "JOTRIP ARCHIVE · THE PEOPLE BEHIND THE JOURNEY"
+        },
+        {
+          "eyebrow": "YOUR NEXT CHAPTER",
+          "title": "The next story is yours",
+          "subtitle": "Start with a conversation.",
+          "paragraphs": [
+            "You do not need to build an itinerary first. Tell us who you are travelling with, your timing, interests and what matters to you, and we can begin finding the right rhythm together."
+          ],
+          "image": "family-800.webp",
+          "alt": "A real JoTrip guest group photograph",
+          "caption": "JOTRIP ARCHIVE"
+        }
+      ]
+    }
+  }
 }
