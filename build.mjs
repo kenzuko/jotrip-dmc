@@ -14,14 +14,13 @@ for(const file of ['index.html','admin.js']){
   await copyFile(join(src,'admin',file),join(dist,'admin',file));
 }
 
-// Build one CSS payload from maintainable visual modules.
+// One restrained visual system. No legacy room or visual override layers.
 const styleDir=join(src,'styles');
 const styleFiles=(await readdir(styleDir)).filter(name=>name.endsWith('.css')).sort();
 const appCss=(await Promise.all(styleFiles.map(name=>readFile(join(styleDir,name),'utf8')))).join('\n\n');
 await writeFile(join(dist,'app.css'),appCss);
 
-// Verified JoTrip real-photo archive.
-// Documentary people and memories come only from these repository assets.
+// Verified JoTrip real-photo archive. These are documentary assets, not generated imagery.
 for(const pack of (await readdir(join(src,'assets-packs'))).filter(name=>name.endsWith('.tar.gz'))){
   const raw=gunzipSync(await readFile(join(src,'assets-packs',pack)));
   let pos=0;
@@ -43,6 +42,7 @@ for(const pack of (await readdir(join(src,'assets-packs'))).filter(name=>name.en
 const required=[
   'jotrip-wordmark.png',
   'airport-1600.webp',
+  'airport-800.webp',
   'boat-800.webp',
   'resort-800.webp',
   'family-800.webp',
@@ -52,4 +52,4 @@ const required=[
 ];
 for(const asset of required) await readFile(join(dist,'assets',asset));
 
-console.log('Built JoTrip DMC Island Reading Room clean rebuild with '+styleFiles.length+' style modules and '+(await readdir(join(dist,'assets'))).length+' verified assets');
+console.log('Built JoTrip DMC Island Sequence with '+styleFiles.length+' visual system and '+(await readdir(join(dist,'assets'))).length+' verified real-photo assets');
