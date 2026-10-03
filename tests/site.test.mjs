@@ -11,6 +11,8 @@ const app=await readFile(join(root,'src/app.js'),'utf8');
 const i18n=await readFile(join(root,'src/i18n.js'),'utf8');
 const build=await readFile(join(root,'build.mjs'),'utf8');
 const wrangler=await readFile(join(root,'wrangler.jsonc'),'utf8');
+const productionWrangler=await readFile(join(root,'wrangler.production.jsonc'),'utf8');
+const workflow=await readFile(join(root,'.github/workflows/editorial-ci.yml'),'utf8');
 
 const banned=['Island Reading Room','hero-book','physical-book','reader-room','window-scene','visual-v3','visual-v4','visual-v5','approved-room-parts'];
 const pages=['experiences','phu-quoc','partners','journal','about'];
@@ -47,9 +49,14 @@ test('journey drawer stays local-only in preview',()=>{
   assert.match(i18n,/Bản xem thử: hiện chưa tự động gửi dữ liệu/);assert.match(app,/event\.preventDefault\(\)/);assert.equal(/fetch\(|XMLHttpRequest|sendBeacon/.test(app),false);
 });
 
-test('preview worker remains isolated while production build mode is ready',()=>{
+test('preview worker stays isolated and production binds jotrip.vn',()=>{
   assert.match(wrangler,/"name":"jotrip-dmc-preview"/);
   assert.doesNotMatch(wrangler,/jotrip\.vn/);
+  assert.match(productionWrangler,/"name":"jotrip-dmc"/);
+  assert.match(productionWrangler,/"pattern":"jotrip\.vn\/\*"/);
+  assert.match(productionWrangler,/"zone_name":"jotrip\.vn"/);
+  assert.match(workflow,/JOTRIP_PRODUCTION=1 npm run build/);
+  assert.match(workflow,/wrangler\.production\.jsonc/);
   assert.match(build,/JOTRIP_PRODUCTION/);
   assert.match(build,/index,follow/);
   assert.match(build,/Allow: \/\\n/);
