@@ -1,0 +1,30 @@
+name: Probe JoTrip Cloudflare Nameservers
+on:
+  push:
+    branches: [ops/probe-jotrip-ns]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Query Cloudflare zone
+        env:
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          response=$(curl -fsS -H "Authorization: Bearer ${CF_API_TOKEN}" -H "Content-Type: application/json" "https://api.cloudflare.com/client/v4/zones?name=jotrip.vn")
+          python - <<'PY' "$response"
+          import json,sys
+          data=json.loads(sys.argv[1])
+          if not data.get('success'):
+              print(json.dumps(data, ensure_ascii=False))
+              raise SystemExit(1)
+          result=data.get('result',[])
+          if not result:
+              print('ZONE_NOT_FOUND')
+              raise SystemExit(2)
+          zone=result[0]
+          print('ZONE_STATUS='+str(zone.get('status')))
+          print('ZONE_ID='+str(zone.get('id')))
+          print('NAME_SERVERS='+','.join(zone.get('name_servers') or []))
+          print('ORIGINAL_NAME_SERVERS='+','.join(zone.get('original_name_servers') or []))
+          PY
