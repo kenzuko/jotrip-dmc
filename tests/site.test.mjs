@@ -10,10 +10,12 @@ const motion=await readFile(join(root,'src/styles/10-motion-depth.css'),'utf8');
 const storyStyle=await readFile(join(root,'src/styles/20-local-dmc-story.css'),'utf8');
 const proofStyle=await readFile(join(root,'src/styles/30-proof-contact.css'),'utf8');
 const photoStyle=await readFile(join(root,'src/styles/40-photo-quality.css'),'utf8');
+const sunlitStyle=await readFile(join(root,'src/styles/50-sunlit-island-luxury.css'),'utf8');
 const storyLayer=await readFile(join(root,'src/pages/shared/story-layer.js'),'utf8');
 const proofLayer=await readFile(join(root,'src/pages/shared/proof-layer.js'),'utf8');
 const contactLayer=await readFile(join(root,'src/pages/shared/contact-layer.js'),'utf8');
 const photoLayer=await readFile(join(root,'src/pages/shared/photo-layer.js'),'utf8');
+const voiceLayer=await readFile(join(root,'src/pages/shared/sunlit-voice.js'),'utf8');
 const app=await readFile(join(root,'src/app.js'),'utf8');
 const i18n=await readFile(join(root,'src/i18n.js'),'utf8');
 const build=await readFile(join(root,'build.mjs'),'utf8');
@@ -33,7 +35,7 @@ test('real subpages exist and share the DMC shell',async()=>{
 });
 
 test('EN-VI is a real persistent site layer',()=>{
-  assert.match(app,/from '\.\/i18n\.js'/);assert.match(app,/data-lang="en"/);assert.match(app,/data-lang="vi"/);assert.match(app,/setLanguagePreference/);assert.match(i18n,/localStorage\.setItem\('jotrip-lang'/);assert.match(i18n,/BẮT ĐẦU TỪ CON NGƯỜI/);assert.match(i18n,/Phú Quốc/);assert.match(build,/i18n\.js/);assert.match(storyLayer,/HIỂU CẢ HÒN ĐẢO/);assert.match(storyLayer,/KNOWING THE WHOLE ISLAND/);assert.match(proofLayer,/KHÔNG CHỈ LÀ MỘT TOUR/);assert.match(proofLayer,/THE WHOLE STAY/);
+  assert.match(app,/from '\.\/i18n\.js'/);assert.match(app,/data-lang="en"/);assert.match(app,/data-lang="vi"/);assert.match(app,/setLanguagePreference/);assert.match(i18n,/localStorage\.setItem\('jotrip-lang'/);assert.match(i18n,/BẮT ĐẦU TỪ CON NGƯỜI/);assert.match(i18n,/Phú Quốc/);assert.match(build,/i18n\.js/);assert.match(storyLayer,/HIỂU CẢ HÒN ĐẢO/);assert.match(storyLayer,/KNOWING THE WHOLE ISLAND/);assert.match(proofLayer,/KHÔNG CHỈ LÀ MỘT TOUR/);assert.match(proofLayer,/THE WHOLE STAY/);assert.match(voiceLayer,/Phú Quốc/);assert.match(voiceLayer,/Phu Quoc/);
 });
 
 test('local DMC story restores origin and deep destination literacy',()=>{
@@ -49,23 +51,19 @@ test('contact layer uses real JoTrip channels and replaces fake preview submit p
 });
 
 test('photo layer promotes high-resolution real Phu Quoc photography into large editorial frames',()=>{
-  assert.match(photoLayer,/photo-1693282814784-649be45a459b/);
-  assert.match(photoLayer,/photo-1732243395944-cb3ff9311091/);
-  assert.match(photoLayer,/photo-1631009177269-fabf77f374f7/);
-  assert.match(photoLayer,/photo-1746362722801-17bcc1f72fd9/);
-  assert.match(photoLayer,/w=2600/);
-  assert.match(photoLayer,/island-photo-sequence/);
-  assert.match(photoLayer,/Bãi Sao/);
-  assert.match(photoLayer,/Bãi Khem/);
-  assert.match(build,/\/shared\/photo-layer\.js/);
+  assert.match(photoLayer,/photo-1693282814784-649be45a459b/);assert.match(photoLayer,/photo-1732243395944-cb3ff9311091/);assert.match(photoLayer,/photo-1631009177269-fabf77f374f7/);assert.match(photoLayer,/photo-1746362722801-17bcc1f72fd9/);assert.match(photoLayer,/w=2600/);assert.match(photoLayer,/island-photo-sequence/);assert.match(photoLayer,/Bãi Sao/);assert.match(photoLayer,/Bãi Khem/);assert.match(build,/\/shared\/photo-layer\.js/);
 });
 
 test('photo quality override removes heavy desaturation and excessive scaling',()=>{
-  assert.match(photoStyle,/filter:none!important/);
-  assert.match(photoStyle,/scale\(1\.005\)/);
-  assert.match(photoStyle,/scale\(1\.012\)/);
-  assert.doesNotMatch(photoStyle,/scale\(1\.045\)/);
-  assert.match(photoStyle,/island-photo-sequence/);
+  assert.match(photoStyle,/filter:none!important/);assert.match(photoStyle,/scale\(1\.005\)/);assert.match(photoStyle,/scale\(1\.012\)/);assert.doesNotMatch(photoStyle,/scale\(1\.045\)/);assert.match(photoStyle,/island-photo-sequence/);
+});
+
+test('sunlit island luxury replaces the grey luxury mood with controlled tropical colour',()=>{
+  assert.match(sunlitStyle,/--sun:#f2b84b/);assert.match(sunlitStyle,/--lagoon:#1b8a8c/);assert.match(sunlitStyle,/--coral:#c97855/);assert.match(sunlitStyle,/SUNLIT ISLAND LUXURY/);assert.match(sunlitStyle,/\.atlas\{background:linear-gradient/);assert.match(sunlitStyle,/\.trade-band\{background:#efc66f/);assert.match(sunlitStyle,/\.site-footer\{background:#103f39/);assert.match(sunlitStyle,/filter:none!important/);assert.match(sunlitStyle,/\.sunlit-human/);
+});
+
+test('human voice replaces strategy language with concrete JoTrip speech',()=>{
+  assert.match(voiceLayer,/đi cùng người hiểu đảo/);assert.match(voiceLayer,/Phu Quoc,.*someone who knows the island/s);assert.match(voiceLayer,/Biển hôm nay khác hôm qua/);assert.match(voiceLayer,/A market is not a stage/);assert.match(voiceLayer,/không chỉ lo một tour/);assert.match(voiceLayer,/The trip feels easy/);assert.match(voiceLayer,/Phú Quốc đẹp/);assert.match(build,/\/shared\/sunlit-voice\.js/);
 });
 
 test('each deep page gets distinct editorial depth and continuation',()=>{
@@ -81,7 +79,7 @@ test('retired reading-room and generated-image architecture stays gone',()=>{
 });
 
 test('visual system is layered but controlled',async()=>{
-  const styles=(await readdir(join(root,'src/styles'))).filter(name=>name.endsWith('.css')).sort();assert.deepEqual(styles,['00-foundation.css','10-motion-depth.css','20-local-dmc-story.css','30-proof-contact.css','40-photo-quality.css']);assert.match(foundation,/--paper:#f1eee6/);assert.match(motion,/page-depth/);assert.match(storyStyle,/\.origin-story/);assert.match(storyStyle,/\.story-grid/);assert.match(proofStyle,/\.proof-grid/);assert.match(proofStyle,/\.direct-contact/);assert.match(photoStyle,/Photo fidelity lock/);
+  const styles=(await readdir(join(root,'src/styles'))).filter(name=>name.endsWith('.css')).sort();assert.deepEqual(styles,['00-foundation.css','10-motion-depth.css','20-local-dmc-story.css','30-proof-contact.css','40-photo-quality.css','50-sunlit-island-luxury.css']);assert.match(foundation,/--paper:#f1eee6/);assert.match(motion,/page-depth/);assert.match(storyStyle,/\.origin-story/);assert.match(storyStyle,/\.story-grid/);assert.match(proofStyle,/\.proof-grid/);assert.match(proofStyle,/\.direct-contact/);assert.match(photoStyle,/Photo fidelity lock/);assert.match(sunlitStyle,/Luxury comes from composition/);
 });
 
 test('contact activation stays client-side and does not invent a backend',()=>{
