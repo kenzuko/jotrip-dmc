@@ -8,7 +8,10 @@ const html=await readFile(join(root,'src/index.html'),'utf8');
 const foundation=await readFile(join(root,'src/styles/00-foundation.css'),'utf8');
 const motion=await readFile(join(root,'src/styles/10-motion-depth.css'),'utf8');
 const storyStyle=await readFile(join(root,'src/styles/20-local-dmc-story.css'),'utf8');
+const proofStyle=await readFile(join(root,'src/styles/30-proof-contact.css'),'utf8');
 const storyLayer=await readFile(join(root,'src/pages/shared/story-layer.js'),'utf8');
+const proofLayer=await readFile(join(root,'src/pages/shared/proof-layer.js'),'utf8');
+const contactLayer=await readFile(join(root,'src/pages/shared/contact-layer.js'),'utf8');
 const app=await readFile(join(root,'src/app.js'),'utf8');
 const i18n=await readFile(join(root,'src/i18n.js'),'utf8');
 const build=await readFile(join(root,'build.mjs'),'utf8');
@@ -28,19 +31,19 @@ test('real subpages exist and share the DMC shell',async()=>{
 });
 
 test('EN-VI is a real persistent site layer',()=>{
-  assert.match(app,/from '\.\/i18n\.js'/);assert.match(app,/data-lang="en"/);assert.match(app,/data-lang="vi"/);assert.match(app,/setLanguagePreference/);assert.match(i18n,/localStorage\.setItem\('jotrip-lang'/);assert.match(i18n,/BẮT ĐẦU TỪ CON NGƯỜI/);assert.match(i18n,/Phú Quốc/);assert.match(build,/i18n\.js/);assert.match(storyLayer,/const lang =/);assert.match(storyLayer,/HIỂU CẢ HÒN ĐẢO/);assert.match(storyLayer,/KNOWING THE WHOLE ISLAND/);
+  assert.match(app,/from '\.\/i18n\.js'/);assert.match(app,/data-lang="en"/);assert.match(app,/data-lang="vi"/);assert.match(app,/setLanguagePreference/);assert.match(i18n,/localStorage\.setItem\('jotrip-lang'/);assert.match(i18n,/BẮT ĐẦU TỪ CON NGƯỜI/);assert.match(i18n,/Phú Quốc/);assert.match(build,/i18n\.js/);assert.match(storyLayer,/HIỂU CẢ HÒN ĐẢO/);assert.match(storyLayer,/KNOWING THE WHOLE ISLAND/);assert.match(proofLayer,/KHÔNG CHỈ LÀ MỘT TOUR/);assert.match(proofLayer,/THE WHOLE STAY/);
 });
 
 test('local DMC story restores origin and deep destination literacy',()=>{
-  assert.match(storyLayer,/Hòn đảo trong chúng tôi/);
-  assert.match(storyLayer,/Có những điều ở quê nhà, khi còn nhỏ/);
-  assert.match(storyLayer,/Chúng tôi muốn làm du lịch tốt hơn/);
-  assert.match(storyLayer,/PHÚ QUỐC LUX → JOTRIP DMC/);
-  assert.match(storyLayer,/DÔ!/);
-  assert.match(storyLayer,/Đi cùng người bản địa\. Hiểu hòn đảo\. Rồi yêu cả hành trình\./);
-  assert.match(storyLayer,/TRI THỨC ĐIỂM ĐẾN/);
-  assert.match(storyLayer,/DESTINATION INTELLIGENCE IS PART OF DELIVERY/);
-  assert.match(build,/\/shared\/story-layer\.js/);
+  assert.match(storyLayer,/Hòn đảo trong chúng tôi/);assert.match(storyLayer,/Có những điều ở quê nhà, khi còn nhỏ/);assert.match(storyLayer,/Chúng tôi muốn làm du lịch tốt hơn/);assert.match(storyLayer,/PHÚ QUỐC LUX → JOTRIP DMC/);assert.match(storyLayer,/DÔ!/);assert.match(storyLayer,/Đi cùng người bản địa\. Hiểu hòn đảo\. Rồi yêu cả hành trình\./);assert.match(storyLayer,/TRI THỨC ĐIỂM ĐẾN/);assert.match(storyLayer,/DESTINATION INTELLIGENCE IS PART OF DELIVERY/);assert.match(build,/\/shared\/story-layer\.js/);
+});
+
+test('proof layer shows whole-stay DMC work, real journey shapes and boundaries',()=>{
+  assert.match(proofLayer,/JoTrip giữ cả kỳ nghỉ/);assert.match(proofLayer,/PRIVATE ISLAND DAY/);assert.match(proofLayer,/BIG-GAME FISHING/);assert.match(proofLayer,/05:00-14:00/);assert.match(proofLayer,/ISLAND ROOTS JOURNEY/);assert.match(proofLayer,/CONSERVATION-LED DAY/);assert.match(proofLayer,/NHỮNG ĐIỀU JOTRIP KHÔNG LÀM/);assert.match(proofLayer,/Destination intelligence/);assert.match(proofLayer,/airport-800\.webp/);assert.match(proofLayer,/driver-800\.webp/);assert.match(proofLayer,/boat-800\.webp/);
+});
+
+test('contact layer uses real JoTrip channels and replaces fake preview submit path',()=>{
+  assert.match(contactLayer,/\+84 817 060 066/);assert.match(contactLayer,/84817060066/);assert.match(contactLayer,/0817060066/);assert.match(contactLayer,/phuquoclux@gmail\.com/);assert.match(contactLayer,/wa\.me/);assert.match(contactLayer,/zalo\.me/);assert.match(contactLayer,/mailto:/);assert.match(contactLayer,/tel:/);assert.match(contactLayer,/stopImmediatePropagation/);assert.match(contactLayer,/preferred/);assert.match(build,/\/shared\/contact-layer\.js/);assert.match(build,/\/shared\/proof-layer\.js/);
 });
 
 test('each deep page gets distinct editorial depth and continuation',()=>{
@@ -56,22 +59,13 @@ test('retired reading-room and generated-image architecture stays gone',()=>{
 });
 
 test('visual system is layered but controlled',async()=>{
-  const styles=(await readdir(join(root,'src/styles'))).filter(name=>name.endsWith('.css')).sort();assert.deepEqual(styles,['00-foundation.css','10-motion-depth.css','20-local-dmc-story.css']);assert.match(foundation,/--paper:#f1eee6/);assert.match(foundation,/filter:saturate\(/);assert.match(motion,/page-depth/);assert.match(storyStyle,/\.origin-story/);assert.match(storyStyle,/\.story-grid/);
+  const styles=(await readdir(join(root,'src/styles'))).filter(name=>name.endsWith('.css')).sort();assert.deepEqual(styles,['00-foundation.css','10-motion-depth.css','20-local-dmc-story.css','30-proof-contact.css']);assert.match(foundation,/--paper:#f1eee6/);assert.match(foundation,/filter:saturate\(/);assert.match(motion,/page-depth/);assert.match(storyStyle,/\.origin-story/);assert.match(storyStyle,/\.story-grid/);assert.match(proofStyle,/\.proof-grid/);assert.match(proofStyle,/\.direct-contact/);
 });
 
-test('journey drawer stays local-only in preview',()=>{
-  assert.match(i18n,/Bản xem thử: hiện chưa tự động gửi dữ liệu/);assert.match(app,/event\.preventDefault\(\)/);assert.equal(/fetch\(|XMLHttpRequest|sendBeacon/.test(app),false);
+test('contact activation stays client-side and does not invent a backend',()=>{
+  assert.equal(/fetch\(|XMLHttpRequest|sendBeacon/.test(contactLayer),false);assert.match(contactLayer,/window\.open/);assert.match(contactLayer,/navigator\.clipboard/);
 });
 
 test('preview worker stays isolated and production binds jotrip.vn',()=>{
-  assert.match(wrangler,/"name":"jotrip-dmc-preview"/);
-  assert.doesNotMatch(wrangler,/jotrip\.vn/);
-  assert.match(productionWrangler,/"name":"jotrip-dmc"/);
-  assert.match(productionWrangler,/"pattern":"jotrip\.vn\/\*"/);
-  assert.match(productionWrangler,/"zone_name":"jotrip\.vn"/);
-  assert.match(workflow,/JOTRIP_PRODUCTION=1 npm run build/);
-  assert.match(workflow,/wrangler\.production\.jsonc/);
-  assert.match(build,/JOTRIP_PRODUCTION/);
-  assert.match(build,/index,follow/);
-  assert.match(build,/Allow: \/\\n/);
+  assert.match(wrangler,/"name":"jotrip-dmc-preview"/);assert.doesNotMatch(wrangler,/jotrip\.vn/);assert.match(productionWrangler,/"name":"jotrip-dmc"/);assert.match(productionWrangler,/"pattern":"jotrip\.vn\/\*"/);assert.match(productionWrangler,/"zone_name":"jotrip\.vn"/);assert.match(workflow,/JOTRIP_PRODUCTION=1 npm run build/);assert.match(workflow,/wrangler\.production\.jsonc/);assert.match(build,/JOTRIP_PRODUCTION/);assert.match(build,/index,follow/);assert.match(build,/Allow: \/\\n/);
 });
