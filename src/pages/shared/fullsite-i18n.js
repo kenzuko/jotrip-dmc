@@ -11,8 +11,11 @@ document.documentElement.lang=lang;
 if(lang==='vi'){
   const exact=new Map([
     ['PHU QUOC · VIETNAM','PHÚ QUỐC · VIỆT NAM'],
+    ['JOTRIP DMC · PHU QUOC · VIETNAM','JOTRIP DMC · PHÚ QUỐC · VIỆT NAM'],
     ['JOURNEY PAPER · PHU QUOC','PHIẾU HÀNH TRÌNH · PHÚ QUỐC'],
     ['JoTrip DMC · Phu Quoc, Vietnam','JoTrip DMC · Phú Quốc, Việt Nam'],
+    ['FIELD NOTES','GHI CHÉP ĐẢO'],
+    ['JOTRIP FIELD NOTES · PHU QUOC','GHI CHÉP JOTRIP · PHÚ QUỐC'],
     ['ISLAND DESK','GHI CHÉP TỪ ĐẢO'],
     ['PRIVATE ISLAND DAY','NGÀY ĐI ĐẢO RIÊNG'],
     ['BIG-GAME FISHING','CÂU CÁ LỚN'],
