@@ -3,7 +3,7 @@ import {resolve,join,basename} from 'node:path';
 import {gunzipSync} from 'node:zlib';
 
 const root=resolve(import.meta.dirname),src=join(root,'src'),dist=join(root,'dist');
-const production=process.env.JOTRIP_PREVIEW!=='1';
+const production=process.env.JOTRIP_PRODUCTION==='1';
 await rm(dist,{recursive:true,force:true});
 await mkdir(join(dist,'assets'),{recursive:true});
 await mkdir(join(dist,'admin'),{recursive:true});
@@ -15,10 +15,9 @@ for(const file of ['index.html','admin.js']){
   await copyFile(join(src,'admin',file),join(dist,'admin',file));
 }
 
-// Publish real subpages so the DMC is a website, not one long landing page.
 await cp(join(src,'pages'),dist,{recursive:true,force:true});
 
-// Live builds are indexable. Explicit preview builds stay noindex.
+// Preview stays noindex. Production builds become indexable only when explicitly enabled.
 if(production){
   const publicHtml=[
     join(dist,'index.html'),
@@ -35,13 +34,11 @@ if(production){
   await writeFile(join(dist,'robots.txt'),'User-agent: *\nAllow: /\n');
 }
 
-// Foundation + deliberately separate motion/depth layer. Both are shared across the whole site.
 const styleDir=join(src,'styles');
 const styleFiles=(await readdir(styleDir)).filter(name=>name.endsWith('.css')).sort();
 const appCss=(await Promise.all(styleFiles.map(name=>readFile(join(styleDir,name),'utf8')))).join('\n\n');
 await writeFile(join(dist,'app.css'),appCss);
 
-// Verified JoTrip real-photo archive. These are documentary assets, not generated imagery.
 for(const pack of (await readdir(join(src,'assets-packs'))).filter(name=>name.endsWith('.tar.gz'))){
   const raw=gunzipSync(await readFile(join(src,'assets-packs',pack)));
   let pos=0;
