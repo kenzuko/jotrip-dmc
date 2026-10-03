@@ -9,9 +9,11 @@ const foundation=await readFile(join(root,'src/styles/00-foundation.css'),'utf8'
 const motion=await readFile(join(root,'src/styles/10-motion-depth.css'),'utf8');
 const storyStyle=await readFile(join(root,'src/styles/20-local-dmc-story.css'),'utf8');
 const proofStyle=await readFile(join(root,'src/styles/30-proof-contact.css'),'utf8');
+const photoStyle=await readFile(join(root,'src/styles/40-photo-quality.css'),'utf8');
 const storyLayer=await readFile(join(root,'src/pages/shared/story-layer.js'),'utf8');
 const proofLayer=await readFile(join(root,'src/pages/shared/proof-layer.js'),'utf8');
 const contactLayer=await readFile(join(root,'src/pages/shared/contact-layer.js'),'utf8');
+const photoLayer=await readFile(join(root,'src/pages/shared/photo-layer.js'),'utf8');
 const app=await readFile(join(root,'src/app.js'),'utf8');
 const i18n=await readFile(join(root,'src/i18n.js'),'utf8');
 const build=await readFile(join(root,'build.mjs'),'utf8');
@@ -46,6 +48,26 @@ test('contact layer uses real JoTrip channels and replaces fake preview submit p
   assert.match(contactLayer,/\+84 817 060 066/);assert.match(contactLayer,/84817060066/);assert.match(contactLayer,/0817060066/);assert.match(contactLayer,/phuquoclux@gmail\.com/);assert.match(contactLayer,/wa\.me/);assert.match(contactLayer,/zalo\.me/);assert.match(contactLayer,/mailto:/);assert.match(contactLayer,/tel:/);assert.match(contactLayer,/stopImmediatePropagation/);assert.match(contactLayer,/preferred/);assert.match(build,/\/shared\/contact-layer\.js/);assert.match(build,/\/shared\/proof-layer\.js/);
 });
 
+test('photo layer promotes high-resolution real Phu Quoc photography into large editorial frames',()=>{
+  assert.match(photoLayer,/photo-1693282814784-649be45a459b/);
+  assert.match(photoLayer,/photo-1732243395944-cb3ff9311091/);
+  assert.match(photoLayer,/photo-1631009177269-fabf77f374f7/);
+  assert.match(photoLayer,/photo-1746362722801-17bcc1f72fd9/);
+  assert.match(photoLayer,/w=2600/);
+  assert.match(photoLayer,/island-photo-sequence/);
+  assert.match(photoLayer,/Bãi Sao/);
+  assert.match(photoLayer,/Bãi Khem/);
+  assert.match(build,/\/shared\/photo-layer\.js/);
+});
+
+test('photo quality override removes heavy desaturation and excessive scaling',()=>{
+  assert.match(photoStyle,/filter:none!important/);
+  assert.match(photoStyle,/scale\(1\.005\)/);
+  assert.match(photoStyle,/scale\(1\.012\)/);
+  assert.doesNotMatch(photoStyle,/scale\(1\.045\)/);
+  assert.match(photoStyle,/island-photo-sequence/);
+});
+
 test('each deep page gets distinct editorial depth and continuation',()=>{
   for(const page of pages) assert.match(app,new RegExp(`(?:'${page}'|${page}):`));assert.match(app,/const depthData/);assert.match(app,/const continuationData/);assert.match(app,/page-depth/);assert.match(app,/site-continuation/);
 });
@@ -59,7 +81,7 @@ test('retired reading-room and generated-image architecture stays gone',()=>{
 });
 
 test('visual system is layered but controlled',async()=>{
-  const styles=(await readdir(join(root,'src/styles'))).filter(name=>name.endsWith('.css')).sort();assert.deepEqual(styles,['00-foundation.css','10-motion-depth.css','20-local-dmc-story.css','30-proof-contact.css']);assert.match(foundation,/--paper:#f1eee6/);assert.match(foundation,/filter:saturate\(/);assert.match(motion,/page-depth/);assert.match(storyStyle,/\.origin-story/);assert.match(storyStyle,/\.story-grid/);assert.match(proofStyle,/\.proof-grid/);assert.match(proofStyle,/\.direct-contact/);
+  const styles=(await readdir(join(root,'src/styles'))).filter(name=>name.endsWith('.css')).sort();assert.deepEqual(styles,['00-foundation.css','10-motion-depth.css','20-local-dmc-story.css','30-proof-contact.css','40-photo-quality.css']);assert.match(foundation,/--paper:#f1eee6/);assert.match(motion,/page-depth/);assert.match(storyStyle,/\.origin-story/);assert.match(storyStyle,/\.story-grid/);assert.match(proofStyle,/\.proof-grid/);assert.match(proofStyle,/\.direct-contact/);assert.match(photoStyle,/Photo fidelity lock/);
 });
 
 test('contact activation stays client-side and does not invent a backend',()=>{

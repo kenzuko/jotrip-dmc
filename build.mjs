@@ -26,10 +26,10 @@ const publicHtml=[
   join(dist,'about','index.html')
 ];
 
-// Shared layers keep the whole site in one JoTrip DMC story/contact system.
+// Shared layers keep the whole site in one JoTrip DMC story/contact/photo system.
 for(const file of publicHtml){
   const source=await readFile(file,'utf8');
-  await writeFile(file,source.replace('</body>','<script src="/shared/story-layer.js" type="module"></script><script src="/shared/proof-layer.js" type="module"></script><script src="/shared/contact-layer.js" type="module"></script></body>'));
+  await writeFile(file,source.replace('</body>','<script src="/shared/story-layer.js" type="module"></script><script src="/shared/proof-layer.js" type="module"></script><script src="/shared/contact-layer.js" type="module"></script><script src="/shared/photo-layer.js" type="module"></script></body>'));
 }
 
 // Preview stays noindex. Production builds become indexable only when explicitly enabled.
@@ -67,6 +67,6 @@ for(const pack of (await readdir(join(src,'assets-packs'))).filter(name=>name.en
 const required=['jotrip-wordmark.png','airport-1600.webp','airport-800.webp','boat-800.webp','resort-800.webp','family-800.webp','lunch-800.webp','evening-800.webp','driver-800.webp'];
 for(const asset of required) await readFile(join(dist,'assets',asset));
 await readFile(join(dist,'i18n.js'));
-for(const layer of ['story-layer.js','proof-layer.js','contact-layer.js']) await readFile(join(dist,'shared',layer));
+for(const layer of ['story-layer.js','proof-layer.js','contact-layer.js','photo-layer.js']) await readFile(join(dist,'shared',layer));
 
 console.log(`Built JoTrip DMC ${production?'production':'preview'} bilingual editorial site with ${styleFiles.length} style layers and ${(await readdir(join(dist,'assets'))).length} verified real-photo assets`);

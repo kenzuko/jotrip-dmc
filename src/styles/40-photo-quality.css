@@ -1,0 +1,43 @@
+/* Photo fidelity lock: large photography stays sharp, natural and correctly framed. */
+.cover-film img{filter:brightness(.86) contrast(1.02) saturate(.96)!important}
+.desk-card-image img,.atlas-stage figure img,.photo-rail img,.journal-card img,.trade-image img,.page-hero-media img,.story-media img,.note-article img,.evidence-rail img{filter:none!important}
+.trade-image img{filter:brightness(.9) contrast(1.02) saturate(.95)!important}
+
+/* Previous depth treatment enlarged every editorial image by 4.5%, which softened 800px source files. */
+.page-hero-media img,.story-media img,.note-article img,.trade-image img,.journal-card img,.desk-card-image img,.atlas-stage figure img{
+  transform:translate3d(0,var(--depth-y,0),0) scale(1.005)!important;
+  will-change:auto!important;
+  transition:transform .5s cubic-bezier(.2,.72,.2,1),filter .25s ease!important;
+}
+.page-hero-media:hover img,.story-media:hover img,.note-article:hover img,.journal-card:hover img,.desk-card-image:hover img,.atlas-stage:hover figure img{
+  transform:translate3d(0,var(--depth-y,0),0) scale(1.012)!important;
+}
+
+/* Documentary JoTrip files are intentionally not stretched beyond the size where they stay crisp. */
+.photo-rail figure{max-width:480px}
+.evidence-rail figure{min-height:320px}
+.evidence-rail img{transform:none!important}
+
+/* Real Phu Quoc editorial sequence - high-resolution images only. */
+.island-photo-sequence{margin-top:clamp(46px,6vw,82px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:10px}
+.island-photo-sequence figure{position:relative;margin:0;grid-column:span 4;min-height:clamp(320px,34vw,520px);overflow:hidden;background:#d8d3c8}
+.island-photo-sequence figure.island-photo-wide{grid-column:span 8}
+.island-photo-sequence img{width:100%;height:100%;object-fit:cover;filter:none!important;transform:none!important}
+.island-photo-sequence figcaption{position:absolute;z-index:2;left:20px;right:20px;bottom:18px;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.55)}
+.island-photo-sequence figure:after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(13,14,12,.55),transparent 50%);pointer-events:none}
+.island-photo-sequence figcaption span{display:block;font-size:9px;letter-spacing:.16em;margin-bottom:5px}
+.island-photo-sequence figcaption b{font-family:var(--serif);font-size:clamp(19px,2vw,27px);font-weight:400}
+
+/* Do not over-crop small documentary frames. */
+.photo-rail img[src^="/assets/"],.evidence-rail img[src^="/assets/"]{object-position:center center}
+
+@media(max-width:800px){
+  .island-photo-sequence{grid-template-columns:1fr 1fr;gap:8px}
+  .island-photo-sequence figure,.island-photo-sequence figure.island-photo-wide{grid-column:span 1;min-height:310px}
+  .island-photo-sequence figure:first-child,.island-photo-sequence figure:last-child{grid-column:1/-1;min-height:360px}
+  .page-hero-media img,.story-media img,.note-article img,.trade-image img,.journal-card img,.desk-card-image img,.atlas-stage figure img{transform:none!important}
+}
+@media(max-width:520px){
+  .island-photo-sequence{grid-template-columns:1fr}
+  .island-photo-sequence figure,.island-photo-sequence figure.island-photo-wide,.island-photo-sequence figure:first-child,.island-photo-sequence figure:last-child{grid-column:1;min-height:330px}
+}
