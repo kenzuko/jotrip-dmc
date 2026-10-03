@@ -7,6 +7,8 @@ const root=resolve(import.meta.dirname,'..');
 const html=await readFile(join(root,'src/index.html'),'utf8');
 const foundation=await readFile(join(root,'src/styles/00-foundation.css'),'utf8');
 const motion=await readFile(join(root,'src/styles/10-motion-depth.css'),'utf8');
+const storyStyle=await readFile(join(root,'src/styles/20-local-dmc-story.css'),'utf8');
+const storyLayer=await readFile(join(root,'src/pages/shared/story-layer.js'),'utf8');
 const app=await readFile(join(root,'src/app.js'),'utf8');
 const i18n=await readFile(join(root,'src/i18n.js'),'utf8');
 const build=await readFile(join(root,'build.mjs'),'utf8');
@@ -26,7 +28,19 @@ test('real subpages exist and share the DMC shell',async()=>{
 });
 
 test('EN-VI is a real persistent site layer',()=>{
-  assert.match(app,/from '\.\/i18n\.js'/);assert.match(app,/data-lang="en"/);assert.match(app,/data-lang="vi"/);assert.match(app,/setLanguagePreference/);assert.match(i18n,/localStorage\.setItem\('jotrip-lang'/);assert.match(i18n,/BẮT ĐẦU TỪ CON NGƯỜI/);assert.match(i18n,/Phú Quốc/);assert.match(build,/i18n\.js/);
+  assert.match(app,/from '\.\/i18n\.js'/);assert.match(app,/data-lang="en"/);assert.match(app,/data-lang="vi"/);assert.match(app,/setLanguagePreference/);assert.match(i18n,/localStorage\.setItem\('jotrip-lang'/);assert.match(i18n,/BẮT ĐẦU TỪ CON NGƯỜI/);assert.match(i18n,/Phú Quốc/);assert.match(build,/i18n\.js/);assert.match(storyLayer,/const lang =/);assert.match(storyLayer,/HIỂU CẢ HÒN ĐẢO/);assert.match(storyLayer,/KNOWING THE WHOLE ISLAND/);
+});
+
+test('local DMC story restores origin and deep destination literacy',()=>{
+  assert.match(storyLayer,/Hòn đảo trong chúng tôi/);
+  assert.match(storyLayer,/Có những điều ở quê nhà, khi còn nhỏ/);
+  assert.match(storyLayer,/Chúng tôi muốn làm du lịch tốt hơn/);
+  assert.match(storyLayer,/PHÚ QUỐC LUX → JOTRIP DMC/);
+  assert.match(storyLayer,/DÔ!/);
+  assert.match(storyLayer,/Đi cùng người bản địa\. Hiểu hòn đảo\. Rồi yêu cả hành trình\./);
+  assert.match(storyLayer,/TRI THỨC ĐIỂM ĐẾN/);
+  assert.match(storyLayer,/DESTINATION INTELLIGENCE IS PART OF DELIVERY/);
+  assert.match(build,/\/shared\/story-layer\.js/);
 });
 
 test('each deep page gets distinct editorial depth and continuation',()=>{
@@ -42,7 +56,7 @@ test('retired reading-room and generated-image architecture stays gone',()=>{
 });
 
 test('visual system is layered but controlled',async()=>{
-  const styles=(await readdir(join(root,'src/styles'))).filter(name=>name.endsWith('.css')).sort();assert.deepEqual(styles,['00-foundation.css','10-motion-depth.css']);assert.match(foundation,/--paper:#f1eee6/);assert.match(foundation,/filter:saturate\(/);assert.match(motion,/page-depth/);
+  const styles=(await readdir(join(root,'src/styles'))).filter(name=>name.endsWith('.css')).sort();assert.deepEqual(styles,['00-foundation.css','10-motion-depth.css','20-local-dmc-story.css']);assert.match(foundation,/--paper:#f1eee6/);assert.match(foundation,/filter:saturate\(/);assert.match(motion,/page-depth/);assert.match(storyStyle,/\.origin-story/);assert.match(storyStyle,/\.story-grid/);
 });
 
 test('journey drawer stays local-only in preview',()=>{

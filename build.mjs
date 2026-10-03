@@ -17,16 +17,23 @@ for(const file of ['index.html','admin.js']){
 
 await cp(join(src,'pages'),dist,{recursive:true,force:true});
 
+const publicHtml=[
+  join(dist,'index.html'),
+  join(dist,'experiences','index.html'),
+  join(dist,'phu-quoc','index.html'),
+  join(dist,'partners','index.html'),
+  join(dist,'journal','index.html'),
+  join(dist,'about','index.html')
+];
+
+// One shared narrative layer keeps the homepage and deep pages in the same local DMC story system.
+for(const file of publicHtml){
+  const source=await readFile(file,'utf8');
+  await writeFile(file,source.replace('</body>','<script src="/shared/story-layer.js" type="module"></script></body>'));
+}
+
 // Preview stays noindex. Production builds become indexable only when explicitly enabled.
 if(production){
-  const publicHtml=[
-    join(dist,'index.html'),
-    join(dist,'experiences','index.html'),
-    join(dist,'phu-quoc','index.html'),
-    join(dist,'partners','index.html'),
-    join(dist,'journal','index.html'),
-    join(dist,'about','index.html')
-  ];
   for(const file of publicHtml){
     const source=await readFile(file,'utf8');
     await writeFile(file,source.replace('name="robots" content="noindex,nofollow"','name="robots" content="index,follow"'));
@@ -60,5 +67,6 @@ for(const pack of (await readdir(join(src,'assets-packs'))).filter(name=>name.en
 const required=['jotrip-wordmark.png','airport-1600.webp','airport-800.webp','boat-800.webp','resort-800.webp','family-800.webp','lunch-800.webp','evening-800.webp','driver-800.webp'];
 for(const asset of required) await readFile(join(dist,'assets',asset));
 await readFile(join(dist,'i18n.js'));
+await readFile(join(dist,'shared','story-layer.js'));
 
 console.log(`Built JoTrip DMC ${production?'production':'preview'} bilingual editorial site with ${styleFiles.length} style layers and ${(await readdir(join(dist,'assets'))).length} verified real-photo assets`);
