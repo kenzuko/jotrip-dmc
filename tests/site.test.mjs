@@ -11,11 +11,13 @@ const storyStyle=await readFile(join(root,'src/styles/20-local-dmc-story.css'),'
 const proofStyle=await readFile(join(root,'src/styles/30-proof-contact.css'),'utf8');
 const photoStyle=await readFile(join(root,'src/styles/40-photo-quality.css'),'utf8');
 const sunlitStyle=await readFile(join(root,'src/styles/50-sunlit-island-luxury.css'),'utf8');
+const uxStyle=await readFile(join(root,'src/styles/60-mobile-ux-polish.css'),'utf8');
 const storyLayer=await readFile(join(root,'src/pages/shared/story-layer.js'),'utf8');
 const proofLayer=await readFile(join(root,'src/pages/shared/proof-layer.js'),'utf8');
 const contactLayer=await readFile(join(root,'src/pages/shared/contact-layer.js'),'utf8');
 const photoLayer=await readFile(join(root,'src/pages/shared/photo-layer.js'),'utf8');
 const voiceLayer=await readFile(join(root,'src/pages/shared/sunlit-voice.js'),'utf8');
+const uiPolish=await readFile(join(root,'src/pages/shared/ui-polish.js'),'utf8');
 const app=await readFile(join(root,'src/app.js'),'utf8');
 const i18n=await readFile(join(root,'src/i18n.js'),'utf8');
 const build=await readFile(join(root,'build.mjs'),'utf8');
@@ -66,6 +68,14 @@ test('human voice replaces strategy language with concrete JoTrip speech',()=>{
   assert.match(voiceLayer,/đi cùng người hiểu đảo/);assert.match(voiceLayer,/Phu Quoc,.*someone who knows the island/s);assert.match(voiceLayer,/Biển hôm nay khác hôm qua/);assert.match(voiceLayer,/A market is not a stage/);assert.match(voiceLayer,/không chỉ lo một tour/);assert.match(voiceLayer,/The trip feels easy/);assert.match(voiceLayer,/Phú Quốc đẹp/);assert.match(build,/\/shared\/sunlit-voice\.js/);
 });
 
+test('mobile hero cannot be pushed behind the fixed header again',()=>{
+  assert.match(uxStyle,/@media\(max-width:850px\)/);assert.match(uxStyle,/\.cover-film\{position:relative!important;inset:auto!important/);assert.match(uxStyle,/\.cover-copy\{position:absolute!important;z-index:4;top:68px!important/);assert.match(uxStyle,/padding:52px 22px 38px!important/);assert.match(uxStyle,/\.cover-vignette\{background:linear-gradient/);assert.doesNotMatch(uxStyle,/padding-bottom:300px/);
+});
+
+test('visual affordances are honest and keyboard accessible',()=>{
+  assert.match(uiPolish,/makeCardLink/);assert.match(uiPolish,/desk-card-image/);assert.match(uiPolish,/island-photo-sequence figure/);assert.match(uiPolish,/setAttribute\('role','link'\)/);assert.match(uiPolish,/event\.key==='Enter'/);assert.match(uiPolish,/aria-roledescription/);assert.match(uxStyle,/\.ui-link-card/);assert.match(build,/\/shared\/ui-polish\.js/);
+});
+
 test('each deep page gets distinct editorial depth and continuation',()=>{
   for(const page of pages) assert.match(app,new RegExp(`(?:'${page}'|${page}):`));assert.match(app,/const depthData/);assert.match(app,/const continuationData/);assert.match(app,/page-depth/);assert.match(app,/site-continuation/);
 });
@@ -79,7 +89,7 @@ test('retired reading-room and generated-image architecture stays gone',()=>{
 });
 
 test('visual system is layered but controlled',async()=>{
-  const styles=(await readdir(join(root,'src/styles'))).filter(name=>name.endsWith('.css')).sort();assert.deepEqual(styles,['00-foundation.css','10-motion-depth.css','20-local-dmc-story.css','30-proof-contact.css','40-photo-quality.css','50-sunlit-island-luxury.css']);assert.match(foundation,/--paper:#f1eee6/);assert.match(motion,/page-depth/);assert.match(storyStyle,/\.origin-story/);assert.match(storyStyle,/\.story-grid/);assert.match(proofStyle,/\.proof-grid/);assert.match(proofStyle,/\.direct-contact/);assert.match(photoStyle,/Photo fidelity lock/);assert.match(sunlitStyle,/Luxury comes from composition/);
+  const styles=(await readdir(join(root,'src/styles'))).filter(name=>name.endsWith('.css')).sort();assert.deepEqual(styles,['00-foundation.css','10-motion-depth.css','20-local-dmc-story.css','30-proof-contact.css','40-photo-quality.css','50-sunlit-island-luxury.css','60-mobile-ux-polish.css']);assert.match(foundation,/--paper:#f1eee6/);assert.match(motion,/page-depth/);assert.match(storyStyle,/\.origin-story/);assert.match(storyStyle,/\.story-grid/);assert.match(proofStyle,/\.proof-grid/);assert.match(proofStyle,/\.direct-contact/);assert.match(photoStyle,/Photo fidelity lock/);assert.match(sunlitStyle,/Luxury comes from composition/);assert.match(uxStyle,/Mobile and interaction polish/);
 });
 
 test('contact activation stays client-side and does not invent a backend',()=>{
@@ -87,5 +97,5 @@ test('contact activation stays client-side and does not invent a backend',()=>{
 });
 
 test('preview worker stays isolated and production binds jotrip.vn',()=>{
-  assert.match(wrangler,/"name":"jotrip-dmc-preview"/);assert.doesNotMatch(wrangler,/jotrip\.vn/);assert.match(productionWrangler,/"name":"jotrip-dmc"/);assert.match(productionWrangler,/"pattern":"jotrip\.vn\/\*"/);assert.match(productionWrangler,/"zone_name":"jotrip\.vn"/);assert.match(workflow,/JOTRIP_PRODUCTION=1 npm run build/);assert.match(workflow,/wrangler\.production\.jsonc/);assert.match(build,/JOTRIP_PRODUCTION/);assert.match(build,/index,follow/);assert.match(build,/Allow: \/\\n/);
+  assert.match(wrangler,/"name":"jotrip-dmc-preview"/);assert.doesNotMatch(wrangler,/jotrip\.vn/);assert.match(productionWrangler,/"name":"jotrip-dmc"/);assert.match(productionWrangler,/"pattern":"jotrip\.vn\/\*"/);assert.match(productionWrangler,/"pattern":"www\.jotrip\.vn\/\*"/);assert.match(productionWrangler,/"zone_name":"jotrip\.vn"/);assert.match(workflow,/JOTRIP_PRODUCTION=1 npm run build/);assert.match(workflow,/wrangler\.production\.jsonc/);assert.match(build,/JOTRIP_PRODUCTION/);assert.match(build,/index,follow/);assert.match(build,/Allow: \/\\n/);
 });
