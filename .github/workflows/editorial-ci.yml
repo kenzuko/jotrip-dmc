@@ -1,7 +1,7 @@
-name: JoTrip DMC Island Room QA
+name: JoTrip DMC Island Sequence QA
 on:
   push:
-    branches: [main, feat/island-reading-room-v3]
+    branches: [main]
   pull_request:
     branches: [main]
 jobs:
