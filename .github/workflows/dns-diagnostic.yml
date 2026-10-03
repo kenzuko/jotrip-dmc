@@ -1,0 +1,43 @@
+name: JoTrip DNS Diagnostic
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/dns-diagnostic.yml'
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Install DNS tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq dnsutils jq
+      - name: Check public DNS and HTTPS
+        run: |
+          echo '=== PUBLIC NS @1.1.1.1 ==='
+          dig @1.1.1.1 jotrip.vn NS +short || true
+          echo '=== PUBLIC NS @8.8.8.8 ==='
+          dig @8.8.8.8 jotrip.vn NS +short || true
+          echo '=== PUBLIC A @1.1.1.1 ==='
+          dig @1.1.1.1 jotrip.vn A +short || true
+          echo '=== PUBLIC A @8.8.8.8 ==='
+          dig @8.8.8.8 jotrip.vn A +short || true
+          echo '=== PUBLIC DS @1.1.1.1 ==='
+          dig @1.1.1.1 jotrip.vn DS +short || true
+          echo '=== TRACE ==='
+          dig +trace jotrip.vn NS || true
+          echo '=== HTTPS ==='
+          curl -sSvkI --max-time 15 https://jotrip.vn 2>&1 | tail -n 40 || true
+      - name: Check Cloudflare zone, records and DNSSEC
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          ZONES=$(curl -sS -H "Authorization: Bearer $CF_TOKEN" -H 'Content-Type: application/json' "https://api.cloudflare.com/client/v4/zones?name=jotrip.vn&account.id=$CF_ACCOUNT")
+          echo "$ZONES" | jq '{success,errors,result:[.result[]|{id,name,status,name_servers,original_name_servers}]}'
+          ZONE_ID=$(echo "$ZONES" | jq -r '.result[0].id // empty')
+          test -n "$ZONE_ID" || exit 1
+          echo '=== CF DNS RECORDS ==='
+          curl -sS -H "Authorization: Bearer $CF_TOKEN" -H 'Content-Type: application/json' "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dns_records?per_page=100" | jq '{success,errors,result:[.result[]|select(.name=="jotrip.vn" or .name=="www.jotrip.vn")|{type,name,content,proxied,ttl}]}'
+          echo '=== CF DNSSEC ==='
+          curl -sS -H "Authorization: Bearer $CF_TOKEN" -H 'Content-Type: application/json' "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/dnssec" | jq '{success,errors,result:(.result|{status,flags,algorithm,digest_algorithm,digest,ds,key_tag})}'
