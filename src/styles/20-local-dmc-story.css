@@ -1,0 +1,34 @@
+.story-depth{padding:clamp(76px,9vw,132px) 0;background:var(--paper,#f1eee6);color:var(--ink,#181815)}
+.story-depth-inner{width:min(1180px,calc(100% - 40px));margin:0 auto}
+.story-depth-head{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(280px,.7fr);gap:clamp(26px,5vw,84px);align-items:end;margin-bottom:clamp(36px,5vw,70px);padding-bottom:24px;border-bottom:1px solid rgba(24,24,21,.17)}
+.story-depth-head .micro{grid-column:1/-1;margin:0 0 -10px}
+.story-depth-head h2{margin:0;font-size:clamp(42px,6vw,82px);line-height:.96;letter-spacing:-.045em;font-weight:500;max-width:13ch}
+.story-depth-head>p:last-child{margin:0;max-width:48ch;font-size:clamp(16px,1.5vw,20px);line-height:1.58;color:rgba(24,24,21,.72)}
+.story-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid rgba(24,24,21,.15);border-left:1px solid rgba(24,24,21,.15)}
+.story-card{min-height:260px;padding:28px 26px 32px;border-right:1px solid rgba(24,24,21,.15);border-bottom:1px solid rgba(24,24,21,.15);display:flex;flex-direction:column}
+.story-card>span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(24,24,21,.5);margin-bottom:auto;padding-bottom:36px}
+.story-card h3{font-size:clamp(23px,2.1vw,31px);line-height:1.03;letter-spacing:-.025em;margin:0 0 16px;font-weight:500}
+.story-card p{font-size:15px;line-height:1.65;margin:0;color:rgba(24,24,21,.7)}
+.home-island-literacy{background:#e8e4db}
+.local-statement{background:#151814;color:#f0ede5;padding:38px 0}
+.local-statement>div{width:min(1180px,calc(100% - 40px));margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.local-statement p{margin:0;font-family:var(--serif,Georgia,serif);font-size:clamp(25px,3vw,42px);line-height:1.06;letter-spacing:-.025em;max-width:28ch}
+.local-statement a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(240,237,229,.45);padding-bottom:5px;white-space:nowrap;font-size:13px;letter-spacing:.07em;text-transform:uppercase}
+.origin-story{padding-top:clamp(68px,8vw,110px)}
+.origin-story-inner{width:min(1180px,calc(100% - 40px));margin:auto;display:grid;grid-template-columns:minmax(240px,.72fr) minmax(0,1.45fr);gap:clamp(34px,7vw,112px)}
+.origin-story header{position:sticky;top:112px;align-self:start}
+.origin-story h2{font-size:clamp(50px,7vw,96px);line-height:.92;letter-spacing:-.05em;font-weight:500;margin:15px 0 0;max-width:7ch}
+.origin-prose{font-family:var(--serif,Georgia,serif);font-size:clamp(20px,2vw,28px);line-height:1.48;letter-spacing:-.015em}
+.origin-prose p{margin:0 0 1.25em}
+.origin-prose p:first-child::first-letter{float:left;font-size:4.3em;line-height:.78;padding:10px 12px 0 0}
+.origin-bridge{grid-column:2;margin-top:18px;padding:30px 0 0;border-top:1px solid rgba(24,24,21,.2)}
+.origin-bridge>span{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(24,24,21,.5)}
+.origin-bridge h3{font-size:clamp(30px,3vw,46px);line-height:1.03;letter-spacing:-.035em;font-weight:500;margin:14px 0}
+.origin-bridge p{font-size:16px;line-height:1.68;color:rgba(24,24,21,.72);max-width:62ch}
+.brand-meaning{background:#ddd8cc}
+.brand-statement{font-family:var(--serif,Georgia,serif);font-size:clamp(28px,3.4vw,48px);line-height:1.05;letter-spacing:-.03em;max-width:24ch;margin:50px 0 0}
+.island-literacy{background:#e5e1d7}
+.experience-judgement{background:#e9e5dc}
+.partner-intelligence{background:#dcd8cd}
+@media(max-width:900px){.story-depth-head{grid-template-columns:1fr}.story-depth-head .micro{margin-bottom:0}.story-depth-head h2{max-width:14ch}.story-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.origin-story-inner{grid-template-columns:1fr}.origin-story header{position:static}.origin-story h2{max-width:none}.origin-bridge{grid-column:auto}.local-statement>div{align-items:flex-start;flex-direction:column}.local-statement a{white-space:normal}}
+@media(max-width:620px){.story-depth{padding:64px 0}.story-depth-inner,.origin-story-inner,.local-statement>div{width:min(100% - 28px,1180px)}.story-depth-head{margin-bottom:30px}.story-depth-head h2{font-size:42px}.story-grid{grid-template-columns:1fr}.story-card{min-height:220px;padding:24px 20px 26px}.story-card>span{padding-bottom:28px}.origin-prose{font-size:20px}.origin-prose p:first-child::first-letter{font-size:3.7em}.origin-bridge h3{font-size:32px}}
