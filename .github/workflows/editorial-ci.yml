@@ -17,7 +17,7 @@ jobs:
         run: npm run build
       - name: Test site
         run: npm test
-  deploy-site:
+  deploy-preview:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: site
     runs-on: ubuntu-latest
@@ -28,9 +28,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Build live site
-        run: npm run build
-      - name: Deploy jotrip.vn on existing Worker
+      - run: npm run build
+      - name: Deploy Cloudflare preview
         uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
