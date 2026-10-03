@@ -3,6 +3,7 @@ import {resolve,join,basename} from 'node:path';
 import {gunzipSync} from 'node:zlib';
 
 const root=resolve(import.meta.dirname),src=join(root,'src'),dist=join(root,'dist');
+const production=process.env.JOTRIP_PRODUCTION==='1';
 await rm(dist,{recursive:true,force:true});
 await mkdir(join(dist,'assets'),{recursive:true});
 await mkdir(join(dist,'admin'),{recursive:true});
@@ -16,6 +17,23 @@ for(const file of ['index.html','admin.js']){
 
 // Publish real subpages so the DMC is a website, not one long landing page.
 await cp(join(src,'pages'),dist,{recursive:true,force:true});
+
+// Preview stays noindex. Production on jotrip.vn is indexable.
+if(production){
+  const publicHtml=[
+    join(dist,'index.html'),
+    join(dist,'experiences','index.html'),
+    join(dist,'phu-quoc','index.html'),
+    join(dist,'partners','index.html'),
+    join(dist,'journal','index.html'),
+    join(dist,'about','index.html')
+  ];
+  for(const file of publicHtml){
+    const source=await readFile(file,'utf8');
+    await writeFile(file,source.replace('name="robots" content="noindex,nofollow"','name="robots" content="index,follow"'));
+  }
+  await writeFile(join(dist,'robots.txt'),'User-agent: *\nAllow: /\n');
+}
 
 // Foundation + deliberately separate motion/depth layer. Both are shared across the whole site.
 const styleDir=join(src,'styles');
@@ -46,4 +64,4 @@ const required=['jotrip-wordmark.png','airport-1600.webp','airport-800.webp','bo
 for(const asset of required) await readFile(join(dist,'assets',asset));
 await readFile(join(dist,'i18n.js'));
 
-console.log('Built JoTrip DMC bilingual editorial site with '+styleFiles.length+' style layers and '+(await readdir(join(dist,'assets'))).length+' verified real-photo assets');
+console.log(`Built JoTrip DMC ${production?'production':'preview'} bilingual editorial site with ${styleFiles.length} style layers and ${(await readdir(join(dist,'assets'))).length} verified real-photo assets`);
