@@ -1,4 +1,4 @@
-import {mkdir,rm,readFile,writeFile,copyFile,readdir} from 'node:fs/promises';
+import {mkdir,rm,readFile,writeFile,copyFile,readdir,cp} from 'node:fs/promises';
 import {resolve,join,basename} from 'node:path';
 import {gunzipSync} from 'node:zlib';
 
@@ -14,7 +14,10 @@ for(const file of ['index.html','admin.js']){
   await copyFile(join(src,'admin',file),join(dist,'admin',file));
 }
 
-// One restrained visual system. No legacy room or visual override layers.
+// Publish real subpages so the DMC is a website, not one long landing page.
+await cp(join(src,'pages'),dist,{recursive:true,force:true});
+
+// One maintainable visual system shared across home and all subpages.
 const styleDir=join(src,'styles');
 const styleFiles=(await readdir(styleDir)).filter(name=>name.endsWith('.css')).sort();
 const appCss=(await Promise.all(styleFiles.map(name=>readFile(join(styleDir,name),'utf8')))).join('\n\n');
@@ -52,4 +55,4 @@ const required=[
 ];
 for(const asset of required) await readFile(join(dist,'assets',asset));
 
-console.log('Built JoTrip DMC Island Sequence with '+styleFiles.length+' visual system and '+(await readdir(join(dist,'assets'))).length+' verified real-photo assets');
+console.log('Built JoTrip DMC multipage editorial site with '+styleFiles.length+' visual system and '+(await readdir(join(dist,'assets'))).length+' verified real-photo assets');
