@@ -7,7 +7,7 @@ await rm(dist,{recursive:true,force:true});
 await mkdir(join(dist,'assets'),{recursive:true});
 await mkdir(join(dist,'admin'),{recursive:true});
 
-for(const file of ['index.html','app.js','content.json','robots.txt']){
+for(const file of ['index.html','app.js','i18n.js','content.json','robots.txt']){
   await copyFile(join(src,file),join(dist,file));
 }
 for(const file of ['index.html','admin.js']){
@@ -17,7 +17,7 @@ for(const file of ['index.html','admin.js']){
 // Publish real subpages so the DMC is a website, not one long landing page.
 await cp(join(src,'pages'),dist,{recursive:true,force:true});
 
-// One maintainable visual system shared across home and all subpages.
+// Foundation + deliberately separate motion/depth layer. Both are shared across the whole site.
 const styleDir=join(src,'styles');
 const styleFiles=(await readdir(styleDir)).filter(name=>name.endsWith('.css')).sort();
 const appCss=(await Promise.all(styleFiles.map(name=>readFile(join(styleDir,name),'utf8')))).join('\n\n');
@@ -42,17 +42,8 @@ for(const pack of (await readdir(join(src,'assets-packs'))).filter(name=>name.en
   }
 }
 
-const required=[
-  'jotrip-wordmark.png',
-  'airport-1600.webp',
-  'airport-800.webp',
-  'boat-800.webp',
-  'resort-800.webp',
-  'family-800.webp',
-  'lunch-800.webp',
-  'evening-800.webp',
-  'driver-800.webp'
-];
+const required=['jotrip-wordmark.png','airport-1600.webp','airport-800.webp','boat-800.webp','resort-800.webp','family-800.webp','lunch-800.webp','evening-800.webp','driver-800.webp'];
 for(const asset of required) await readFile(join(dist,'assets',asset));
+await readFile(join(dist,'i18n.js'));
 
-console.log('Built JoTrip DMC multipage editorial site with '+styleFiles.length+' visual system and '+(await readdir(join(dist,'assets'))).length+' verified real-photo assets');
+console.log('Built JoTrip DMC bilingual editorial site with '+styleFiles.length+' style layers and '+(await readdir(join(dist,'assets'))).length+' verified real-photo assets');
