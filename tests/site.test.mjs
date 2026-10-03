@@ -11,7 +11,7 @@ const app=await readFile(join(root,'src/app.js'),'utf8');
 const i18n=await readFile(join(root,'src/i18n.js'),'utf8');
 const build=await readFile(join(root,'build.mjs'),'utf8');
 const workflow=await readFile(join(root,'.github/workflows/editorial-ci.yml'),'utf8');
-const productionConfig=await readFile(join(root,'wrangler.production.jsonc'),'utf8');
+const wrangler=await readFile(join(root,'wrangler.jsonc'),'utf8');
 
 const banned=['Island Reading Room','hero-book','physical-book','reader-room','window-scene','visual-v3','visual-v4','visual-v5','approved-room-parts'];
 const pages=['experiences','phu-quoc','partners','journal','about'];
@@ -44,17 +44,17 @@ test('visual system is layered but controlled',async()=>{
   const styles=(await readdir(join(root,'src/styles'))).filter(name=>name.endsWith('.css')).sort();assert.deepEqual(styles,['00-foundation.css','10-motion-depth.css']);assert.match(foundation,/--paper:#f1eee6/);assert.match(foundation,/filter:saturate\(/);assert.match(motion,/page-depth/);
 });
 
-test('journey drawer stays local-only in preview',()=>{
+test('journey drawer remains local-only',()=>{
   assert.match(i18n,/Bản xem thử: hiện chưa tự động gửi dữ liệu/);assert.match(app,/event\.preventDefault\(\)/);assert.equal(/fetch\(|XMLHttpRequest|sendBeacon/.test(app),false);
 });
 
-test('production is isolated from preview and bound to jotrip.vn',()=>{
-  assert.match(productionConfig,/"name":"jotrip-dmc"/);
-  assert.match(productionConfig,/"pattern":"jotrip\.vn\/\*"/);
-  assert.match(productionConfig,/"zone_name":"jotrip\.vn"/);
-  assert.match(workflow,/JOTRIP_PRODUCTION=1 npm run build/);
-  assert.match(workflow,/wrangler\.production\.jsonc/);
-  assert.match(build,/JOTRIP_PRODUCTION/);
+test('existing Worker is bound to jotrip.vn and live build is indexable',()=>{
+  assert.match(wrangler,/"name":"jotrip-dmc-preview"/);
+  assert.match(wrangler,/"pattern":"jotrip\.vn\/\*"/);
+  assert.match(wrangler,/"zone_name":"jotrip\.vn"/);
+  assert.match(workflow,/Deploy jotrip\.vn on existing Worker/);
+  assert.doesNotMatch(workflow,/wrangler\.production\.jsonc/);
+  assert.match(build,/JOTRIP_PREVIEW/);
   assert.match(build,/index,follow/);
   assert.match(build,/Allow: \/\\n/);
 });
