@@ -6,7 +6,7 @@ jobs:
   probe:
     runs-on: ubuntu-latest
     steps:
-      - name: Query Cloudflare zone
+      - name: Query Cloudflare zone and public DNS
         env:
           CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
@@ -28,3 +28,11 @@ jobs:
           print('NAME_SERVERS='+','.join(zone.get('name_servers') or []))
           print('ORIGINAL_NAME_SERVERS='+','.join(zone.get('original_name_servers') or []))
           PY
+          echo 'PUBLIC_NS_1_1_1_1='
+          dig +short NS jotrip.vn @1.1.1.1 | sort
+          echo 'PUBLIC_NS_8_8_8_8='
+          dig +short NS jotrip.vn @8.8.8.8 | sort
+          echo 'HTTPS_HEADERS='
+          curl -sSIL --max-time 15 https://jotrip.vn | sed -n '1,20p'
+          echo 'HOME_MARKERS='
+          curl -fsSL --max-time 15 https://jotrip.vn | grep -Eo 'JoTrip|ISLAND DESK|Phú Quốc|noindex,nofollow|index,follow' | head -20 || true
