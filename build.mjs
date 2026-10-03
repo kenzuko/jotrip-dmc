@@ -3,7 +3,7 @@ import {resolve,join,basename} from 'node:path';
 import {gunzipSync} from 'node:zlib';
 
 const root=resolve(import.meta.dirname),src=join(root,'src'),dist=join(root,'dist');
-const production=process.env.JOTRIP_PRODUCTION==='1';
+const production=process.env.JOTRIP_PREVIEW!=='1';
 await rm(dist,{recursive:true,force:true});
 await mkdir(join(dist,'assets'),{recursive:true});
 await mkdir(join(dist,'admin'),{recursive:true});
@@ -18,7 +18,7 @@ for(const file of ['index.html','admin.js']){
 // Publish real subpages so the DMC is a website, not one long landing page.
 await cp(join(src,'pages'),dist,{recursive:true,force:true});
 
-// Preview stays noindex. Production on jotrip.vn is indexable.
+// Live builds are indexable. Explicit preview builds stay noindex.
 if(production){
   const publicHtml=[
     join(dist,'index.html'),
