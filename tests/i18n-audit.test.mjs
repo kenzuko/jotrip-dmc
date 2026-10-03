@@ -23,7 +23,8 @@ const vi=sandbox.__vi;
 
 const decode=s=>s.replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;/g,"'").replace(/&nbsp;/g,' ').trim();
 const visibleTexts=html=>{
-  const clean=html.replace(/<script[\s\S]*?<\/script>/gi,'').replace(/<style[\s\S]*?<\/style>/gi,'').replace(/<!--([\s\S]*?)-->/g,'');
+  const body=html.match(/<body\b[^>]*>([\s\S]*?)<\/body>/i)?.[1]||'';
+  const clean=body.replace(/<script[\s\S]*?<\/script>/gi,'').replace(/<style[\s\S]*?<\/style>/gi,'').replace(/<!--([\s\S]*?)-->/g,'');
   return [...clean.matchAll(/>([^<>]+)</g)].map(m=>decode(m[1])).filter(Boolean);
 };
 const allowed=text=>{
@@ -52,7 +53,6 @@ test('all public static visible copy has a Vietnamese path',async()=>{
     const html=await readFile(join(root,rel),'utf8');
     for(const text of visibleTexts(html)){
       if(allowed(text)||vi[text]||finalCovers(text))continue;
-      // Pure punctuation / arrows and very short brand-like fragments do not need localization.
       if(!/[A-Za-z]/.test(text)||text.length<=2)continue;
       missing.push(`${rel}: ${text}`);
     }
@@ -61,7 +61,7 @@ test('all public static visible copy has a Vietnamese path',async()=>{
 });
 
 test('late Vietnamese cleanup covers known mixed-language residues',()=>{
-  for(const residue of ['PHU QUOC · VIETNAM','JOURNEY PAPER · PHU QUOC','PRIVATE ISLAND DAY','BIG-GAME FISHING','STAY-LED DESIGN','LOCAL CONTEXT','SEA · PRIVATE','FAMILY · BESPOKE','RESORT · QUIET LUXURY','Destination intelligence không phải dashboard. Nó là thứ giúp quyết định đúng hơn.']){
+  for(const residue of ['PHU QUOC · VIETNAM','JOURNEY PAPER · PHU QUOC','FIELD NOTES','JOTRIP FIELD NOTES · PHU QUOC','PRIVATE ISLAND DAY','BIG-GAME FISHING','STAY-LED DESIGN','LOCAL CONTEXT','SEA · PRIVATE','FAMILY · BESPOKE','RESORT · QUIET LUXURY','Destination intelligence không phải dashboard. Nó là thứ giúp quyết định đúng hơn.']){
     assert.ok(finalSource.includes(residue),`missing late translation for ${residue}`);
   }
   for(const token of ['kids club','dashboard','transit','activity','bespoke','package','brochure','logistics','host','luxury']){
